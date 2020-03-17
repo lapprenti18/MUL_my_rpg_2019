@@ -13,5 +13,6 @@ int main(void)
 
     set_structures(&store);
     loop_game(&store);
+    destroy_structures(&store);
     return (0);
 }

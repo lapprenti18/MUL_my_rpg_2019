@@ -21,4 +21,5 @@ void set_structures(all_t *store)
 {
     store->scene = MENU;
     store->window = create_window(60);
+    store->objects = create_objects();
 }

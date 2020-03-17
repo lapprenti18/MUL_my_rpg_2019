@@ -9,5 +9,7 @@
 
 void draw_scene(all_t *store)
 {
-    (void)store;
+    for (game_object_t *temp = store->objects[store->scene]; \
+    temp; temp = temp->next)
+        sfRenderWindow_drawSprite(store->window, temp->sprite, NULL);
 }

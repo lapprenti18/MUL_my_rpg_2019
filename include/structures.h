@@ -11,9 +11,22 @@
 #define WIDTH 1920
 #define HEIGHT 1080
 
+typedef struct game_object_s
+{
+    sfSprite* sprite;
+    sfTexture* texture;
+    sfVector2f pos;
+    sfIntRect rect;
+    sfClock *clock;
+    sfTime time;
+    float seconds;
+    struct game_object_s *next;
+} game_object_t;
+
 typedef enum
 {
-    MENU
+    MENU,
+    TOTAL
 } SCENE;
 
 typedef struct all_s
@@ -21,6 +34,7 @@ typedef struct all_s
     SCENE scene;
     sfRenderWindow *window;
     sfEvent event;
+    game_object_t **objects;
 }all_t;
 
 #endif /* STRUCTURES_H_ */

@@ -67,9 +67,12 @@ COMP	=	src/main.c	\
 			src/set_structures.c	\
 			src/loop_game.c	\
 			src/analyse_events.c	\
-			src/draw_scene.c
+			src/draw_scene.c	\
+			src/create_objects.c	\
+			src/destroy_structures.c	\
+			src/garbage_collector.c
 
-CFLAGS  =	-W -Wall -Wextra -lcsfml-graphics -lcsfml-window -lcsfml-system -lcsfml-audio -lm -Iinclude
+CFLAGS  =	-W -Wall -Wextra -lcsfml-graphics -lcsfml-window -lcsfml-system -lcsfml-audio -lm -Iinclude -g3
 
 OBJ	=	$(SRC:.c=.o)
 
