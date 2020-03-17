@@ -7,11 +7,12 @@
 
 #include "../include/my.h"
 
-game_object_t *complete_node(char *filepath, \
+game_object_t *complete_node(SPRITES type, char *filepath, \
 sfFloatRect pos, sfIntRect rect)
 {
     game_object_t *new_node = my_malloc(sizeof(game_object_t));
 
+    new_node->type = type;
     new_node->clock = sfClock_create();
     new_node->pos = (sfVector2f){pos.left, pos.top};
     new_node->length = (int)pos.width;
@@ -31,12 +32,20 @@ sfFloatRect pos, sfIntRect rect)
     return (new_node);
 }
 
-void add_node_back(game_object_t **nodes, char *filepath, \
+void add_node_back(game_object_t **nodes, SPRITES type, \
 sfFloatRect pos, sfIntRect rect)
 {
-    game_object_t *new_node = complete_node(filepath, pos, rect);
+    char *filepath = NULL;
+    game_object_t *new_node = NULL;
     game_object_t *copy = *nodes;
 
+    if (type <= QUIT)
+        filepath = "assets/textures/menu.png";
+    if (type >= AUDIO && type <= BACK)
+        filepath = "assets/textures/menu_options.png";
+    if (type == OPTION_SHAPE)
+        filepath = "assets/textures/option_and_shape.png";
+    new_node = complete_node(type, filepath, pos, rect);
     if (!(*nodes)) {
         *nodes = new_node;
         return;
@@ -46,23 +55,6 @@ sfFloatRect pos, sfIntRect rect)
     copy->next = new_node;
 }
 
-game_object_t *setup_menu_sprites(void)
-{
-    game_object_t *menu  = NULL;
-
-    add_node_back(&menu, "assets/textures/menu.png", \
-    (sfFloatRect){960, 651, 344, 59}, (sfIntRect){0, 0, 344, 59});
-    add_node_back(&menu, "assets/textures/menu.png", \
-    (sfFloatRect){960, 710, 344, 59}, (sfIntRect){0, 59, 344, 59});
-    add_node_back(&menu, "assets/textures/menu.png", \
-    (sfFloatRect){960, 769, 344, 59}, (sfIntRect){0, 118, 344, 59});
-    add_node_back(&menu, "assets/textures/menu.png", \
-    (sfFloatRect){960, 828, 344, 59}, (sfIntRect){0, 177, 344, 59});
-    add_node_back(&menu, "assets/textures/menu.png", \
-    (sfFloatRect){960, 887, 344, 59}, (sfIntRect){0, 236, 344, 59});
-    return (menu);
-}
-
 game_object_t **create_objects(void)
 {
     game_object_t **objects = my_malloc(sizeof(game_object_t) * (TOTAL + 1));
@@ -70,6 +62,7 @@ game_object_t **create_objects(void)
     if (!objects)
         return (NULL);
     objects[MENU] = setup_menu_sprites();
+    objects[MENU_OPTIONS] = setup_options_sprites();
     objects[TOTAL] = NULL;
     return (objects);
 }

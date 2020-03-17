@@ -11,8 +11,23 @@
 #define WIDTH 1920
 #define HEIGHT 1080
 
+typedef enum
+{
+    PLAY,
+    OPTIONS,
+    ACHIEVEMENTS,
+    EXTRAS,
+    QUIT,
+    OPTION_SHAPE,
+    AUDIO,
+    VIDEO,
+    KEYBOARD,
+    BACK
+} SPRITES;
+
 typedef struct game_object_s
 {
+    SPRITES type;
     sfSprite* sprite;
     sfTexture* texture;
     sfVector2f pos;
@@ -30,6 +45,7 @@ typedef struct game_object_s
 typedef enum
 {
     MENU,
+    MENU_OPTIONS,
     TOTAL
 } SCENE;
 

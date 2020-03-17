@@ -7,9 +7,43 @@
 
 #include "../include/my.h"
 
-void manage_mouse_clicked(all_t *store)
+void manage_click_on_options(all_t *store)
 {
     sfVector2i mouse = sfMouse_getPositionRenderWindow(store->window);
 
-    my_printf("mouse x : %d mouse y : %d\n", mouse.x, mouse.y);
+    for (game_object_t *copy = store->objects[MENU_OPTIONS]; \
+    copy; copy = copy->next) {
+        if (mouse.x >= copy->pos.x - (copy->length / 2) \
+        && mouse.x <= copy->pos.x + (copy->length / 2) \
+        && mouse.y >= copy->pos.y - (copy->height / 2) \
+        && mouse.y <= copy->pos.y + (copy->height / 2)) {
+            if (copy->type == BACK)
+                store->scene = MENU;
+        }
+    }
+}
+
+void manage_click_on_menu(all_t *store)
+{
+    sfVector2i mouse = sfMouse_getPositionRenderWindow(store->window);
+
+    for (game_object_t *copy = store->objects[MENU]; copy; copy = copy->next) {
+        if (mouse.x >= copy->pos.x - (copy->length / 2) \
+        && mouse.x <= copy->pos.x + (copy->length / 2) \
+        && mouse.y >= copy->pos.y - (copy->height / 2) \
+        && mouse.y <= copy->pos.y + (copy->height / 2)) {
+            if (copy->type == QUIT)
+                sfRenderWindow_close(store->window);
+            if (copy->type == OPTIONS)
+                store->scene = MENU_OPTIONS;
+        }
+    }
+}
+
+void manage_mouse_clicked(all_t *store)
+{
+    if (store->scene == MENU)
+        return (manage_click_on_menu(store));
+    if (store->scene == MENU_OPTIONS)
+        return (manage_click_on_options(store));
 }
