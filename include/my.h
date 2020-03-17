@@ -34,31 +34,21 @@
 #include <math.h>
 #include <SFML/Graphics/Vertex.h>
 
-#define WIDTH 1920
-#define HEIGHT 1080
+//including all .h
+#include "./structures.h"
+#include "./analyse_events.h"
+#include "./draw_scene.h"
+#include "./loop_game.h"
+#include "./set_structures.h"
 
-typedef enum
-{
-    MENU
-} SCENE;
-
-typedef struct all_s
-{
-    SCENE scene;
-    sfRenderWindow *window;
-    sfEvent event;
-}all_t;
-
+//my_printf structure:
 typedef struct format_t
 {
     char c;
     void (*ptr)(va_list);
 } format_t;
 
-void analyse_events(all_t *store);
-void draw_scene(all_t *store);
-void loop_game(all_t *store);
-void set_structures(all_t *store);
+//lib
 double my_getfloat(char *str);
 void my_memset(char *buffer, char c, int number);
 int    my_putnbr_base(int nbr, char const *base);
