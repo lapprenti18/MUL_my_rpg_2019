@@ -71,9 +71,11 @@ COMP	=	src/main.c	\
 			src/create_objects.c	\
 			src/destroy_structures.c	\
 			src/setup_functions.c	\
+			src/manage_mouse_click.c	\
+			src/manage_mouse_moved.c	\
 			src/garbage_collector.c
 
-CFLAGS  =	-W -Wall -Wextra -lcsfml-graphics -lcsfml-window -lcsfml-system -lcsfml-audio -lm -Iinclude -g3
+CFLAGS  =	-W -Wall -Wextra -lcsfml-graphics -lcsfml-window -lcsfml-system -lcsfml-audio -lm -Iinclude
 
 OBJ	=	$(SRC:.c=.o)
 
@@ -83,12 +85,9 @@ $(NAME)	: $(OBJ)
 	gcc -o $(NAME) $(OBJ) $(COMP) $(CFLAGS)
 
 clean	:
-	rm -f *.gcno
-	rm -f *.gcda
 	rm -f *.o $(OBJ)
 
 fclean	: clean
-	rm -f test
 	rm -f $(NAME)
 
 re	: fclean all

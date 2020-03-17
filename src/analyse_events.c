@@ -12,4 +12,8 @@ void analyse_events(all_t *store)
     if (store->event.type == sfEvtClosed || \
     store->event.key.code == sfKeyEscape)
         sfRenderWindow_close(store->window);
+    if (store->event.type == sfEvtMouseButtonPressed)
+        manage_mouse_clicked(store);
+    if (store->event.type == sfEvtMouseMoved)
+        manage_mouse_moved(store);
 }

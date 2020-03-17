@@ -10,9 +10,9 @@
 
 #include "./my.h"
 
-game_object_t *complete_node(char *filepath, sfVector2f pos, sfIntRect rect);
+game_object_t *complete_node(char *filepath, sfFloatRect pos, sfIntRect rect);
 void add_node_back(game_object_t **nodes, char *filepath, \
-sfVector2f pos, sfIntRect rect);
+sfFloatRect pos, sfIntRect rect);
 game_object_t *setup_menu_sprites(void);
 game_object_t **create_objects(void);
 

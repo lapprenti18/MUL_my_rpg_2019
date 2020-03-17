@@ -11,7 +11,6 @@
 #include "./include.h"
 #include "./garbage_collector.h"
 
-//mange moi les protos
 #include "./structures.h"
 #include "./analyse_events.h"
 #include "./draw_scene.h"
@@ -20,6 +19,8 @@
 #include "./create_objects.h"
 #include "./destroy_structures.h"
 #include "./setup_functions.h"
+#include "./manage_mouse_clicked.h"
+#include "./manage_mouse_moved.h"
 
 #include "./lib.h"
 

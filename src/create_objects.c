@@ -8,12 +8,14 @@
 #include "../include/my.h"
 
 game_object_t *complete_node(char *filepath, \
-sfVector2f pos, sfIntRect rect)
+sfFloatRect pos, sfIntRect rect)
 {
     game_object_t *new_node = my_malloc(sizeof(game_object_t));
 
     new_node->clock = sfClock_create();
-    new_node->pos = pos;
+    new_node->pos = (sfVector2f){pos.left, pos.top};
+    new_node->length = (int)pos.width;
+    new_node->height = (int)pos.height;
     new_node->rect = rect;
     new_node->seconds = 0.0;
     new_node->sprite = sfSprite_create();
@@ -24,11 +26,13 @@ sfVector2f pos, sfIntRect rect)
     sfSprite_setTexture(new_node->sprite, new_node->texture, sfTrue);
     sfSprite_setTextureRect(new_node->sprite, new_node->rect);
     sfSprite_setPosition(new_node->sprite, new_node->pos);
+    sfSprite_setOrigin(new_node->sprite, (sfVector2f){new_node->length / 2, \
+    new_node->height / 2});
     return (new_node);
 }
 
 void add_node_back(game_object_t **nodes, char *filepath, \
-sfVector2f pos, sfIntRect rect)
+sfFloatRect pos, sfIntRect rect)
 {
     game_object_t *new_node = complete_node(filepath, pos, rect);
     game_object_t *copy = *nodes;
@@ -46,8 +50,16 @@ game_object_t *setup_menu_sprites(void)
 {
     game_object_t *menu  = NULL;
 
-    add_node_back(&menu, "assets/sprites/menu_background.png", \
-    (sfVector2f){0, 0}, (sfIntRect){0, 0, 1920, 1080});
+    add_node_back(&menu, "assets/textures/menu.png", \
+    (sfFloatRect){960, 651, 344, 59}, (sfIntRect){344, 0, 344, 59});
+    add_node_back(&menu, "assets/textures/menu.png", \
+    (sfFloatRect){960, 710, 344, 59}, (sfIntRect){0, 59, 344, 59});
+    add_node_back(&menu, "assets/textures/menu.png", \
+    (sfFloatRect){960, 769, 344, 59}, (sfIntRect){0, 118, 344, 59});
+    add_node_back(&menu, "assets/textures/menu.png", \
+    (sfFloatRect){960, 828, 344, 59}, (sfIntRect){0, 177, 344, 59});
+    add_node_back(&menu, "assets/textures/menu.png", \
+    (sfFloatRect){960, 887, 344, 59}, (sfIntRect){0, 236, 344, 59});
     return (menu);
 }
 
