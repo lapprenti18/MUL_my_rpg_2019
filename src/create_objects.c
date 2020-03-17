@@ -23,6 +23,7 @@ sfFloatRect pos, sfIntRect rect)
     new_node->texture = sfTexture_createFromFile(filepath, NULL);
     new_node->change_pos = change_pos;
     new_node->move_rect = move_rect;
+    new_node->manage_clock = manage_clock;
     new_node->next = NULL;
     sfSprite_setTexture(new_node->sprite, new_node->texture, sfTrue);
     sfSprite_setTextureRect(new_node->sprite, new_node->rect);
@@ -46,7 +47,7 @@ sfFloatRect pos, sfIntRect rect)
     if (type == OPTION_SHAPE)
         filepath = "assets/textures/option_and_shape.png";
     if (type == MANA_BAR)
-        filepath = "assets/textures/Barre_de_vie..png";
+        filepath = "assets/textures/mana_bar.png";
     new_node = complete_node(type, filepath, pos, rect);
     if (!(*nodes)) {
         *nodes = new_node;

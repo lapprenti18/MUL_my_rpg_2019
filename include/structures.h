@@ -40,6 +40,7 @@ typedef struct game_object_s
     int height;
     void (*move_rect)(struct game_object_s *, int, int);
     void (*change_pos)(struct game_object_s *, sfVector2f);
+    void (*manage_clock)(struct game_object_s *);
     struct game_object_s *next;
 } game_object_t;
 

@@ -74,9 +74,10 @@ COMP	=	src/main.c	\
 			src/manage_mouse_click.c	\
 			src/manage_mouse_moved.c	\
 			src/setup_scenes.c	\
+			src/manage_clock.c	\
 			src/garbage_collector.c
 
-CFLAGS  =	-W -Wall -Wextra -lcsfml-graphics -lcsfml-window -lcsfml-system -lcsfml-audio -lm -Iinclude
+CFLAGS  =	-W -Wall -Wextra -lcsfml-graphics -lcsfml-window -lcsfml-system -lcsfml-audio -lm -Iinclude -g3
 
 OBJ	=	$(SRC:.c=.o)
 

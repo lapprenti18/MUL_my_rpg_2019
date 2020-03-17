@@ -22,6 +22,7 @@
 #include "./manage_mouse_clicked.h"
 #include "./manage_mouse_moved.h"
 #include "./setup_scenes.h"
+#include "./manage_clock.h"
 
 #include "./lib.h"
 

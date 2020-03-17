@@ -16,7 +16,8 @@ void manage_moved_on_options(all_t *store)
         if (mouse.x >= copy->pos.x - (copy->length / 2) \
         && mouse.x <= copy->pos.x + (copy->length / 2) \
         && mouse.y >= copy->pos.y - (copy->height / 2) \
-        && mouse.y <= copy->pos.y + (copy->height / 2)) {
+        && mouse.y <= copy->pos.y + (copy->height / 2) \
+        && copy->type != OPTION_SHAPE) {
             copy->rect.left = 309;
         } else
             copy->rect.left = 0;
