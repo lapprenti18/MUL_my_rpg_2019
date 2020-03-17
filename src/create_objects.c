@@ -45,6 +45,8 @@ sfFloatRect pos, sfIntRect rect)
         filepath = "assets/textures/menu_options.png";
     if (type == OPTION_SHAPE)
         filepath = "assets/textures/option_and_shape.png";
+    if (type == MANA_BAR)
+        filepath = "assets/textures/Barre_de_vie..png";
     new_node = complete_node(type, filepath, pos, rect);
     if (!(*nodes)) {
         *nodes = new_node;
@@ -63,6 +65,7 @@ game_object_t **create_objects(void)
         return (NULL);
     objects[MENU] = setup_menu_sprites();
     objects[MENU_OPTIONS] = setup_options_sprites();
+    objects[PLAYING] = setup_playing_sprites();
     objects[TOTAL] = NULL;
     return (objects);
 }

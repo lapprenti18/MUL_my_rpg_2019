@@ -22,6 +22,7 @@ typedef enum
     AUDIO,
     VIDEO,
     KEYBOARD,
+    MANA_BAR,
     BACK
 } SPRITES;
 
@@ -46,6 +47,7 @@ typedef enum
 {
     MENU,
     MENU_OPTIONS,
+    PLAYING,
     TOTAL
 } SCENE;
 

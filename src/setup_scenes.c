@@ -7,6 +7,15 @@
 
 #include "../include/my.h"
 
+game_object_t *setup_playing_sprites(void)
+{
+    game_object_t *playing  = NULL;
+
+    add_node_back(&playing, MANA_BAR, \
+    (sfFloatRect){229, 146, 229, 146}, (sfIntRect){0, 0, 229, 146});
+    return (playing);
+}
+
 game_object_t *setup_options_sprites(void)
 {
     game_object_t *options  = NULL;

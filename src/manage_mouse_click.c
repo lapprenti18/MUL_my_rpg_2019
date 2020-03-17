@@ -36,6 +36,8 @@ void manage_click_on_menu(all_t *store)
                 sfRenderWindow_close(store->window);
             if (copy->type == OPTIONS)
                 store->scene = MENU_OPTIONS;
+            if (copy->type == PLAY)
+                store->scene = PLAYING;
         }
     }
 }

@@ -10,6 +10,7 @@
 
 #include "./my.h"
 
+game_object_t *setup_playing_sprites(void);
 game_object_t *setup_options_sprites(void);
 game_object_t *setup_menu_sprites(void);
 
