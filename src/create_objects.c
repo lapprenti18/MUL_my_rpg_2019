@@ -51,7 +51,7 @@ game_object_t *setup_menu_sprites(void)
     game_object_t *menu  = NULL;
 
     add_node_back(&menu, "assets/textures/menu.png", \
-    (sfFloatRect){960, 651, 344, 59}, (sfIntRect){344, 0, 344, 59});
+    (sfFloatRect){960, 651, 344, 59}, (sfIntRect){0, 0, 344, 59});
     add_node_back(&menu, "assets/textures/menu.png", \
     (sfFloatRect){960, 710, 344, 59}, (sfIntRect){0, 59, 344, 59});
     add_node_back(&menu, "assets/textures/menu.png", \

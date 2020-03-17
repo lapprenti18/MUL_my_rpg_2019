@@ -11,7 +11,16 @@ void manage_moved_on_menu(all_t *store)
 {
     sfVector2i mouse = sfMouse_getPositionRenderWindow(store->window);
 
-    (void)mouse;
+    for (game_object_t *copy = store->objects[MENU]; copy; copy = copy->next) {
+        if (mouse.x >= copy->pos.x - (copy->length / 2) \
+        && mouse.x <= copy->pos.x + (copy->length / 2) \
+        && mouse.y >= copy->pos.y - (copy->height / 2) \
+        && mouse.y <= copy->pos.y + (copy->height / 2)) {
+            copy->rect.left = 344;
+        } else
+            copy->rect.left = 0;
+        sfSprite_setTextureRect(copy->sprite, copy->rect);
+    }
 }
 
 void manage_mouse_moved(all_t *store)
