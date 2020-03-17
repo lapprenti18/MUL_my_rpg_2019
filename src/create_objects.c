@@ -18,6 +18,8 @@ sfVector2f pos, sfIntRect rect)
     new_node->seconds = 0.0;
     new_node->sprite = sfSprite_create();
     new_node->texture = sfTexture_createFromFile(filepath, NULL);
+    new_node->change_pos = change_pos;
+    new_node->move_rect = move_rect;
     new_node->next = NULL;
     sfSprite_setTexture(new_node->sprite, new_node->texture, sfTrue);
     sfSprite_setTextureRect(new_node->sprite, new_node->rect);

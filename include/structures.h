@@ -20,6 +20,8 @@ typedef struct game_object_s
     sfClock *clock;
     sfTime time;
     float seconds;
+    void (*move_rect)(struct game_object_s *, int, int);
+    void (*change_pos)(struct game_object_s *, sfVector2f);
     struct game_object_s *next;
 } game_object_t;
 

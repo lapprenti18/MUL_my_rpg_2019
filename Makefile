@@ -70,6 +70,7 @@ COMP	=	src/main.c	\
 			src/draw_scene.c	\
 			src/create_objects.c	\
 			src/destroy_structures.c	\
+			src/setup_functions.c	\
 			src/garbage_collector.c
 
 CFLAGS  =	-W -Wall -Wextra -lcsfml-graphics -lcsfml-window -lcsfml-system -lcsfml-audio -lm -Iinclude -g3

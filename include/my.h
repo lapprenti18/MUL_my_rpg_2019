@@ -19,6 +19,7 @@
 #include "./set_structures.h"
 #include "./create_objects.h"
 #include "./destroy_structures.h"
+#include "./setup_functions.h"
 
 #include "./lib.h"
 
