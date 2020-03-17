@@ -48,6 +48,8 @@ sfFloatRect pos, sfIntRect rect)
         filepath = "assets/textures/option_and_shape.png";
     if (type == MANA_BAR)
         filepath = "assets/textures/mana_bar.png";
+    if (type == BACKGROUND)
+        filepath = "assets/textures/background.jpg";
     new_node = complete_node(type, filepath, pos, rect);
     if (!(*nodes)) {
         *nodes = new_node;

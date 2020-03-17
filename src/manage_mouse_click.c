@@ -16,7 +16,8 @@ void manage_click_on_options(all_t *store)
         if (mouse.x >= copy->pos.x - (copy->length / 2) \
         && mouse.x <= copy->pos.x + (copy->length / 2) \
         && mouse.y >= copy->pos.y - (copy->height / 2) \
-        && mouse.y <= copy->pos.y + (copy->height / 2)) {
+        && mouse.y <= copy->pos.y + (copy->height / 2) \
+        && copy->type != BACKGROUND) {
             if (copy->type == BACK)
                 store->scene = MENU;
         }
@@ -31,7 +32,8 @@ void manage_click_on_menu(all_t *store)
         if (mouse.x >= copy->pos.x - (copy->length / 2) \
         && mouse.x <= copy->pos.x + (copy->length / 2) \
         && mouse.y >= copy->pos.y - (copy->height / 2) \
-        && mouse.y <= copy->pos.y + (copy->height / 2)) {
+        && mouse.y <= copy->pos.y + (copy->height / 2) \
+        && copy->type != BACKGROUND) {
             if (copy->type == QUIT)
                 sfRenderWindow_close(store->window);
             if (copy->type == OPTIONS)

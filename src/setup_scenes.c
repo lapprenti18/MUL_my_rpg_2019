@@ -20,6 +20,8 @@ game_object_t *setup_options_sprites(void)
 {
     game_object_t *options  = NULL;
 
+    add_node_back(&options, BACKGROUND, \
+    (sfFloatRect){960, 1080 / 2, 1920, 1080}, (sfIntRect){0, 0, 1920, 1080});
     add_node_back(&options, OPTION_SHAPE, \
     (sfFloatRect){960, 383, 726, 127}, (sfIntRect){0, 0, 726, 127});
     add_node_back(&options, AUDIO, \
@@ -37,6 +39,8 @@ game_object_t *setup_menu_sprites(void)
 {
     game_object_t *menu  = NULL;
 
+    add_node_back(&menu, BACKGROUND, \
+    (sfFloatRect){960, 1080 / 2, 1920, 1080}, (sfIntRect){0, 0, 1920, 1080});
     add_node_back(&menu, PLAY, \
     (sfFloatRect){960, 651, 344, 59}, (sfIntRect){0, 0, 344, 59});
     add_node_back(&menu, OPTIONS, \

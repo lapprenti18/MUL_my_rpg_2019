@@ -13,6 +13,7 @@
 
 typedef enum
 {
+    BACKGROUND,
     PLAY,
     OPTIONS,
     ACHIEVEMENTS,

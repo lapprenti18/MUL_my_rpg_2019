@@ -77,7 +77,7 @@ COMP	=	src/main.c	\
 			src/manage_clock.c	\
 			src/garbage_collector.c
 
-CFLAGS  =	-W -Wall -Wextra -lcsfml-graphics -lcsfml-window -lcsfml-system -lcsfml-audio -lm -Iinclude -g3
+CFLAGS  =	-W -Wall -Wextra -lcsfml-graphics -lcsfml-window -lcsfml-system -lcsfml-audio -lm -Iinclude
 
 OBJ	=	$(SRC:.c=.o)
 
