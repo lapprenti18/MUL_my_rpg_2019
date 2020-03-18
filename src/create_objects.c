@@ -34,22 +34,11 @@ sfFloatRect pos, sfIntRect rect)
 }
 
 void add_node_back(game_object_t **nodes, SPRITES type, \
-sfFloatRect pos, sfIntRect rect)
+sfFloatRect pos, sfIntRect rect, char *filepath)
 {
-    char *filepath = NULL;
     game_object_t *new_node = NULL;
     game_object_t *copy = *nodes;
 
-    if (type <= QUIT)
-        filepath = "assets/textures/menu.png";
-    if (type >= AUDIO && type <= BACK)
-        filepath = "assets/textures/menu_options.png";
-    if (type == OPTION_SHAPE)
-        filepath = "assets/textures/option_and_shape.png";
-    if (type == MANA_BAR)
-        filepath = "assets/textures/mana_bar.png";
-    if (type == BACKGROUND)
-        filepath = "assets/textures/screen.png";
     new_node = complete_node(type, filepath, pos, rect);
     if (*nodes) {
         while (copy->next)

@@ -45,6 +45,7 @@ sfRenderWindow *create_window(int fps)
 void set_structures(all_t *store)
 {
     int random[2];
+
     store->scene = MENU;
     store->window = create_window(60);
     store->objects = create_objects();

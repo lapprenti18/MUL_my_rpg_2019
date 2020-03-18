@@ -39,7 +39,7 @@ int    my_showstr(char const *str);
 int    my_show_word_array(char * const *tab);
 void    my_sort_int_array(int *tab, int size);
 char    *my_strcapitalize(char *str);
-char    *my_strcat(char *dest, char *src, int check);
+char *my_strcat(char *src, char *dest);
 char    my_strcmp(char *s1, char *s2);
 char    *my_strcpy(char *dest, char const *src);
 char    *my_strcpy2(char *dest, char const *src);
