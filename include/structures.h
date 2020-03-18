@@ -27,6 +27,14 @@ typedef enum
     BACK
 } SPRITES;
 
+typedef enum
+{
+    MENU,
+    MENU_OPTIONS,
+    PLAYING,
+    TOTAL
+} SCENE;
+
 typedef struct game_object_s
 {
     SPRITES type;
@@ -45,13 +53,13 @@ typedef struct game_object_s
     struct game_object_s *next;
 } game_object_t;
 
-typedef enum
+typedef struct particles_s
 {
-    MENU,
-    MENU_OPTIONS,
-    PLAYING,
-    TOTAL
-} SCENE;
+    sfCircleShape *shape;
+    sfVector2f position;
+    float speed;
+    int radius;
+}particles_t;
 
 typedef struct all_s
 {
@@ -59,6 +67,7 @@ typedef struct all_s
     sfRenderWindow *window;
     sfEvent event;
     game_object_t **objects;
+    particles_t **particules;
 }all_t;
 
 #endif /* STRUCTURES_H_ */

@@ -10,6 +10,7 @@
 
 #include "./my.h"
 
+void manage_particules_clock(all_t *store, game_object_t *copy);
 void manage_all_clock(all_t *store);
 void manage_clock(game_object_t *objects);
 

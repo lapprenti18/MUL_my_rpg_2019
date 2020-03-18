@@ -31,7 +31,7 @@ game_object_t *setup_options_sprites(void)
     add_node_back(&options, KEYBOARD, \
     (sfFloatRect){960, 650, 309, 70}, (sfIntRect){0, 140, 309, 70});
     add_node_back(&options, BACK, \
-    (sfFloatRect){960, 720, 309, 70}, (sfIntRect){0, 210, 309, 70});
+    (sfFloatRect){960, 920, 309, 70}, (sfIntRect){0, 210, 309, 70});
     return (options);
 }
 

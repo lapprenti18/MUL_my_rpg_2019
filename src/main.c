@@ -11,6 +11,7 @@ int main(void)
 {
     all_t store;
 
+    srand(time(NULL));
     set_structures(&store);
     loop_game(&store);
     destroy_structures(&store);

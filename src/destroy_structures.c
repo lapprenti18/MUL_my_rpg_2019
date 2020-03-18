@@ -17,5 +17,7 @@ void destroy_structures(all_t *store)
             sfClock_destroy(copy->clock);
         }
     }
+    for (int index = 0; store->particules[index]; index += 1)
+        sfCircleShape_destroy(store->particules[index]->shape);
     sfRenderWindow_destroy(store->window);
 }

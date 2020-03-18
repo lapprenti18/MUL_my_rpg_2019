@@ -49,15 +49,14 @@ sfFloatRect pos, sfIntRect rect)
     if (type == MANA_BAR)
         filepath = "assets/textures/mana_bar.png";
     if (type == BACKGROUND)
-        filepath = "assets/textures/background.jpg";
+        filepath = "assets/textures/screen.png";
     new_node = complete_node(type, filepath, pos, rect);
-    if (!(*nodes)) {
+    if (*nodes) {
+        while (copy->next)
+            copy = copy->next;
+        copy->next = new_node;
+    } else
         *nodes = new_node;
-        return;
-    }
-    while (copy->next)
-        copy = copy->next;
-    copy->next = new_node;
 }
 
 game_object_t **create_objects(void)
