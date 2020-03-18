@@ -62,6 +62,14 @@ typedef struct particles_s
     int radius;
 }particles_t;
 
+typedef struct coding_style_s
+{
+    SPRITES type;
+    sfFloatRect float_rect;
+    sfIntRect rect;
+    char *filepath;
+} coding_style_t;
+
 typedef struct all_s
 {
     SCENE scene;

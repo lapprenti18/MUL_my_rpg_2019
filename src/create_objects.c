@@ -33,13 +33,13 @@ sfFloatRect pos, sfIntRect rect)
     return (new_node);
 }
 
-void add_node_back(game_object_t **nodes, SPRITES type, \
-sfFloatRect pos, sfIntRect rect, char *filepath)
+void add_node_back(game_object_t **nodes, coding_style_t coding)
 {
     game_object_t *new_node = NULL;
     game_object_t *copy = *nodes;
 
-    new_node = complete_node(type, filepath, pos, rect);
+    new_node = complete_node(coding.type, coding.filepath, \
+    coding.float_rect, coding.rect);
     if (*nodes) {
         while (copy->next)
             copy = copy->next;
