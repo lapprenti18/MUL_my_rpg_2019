@@ -51,5 +51,7 @@ game_object_t *setup_menu_sprites(void)
     (sfIntRect){0, 177, 344, 59}, "assets/textures/menu.png");
     add_node_back(&menu, QUIT, (sfFloatRect){960, 887, 344, 59}, \
     (sfIntRect){0, 236, 344, 59}, "assets/textures/menu.png");
+    add_node_back(&menu, NAME, (sfFloatRect){960, 300, 1206, 457}, \
+    (sfIntRect){0, 0, 1206, 457}, "assets/textures/game_name.png");
     return (menu);
 }

@@ -34,7 +34,7 @@ void manage_moved_on_menu(all_t *store)
         && mouse.x <= copy->pos.x + (copy->length / 2) \
         && mouse.y >= copy->pos.y - (copy->height / 2) \
         && mouse.y <= copy->pos.y + (copy->height / 2) \
-        && copy->type != BACKGROUND) {
+        && copy->type > NAME) {
             copy->rect.left = 344;
         } else
             copy->rect.left = 0;
