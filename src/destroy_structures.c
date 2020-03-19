@@ -19,5 +19,7 @@ void destroy_structures(all_t *store)
     }
     for (int index = 0; store->particules[index]; index += 1)
         sfCircleShape_destroy(store->particules[index]->shape);
+    for (int index = 0; store->musics[index]; index += 1)
+        sfMusic_destroy(store->musics[index]);
     sfRenderWindow_destroy(store->window);
 }

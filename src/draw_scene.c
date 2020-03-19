@@ -12,7 +12,8 @@ void draw_scene(all_t *store)
     for (game_object_t *temp = store->objects[store->scene]; \
     temp; temp = temp->next) {
         sfRenderWindow_drawSprite(store->window, temp->sprite, NULL);
-        for (int index = 0; store->particules[index]; index += 1)
+        for (int index = 0; store->scene < PLAYING && \
+        store->particules[index]; index += 1)
             sfRenderWindow_drawCircleShape(store->window, \
             store->particules[index]->shape, NULL);
     }

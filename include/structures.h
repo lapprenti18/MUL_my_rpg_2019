@@ -24,6 +24,7 @@ typedef enum
     AUDIO,
     VIDEO,
     KEYBOARD,
+    AUDIO_SHAPE,
     MANA_BAR,
     BACK
 } SPRITES;
@@ -32,6 +33,7 @@ typedef enum
 {
     MENU,
     MENU_OPTIONS,
+    MENU_AUDIO,
     PLAYING,
     TOTAL
 } SCENE;
@@ -51,6 +53,7 @@ typedef struct game_object_s
     void (*move_rect)(struct game_object_s *, int, int);
     void (*change_pos)(struct game_object_s *, sfVector2f);
     void (*manage_clock)(struct game_object_s *);
+    bool move;
     struct game_object_s *next;
 } game_object_t;
 
@@ -68,6 +71,7 @@ typedef struct coding_style_s
     sfFloatRect float_rect;
     sfIntRect rect;
     char *filepath;
+    bool move;
 } coding_style_t;
 
 typedef struct all_s
@@ -77,6 +81,7 @@ typedef struct all_s
     sfEvent event;
     game_object_t **objects;
     particles_t **particules;
+    sfMusic **musics;
 }all_t;
 
 #endif /* STRUCTURES_H_ */

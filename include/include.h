@@ -33,5 +33,6 @@
 #include <SFML/Audio.h>
 #include <math.h>
 #include <SFML/Graphics/Vertex.h>
+#include <stdbool.h>
 
 #endif /* INCLUDE_H */

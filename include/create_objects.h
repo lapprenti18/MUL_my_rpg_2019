@@ -10,10 +10,8 @@
 
 #include "./my.h"
 
-game_object_t *complete_node(SPRITES type, char *filepath, \
-sfFloatRect pos, sfIntRect rect);
+game_object_t *complete_node(coding_style_t coding);
 void add_node_back(game_object_t **nodes, coding_style_t coding);
-game_object_t *setup_menu_sprites(void);
 game_object_t **create_objects(void);
 
 #endif /* CREATE_OBJECT_H */

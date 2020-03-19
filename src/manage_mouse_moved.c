@@ -7,45 +7,20 @@
 
 #include "../include/my.h"
 
-void manage_moved_on_options(all_t *store)
+void manage_mouse_moved(all_t *store)
 {
     sfVector2i mouse = sfMouse_getPositionRenderWindow(store->window);
 
-    for (game_object_t *copy = store->objects[MENU_OPTIONS]; \
+    for (game_object_t *copy = store->objects[store->scene]; \
     copy; copy = copy->next) {
         if (mouse.x >= copy->pos.x - (copy->length / 2) \
         && mouse.x <= copy->pos.x + (copy->length / 2) \
         && mouse.y >= copy->pos.y - (copy->height / 2) \
         && mouse.y <= copy->pos.y + (copy->height / 2) \
-        && copy->type != OPTION_SHAPE && copy->type != BACKGROUND) {
-            copy->rect.left = 309;
+        && copy->move) {
+            copy->rect.left = copy->length;
         } else
             copy->rect.left = 0;
         sfSprite_setTextureRect(copy->sprite, copy->rect);
     }
-}
-
-void manage_moved_on_menu(all_t *store)
-{
-    sfVector2i mouse = sfMouse_getPositionRenderWindow(store->window);
-
-    for (game_object_t *copy = store->objects[MENU]; copy; copy = copy->next) {
-        if (mouse.x >= copy->pos.x - (copy->length / 2) \
-        && mouse.x <= copy->pos.x + (copy->length / 2) \
-        && mouse.y >= copy->pos.y - (copy->height / 2) \
-        && mouse.y <= copy->pos.y + (copy->height / 2) \
-        && copy->type > NAME) {
-            copy->rect.left = 344;
-        } else
-            copy->rect.left = 0;
-        sfSprite_setTextureRect(copy->sprite, copy->rect);
-    }
-}
-
-void manage_mouse_moved(all_t *store)
-{
-    if (store->scene == MENU)
-        manage_moved_on_menu(store);
-    if (store->scene == MENU_OPTIONS)
-        manage_moved_on_options(store);
 }

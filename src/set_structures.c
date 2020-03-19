@@ -7,6 +7,23 @@
 
 #include "../include/my.h"
 
+sfMusic **create_tab_music(void)
+{
+    sfMusic **musics = my_malloc(sizeof(sfMusic *) * (TOTAL + 1));
+
+    if (!musics)
+        return (NULL);
+    for (int index = 0; index < PLAYING; index += 1)
+        musics[index] = sfMusic_createFromFile("assets/musics/menu_theme.ogg");
+    musics[PLAYING] = sfMusic_createFromFile("assets/musics/playing.ogg");
+    musics[TOTAL] = NULL;
+    for (int index = 0; musics[index]; index += 1) {
+        sfMusic_setLoop(musics[index], sfTrue);
+        sfMusic_setVolume(musics[index], 20);
+    }
+    return (musics);
+}
+
 particles_t **create_particles(int *random)
 {
     particles_t **particules = my_malloc(sizeof(particles_t *) * 101);
@@ -50,4 +67,5 @@ void set_structures(all_t *store)
     store->window = create_window(60);
     store->objects = create_objects();
     store->particules = create_particles(random);
+    store->musics = create_tab_music();
 }

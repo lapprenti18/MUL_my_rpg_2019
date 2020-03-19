@@ -10,8 +10,8 @@
 
 #include "./include.h"
 #include "./garbage_collector.h"
-
 #include "./structures.h"
+
 #include "./analyse_events.h"
 #include "./draw_scene.h"
 #include "./loop_game.h"

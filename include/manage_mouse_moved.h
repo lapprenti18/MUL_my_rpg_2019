@@ -11,7 +11,5 @@
 #include "./my.h"
 
 void manage_mouse_moved(all_t *store);
-void manage_moved_on_menu(all_t *store);
-void manage_moved_on_options(all_t *store);
 
 #endif /* MANAGE_MOUSE_MOVED_H_ */

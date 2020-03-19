@@ -10,6 +10,7 @@
 
 #include "./my.h"
 
+sfMusic **create_tab_music(void);
 particles_t **create_particles(int *random);
 sfRenderWindow *create_window(int fps);
 void set_structures(all_t *store);

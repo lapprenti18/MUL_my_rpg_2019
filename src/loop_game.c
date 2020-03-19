@@ -9,6 +9,7 @@
 
 void loop_game(all_t *store)
 {
+    sfMusic_play(store->musics[MENU]);
     while (sfRenderWindow_isOpen(store->window)) {
         sfRenderWindow_clear(store->window, sfBlack);
         while (sfRenderWindow_pollEvent(store->window, &store->event))
