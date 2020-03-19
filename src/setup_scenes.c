@@ -38,7 +38,7 @@ game_object_t *setup_playing_sprites(void)
 
     add_node_back(&playing, (coding_style_t){MANA_BAR, (sfFloatRect){229, 146, \
     229, 146}, (sfIntRect){0, 0, 229, 146}, "assets/textures/mana_bar.png", \
-    true});
+    false});
     return (playing);
 }
 
