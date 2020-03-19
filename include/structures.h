@@ -28,6 +28,7 @@ typedef enum
     MASTER_VOLUME,
     SOUND_VOLUME,
     MUSIC_VOLUME,
+    RESET_DEFAULT,
     MANA_BAR,
     BACK
 } SPRITES;

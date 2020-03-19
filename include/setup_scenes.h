@@ -10,6 +10,7 @@
 
 #include "./my.h"
 
+game_object_t *setup_audio_sprites_next(game_object_t *audio);
 game_object_t *setup_audio_sprites(void);
 game_object_t *setup_playing_sprites(void);
 game_object_t *setup_options_sprites(void);

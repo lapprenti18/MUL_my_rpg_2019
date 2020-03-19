@@ -7,6 +7,14 @@
 
 #include "../include/my.h"
 
+game_object_t *setup_audio_sprites_next(game_object_t *audio)
+{
+    add_node_back(&audio, (coding_style_t){RESET_DEFAULT, (sfFloatRect){960, \
+    850, 372, 28}, (sfIntRect){0, 0, 372, 28}, \
+    "assets/textures/button_reset_default.png", true});
+    return (audio);
+}
+
 game_object_t *setup_audio_sprites(void)
 {
     game_object_t *audio  = NULL;
@@ -29,7 +37,7 @@ game_object_t *setup_audio_sprites(void)
     add_node_back(&audio, (coding_style_t){BACK, (sfFloatRect){960, 920, \
     309, 70}, (sfIntRect){0, 210, 309, 70}, \
     "assets/textures/menu_options.png", true});
-    return (audio);
+    return (setup_audio_sprites_next(audio));
 }
 
 game_object_t *setup_playing_sprites(void)
