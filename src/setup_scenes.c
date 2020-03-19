@@ -15,8 +15,17 @@ game_object_t *setup_audio_sprites(void)
     1080 / 2, 1920, 1080}, (sfIntRect){0, 0, 1920, 1080}, \
     "assets/textures/screen.png", false});
     add_node_back(&audio, (coding_style_t){AUDIO_SHAPE, \
-    (sfFloatRect){960, 383, 722, 118}, (sfIntRect){0, 0, 722, 118}, \
+    (sfFloatRect){960, 200, 722, 118}, (sfIntRect){0, 0, 722, 118}, \
     "assets/textures/title_audio.png", false});
+    add_node_back(&audio, (coding_style_t){MASTER_VOLUME, \
+    (sfFloatRect){960, 400, 720, 49}, (sfIntRect){0, 0, 720, 49}, \
+    "assets/textures/params_volume.png", true});
+    add_node_back(&audio, (coding_style_t){SOUND_VOLUME, \
+    (sfFloatRect){960, 449, 720, 49}, (sfIntRect){0, 49, 720, 49}, \
+    "assets/textures/params_volume.png", true});
+    add_node_back(&audio, (coding_style_t){MUSIC_VOLUME, \
+    (sfFloatRect){960, 498, 720, 49}, (sfIntRect){0, 98, 720, 49}, \
+    "assets/textures/params_volume.png", true});
     add_node_back(&audio, (coding_style_t){BACK, (sfFloatRect){960, 920, \
     309, 70}, (sfIntRect){0, 210, 309, 70}, \
     "assets/textures/menu_options.png", true});

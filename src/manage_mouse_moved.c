@@ -19,7 +19,7 @@ void manage_mouse_moved(all_t *store)
         && mouse.y <= copy->pos.y + (copy->height / 2) \
         && copy->move) {
             copy->rect.left = copy->length;
-        } else
+        } else if (copy->move)
             copy->rect.left = 0;
         sfSprite_setTextureRect(copy->sprite, copy->rect);
     }

@@ -25,6 +25,9 @@ typedef enum
     VIDEO,
     KEYBOARD,
     AUDIO_SHAPE,
+    MASTER_VOLUME,
+    SOUND_VOLUME,
+    MUSIC_VOLUME,
     MANA_BAR,
     BACK
 } SPRITES;
