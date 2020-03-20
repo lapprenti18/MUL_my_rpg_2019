@@ -7,6 +7,23 @@
 
 #include "../include/my.h"
 
+sfRectangleShape **create_white_rectangles(void)
+{
+    sfRectangleShape **rectangles = my_malloc(sizeof(sfRectangleShape *) * 4);
+    int index = 0;
+    int pos_y = 382;
+
+    for (index = 0; index < 3; index += 1) {
+        rectangles[index] = sfRectangleShape_create();
+        sfRectangleShape_setFillColor(rectangles[index], sfWhite);
+        sfRectangleShape_setSize(rectangles[index], (sfVector2f){160, 5});
+        sfRectangleShape_setPosition(rectangles[index], (sfVector2f){1047, pos_y});
+        pos_y += 63;
+    }
+    rectangles[index] = NULL;
+    return (rectangles);
+}
+
 sfMusic **create_tab_music(void)
 {
     sfMusic **musics = my_malloc(sizeof(sfMusic *) * (TOTAL + 1));
@@ -68,4 +85,5 @@ void set_structures(all_t *store)
     store->objects = create_objects();
     store->particules = create_particles(random);
     store->musics = create_tab_music();
+    store->rectangles = create_white_rectangles();
 }

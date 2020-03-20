@@ -12,6 +12,15 @@ game_object_t *setup_audio_sprites_next(game_object_t *audio)
     add_node_back(&audio, (coding_style_t){RESET_DEFAULT, (sfFloatRect){960, \
     850, 372, 28}, (sfIntRect){0, 0, 372, 28}, \
     "assets/textures/button_reset_default.png", true});
+    add_node_back(&audio, (coding_style_t){CURSOR, (sfFloatRect){1205, \
+    360, 21, 19}, (sfIntRect){0, 0, 21, 19}, \
+    "assets/textures/petite_fleche.png", false});
+    add_node_back(&audio, (coding_style_t){CURSOR, (sfFloatRect){1205, \
+    420, 21, 19}, (sfIntRect){0, 0, 21, 19}, \
+    "assets/textures/petite_fleche.png", false});
+    add_node_back(&audio, (coding_style_t){CURSOR, (sfFloatRect){1205, \
+    480, 21, 19}, (sfIntRect){0, 0, 21, 19}, \
+    "assets/textures/petite_fleche.png", false});
     return (audio);
 }
 

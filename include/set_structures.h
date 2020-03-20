@@ -10,6 +10,7 @@
 
 #include "./my.h"
 
+sfRectangleShape **create_white_rectangles(void);
 sfMusic **create_tab_music(void);
 particles_t **create_particles(int *random);
 sfRenderWindow *create_window(int fps);

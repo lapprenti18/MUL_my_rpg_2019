@@ -28,6 +28,7 @@ typedef enum
     MASTER_VOLUME,
     SOUND_VOLUME,
     MUSIC_VOLUME,
+    CURSOR,
     RESET_DEFAULT,
     MANA_BAR,
     BACK
@@ -86,6 +87,7 @@ typedef struct all_s
     game_object_t **objects;
     particles_t **particules;
     sfMusic **musics;
+    sfRectangleShape **rectangles;
 }all_t;
 
 #endif /* STRUCTURES_H_ */
