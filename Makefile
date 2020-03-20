@@ -75,6 +75,9 @@ COMP	=	src/main.c	\
 			src/manage_mouse_moved.c	\
 			src/setup_scenes.c	\
 			src/manage_clock.c	\
+			src/handle_audio_click.c	\
+			src/handle_menu_click.c	\
+			src/handle_options_click.c	\
 			src/garbage_collector.c
 
 CFLAGS  =	-W -Wall -Wextra -lcsfml-graphics -lcsfml-window -lcsfml-system -lcsfml-audio -lm -Iinclude -g3

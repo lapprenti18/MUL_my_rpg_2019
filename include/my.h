@@ -23,6 +23,9 @@
 #include "./manage_mouse_moved.h"
 #include "./setup_scenes.h"
 #include "./manage_clock.h"
+#include "./handle_audio_click.h"
+#include "./handle_menu_click.h"
+#include "./handle_options_click.h"
 
 #include "./lib.h"
 
