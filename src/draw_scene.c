@@ -14,7 +14,8 @@ void draw_scene(all_t *store)
         sfRenderWindow_drawSprite(store->window, temp->sprite, NULL);
         for (int index = 0; store->scene == MENU_AUDIO && \
         store->rectangles[index]; index += 1)
-            sfRenderWindow_drawRectangleShape(store->window, store->rectangles[index], NULL);
+            sfRenderWindow_drawRectangleShape(store->window, \
+            store->rectangles[index], NULL);
         for (int index = 0; store->scene < PLAYING && \
         store->particules[index]; index += 1)
             sfRenderWindow_drawCircleShape(store->window, \

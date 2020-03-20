@@ -28,7 +28,9 @@ typedef enum
     MASTER_VOLUME,
     SOUND_VOLUME,
     MUSIC_VOLUME,
-    CURSOR,
+    CURSOR_1,
+    CURSOR_2,
+    CURSOR_3,
     RESET_DEFAULT,
     MANA_BAR,
     BACK

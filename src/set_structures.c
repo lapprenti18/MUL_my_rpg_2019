@@ -17,7 +17,8 @@ sfRectangleShape **create_white_rectangles(void)
         rectangles[index] = sfRectangleShape_create();
         sfRectangleShape_setFillColor(rectangles[index], sfWhite);
         sfRectangleShape_setSize(rectangles[index], (sfVector2f){160, 5});
-        sfRectangleShape_setPosition(rectangles[index], (sfVector2f){1047, pos_y});
+        sfRectangleShape_setPosition(rectangles[index], \
+        (sfVector2f){1047, pos_y});
         pos_y += 63;
     }
     rectangles[index] = NULL;
