@@ -10,6 +10,7 @@
 
 #include "./my.h"
 
+void handle_auio_click_next(all_t *store, game_object_t *copy);
 void handle_audio_click(all_t *store, game_object_t *copy, sfVector2i mouse);
 
 #endif /* HANDLE_AUDIO_CLICK_H */

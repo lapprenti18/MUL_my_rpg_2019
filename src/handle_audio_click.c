@@ -7,6 +7,17 @@
 
 #include "../include/my.h"
 
+void handle_auio_click_next(all_t *store, game_object_t *copy)
+{
+    if (copy->type == BACK)
+        store->scene = MENU_OPTIONS;
+    if (copy->type == RESET_DEFAULT) {
+        for (int index = 0; store->rectangles[index]; index += 1)
+            sfRectangleShape_setSize(store->rectangles[index], \
+            (sfVector2f){160, 5});
+    }
+}
+
 void handle_audio_click(all_t *store, game_object_t *copy, sfVector2i mouse)
 {
     sfVector2f rect_pos = {0, 0};
@@ -27,6 +38,5 @@ void handle_audio_click(all_t *store, game_object_t *copy, sfVector2i mouse)
             sfRectangleShape_setSize(store->rectangles[copy->type - 12], \
             (sfVector2f){rect_pos.x + 10, rect_pos.y});
     }
-    if (copy->type == BACK)
-        store->scene = MENU_OPTIONS;
+    handle_auio_click_next(store, copy);
 }
