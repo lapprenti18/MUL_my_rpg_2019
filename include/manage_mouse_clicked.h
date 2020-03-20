@@ -10,9 +10,10 @@
 
 #include "./my.h"
 
-void manage_click_on_audio(all_t *store);
-void manage_click_on_options(all_t *store);
-void manage_click_on_menu(all_t *store);
+void handle_audio_click(all_t *store, game_object_t *copy);
+void handle_options_click(all_t *store, game_object_t *copy);
+void handle_menu_click(all_t *store, game_object_t *copy);
+void handle_click(all_t *store, game_object_t *object);
 void manage_mouse_clicked(all_t *store);
 
 #endif /* MANAGE_MOUSE_CLICKED_H_ */

@@ -39,7 +39,6 @@ void add_node_back(game_object_t **nodes, coding_style_t coding)
 
     new_node = complete_node(coding);
     new_node->move = coding.move;
-    new_node->on_click = manage_click;
     if (*nodes) {
         while (copy->next)
             copy = copy->next;
