@@ -56,6 +56,7 @@ game_object_t **create_objects(void)
     objects[MENU] = setup_menu_sprites();
     objects[MENU_OPTIONS] = setup_options_sprites();
     objects[MENU_AUDIO] = setup_audio_sprites();
+    objects[SAVES_SCREEN] = setup_saves_sprites();
     objects[PLAYING] = setup_playing_sprites();
     objects[TOTAL] = NULL;
     return (objects);

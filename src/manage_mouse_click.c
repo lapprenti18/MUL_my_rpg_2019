@@ -15,6 +15,8 @@ void handle_click(all_t *store, game_object_t *copy, sfVector2i mouse)
         return (handle_menu_click(store, copy));
     if (store->scene == MENU_OPTIONS)
         return (handle_options_click(store, copy));
+    if (store->scene == SAVES_SCREEN)
+        return (handle_saves_click(store, copy));
 }
 
 void manage_mouse_clicked(all_t *store)

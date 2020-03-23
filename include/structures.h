@@ -32,6 +32,15 @@ typedef enum
     CURSOR_2,
     CURSOR_3,
     RESET_DEFAULT,
+    PROFILE,
+    SAVE_1,
+    SAVE_2,
+    SAVE_3,
+    SAVE_4,
+    CLEAR_1,
+    CLEAR_2,
+    CLEAR_3,
+    CLEAR_4,
     MANA_BAR,
     BACK
 } SPRITES;
@@ -41,6 +50,7 @@ typedef enum
     MENU,
     MENU_OPTIONS,
     MENU_AUDIO,
+    SAVES_SCREEN,
     PLAYING,
     TOTAL
 } SCENE;

@@ -78,6 +78,8 @@ COMP	=	src/main.c	\
 			src/handle_audio_click.c	\
 			src/handle_menu_click.c	\
 			src/handle_options_click.c	\
+			src/handle_saves_click.c	\
+			src/setup_scenes_2.c	\
 			src/garbage_collector.c
 
 CFLAGS  =	-W -Wall -Wextra -lcsfml-graphics -lcsfml-window -lcsfml-system -lcsfml-audio -lm -Iinclude -g3
