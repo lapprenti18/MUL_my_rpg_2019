@@ -10,6 +10,7 @@
 
 #define WIDTH 1920
 #define HEIGHT 1080
+#define GRAV 9.8
 
 typedef enum
 {
@@ -42,6 +43,8 @@ typedef enum
     CLEAR_3,
     CLEAR_4,
     MANA_BAR,
+    HEALTH,
+    KNIGHT,
     BACK
 } SPRITES;
 
@@ -70,7 +73,10 @@ typedef struct game_object_s
     void (*move_rect)(struct game_object_s *, int, int);
     void (*change_pos)(struct game_object_s *, sfVector2f);
     void (*manage_clock)(struct game_object_s *);
+    int max_rect;
+    double timing;
     bool move;
+    bool animated;
     struct game_object_s *next;
 } game_object_t;
 
@@ -89,6 +95,9 @@ typedef struct coding_style_s
     sfIntRect rect;
     char *filepath;
     bool move;
+    bool animated;
+    int max_rect;
+    double timing;
 } coding_style_t;
 
 typedef struct all_s
@@ -99,7 +108,8 @@ typedef struct all_s
     game_object_t **objects;
     particles_t **particules;
     sfMusic **musics;
-    sfRectangleShape **rectangles;
+    sfRectangleShape **rectangle;
+    sfVector2f vel;
 }all_t;
 
 #endif /* STRUCTURES_H_ */

@@ -44,9 +44,9 @@ sfMusic **create_tab_music(void)
 
 particles_t **create_particles(int *random)
 {
-    particles_t **particules = my_malloc(sizeof(particles_t *) * 101);
+    particles_t **particules = my_malloc(sizeof(particles_t *) * 76);
 
-    for (int index = 0; index < 100; index += 1) {
+    for (int index = 0; index < 75; index += 1) {
         particules[index] = my_malloc(sizeof(particles_t));
         particules[index]->shape = sfCircleShape_create();
         random[0] = rand() % (WIDTH - 200) + 200;
@@ -63,7 +63,7 @@ particles_t **create_particles(int *random)
         sfCircleShape_setPosition(particules[index]->shape, \
         particules[index]->position);
     }
-    particules[100] = NULL;
+    particules[75] = NULL;
     return (particules);
 }
 

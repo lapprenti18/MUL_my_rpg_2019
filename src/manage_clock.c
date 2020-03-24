@@ -27,11 +27,11 @@ void manage_particules_clock(all_t *store, game_object_t *copy)
 
 void manage_clock(game_object_t *objects)
 {
-    if (objects->type == MANA_BAR && objects->rect.left != 687) {
+    if (objects->animated) {
         objects->time = sfClock_getElapsedTime(objects->clock);
         objects->seconds = objects->time.microseconds / 1000000.0;
-        if (objects->seconds > 0.1) {
-            objects->move_rect(objects, 229, 687);
+        if (objects->seconds > objects->timing) {
+            objects->move_rect(objects, objects->length, objects->max_rect);
             sfClock_restart(objects->clock);
         }
     }

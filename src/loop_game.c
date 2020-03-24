@@ -11,7 +11,7 @@ void loop_game(all_t *store)
 {
     sfMusic_play(store->musics[MENU]);
     while (sfRenderWindow_isOpen(store->window)) {
-        sfRenderWindow_clear(store->window, sfBlack);
+        sfRenderWindow_clear(store->window, sfCyan);
         while (sfRenderWindow_pollEvent(store->window, &store->event))
             analyse_events(store);
         manage_all_clock(store);

@@ -11,11 +11,8 @@ void handle_menu_click(all_t *store, game_object_t *copy)
 {
     if (copy->type == OPTIONS)
         store->scene = MENU_OPTIONS;
-    if (copy->type == PLAY) {
-        //sfMusic_pause(store->musics[MENU]);
-        //sfMusic_play(store->musics[PLAYING]);
+    if (copy->type == PLAY)
         store->scene = SAVES_SCREEN;
-    }
     if (copy->type == QUIT)
         sfRenderWindow_close(store->window);
 }
