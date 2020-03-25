@@ -28,6 +28,7 @@
 #include "./handle_menu_click.h"
 #include "./handle_options_click.h"
 #include "./handle_saves_click.h"
+#include "./blend_mode.h"
 
 #include "./lib.h"
 

@@ -108,7 +108,7 @@ typedef struct all_s
     game_object_t **objects;
     particles_t **particules;
     sfMusic **musics;
-    sfRectangleShape **rectangle;
+    sfRectangleShape **rectangles;
     sfVector2f vel;
 }all_t;
 
