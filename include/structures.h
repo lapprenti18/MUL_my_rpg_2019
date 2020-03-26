@@ -43,6 +43,14 @@ typedef enum
     ON_OFF_2,
     ON_OFF_3,
     RES_CURSOR,
+    KEY_SHAPE,
+    UP,
+    DOWN,
+    JUMP,
+    LEFT,
+    RIGHT,
+    ATTACK,
+    INVENTORY,
     PROFILE,
     SAVE_1,
     SAVE_2,
@@ -64,6 +72,7 @@ typedef enum
     MENU_OPTIONS,
     MENU_AUDIO,
     MENU_VIDEO,
+    MENU_KEYBOARD,
     SAVES_SCREEN,
     PLAYING,
     TOTAL
@@ -75,6 +84,7 @@ typedef struct game_object_s
     sfSprite* sprite;
     sfTexture* texture;
     sfVector2f pos;
+    sfVector2f save_pos;
     sfIntRect rect;
     sfClock *clock;
     sfTime time;
@@ -124,8 +134,8 @@ typedef struct all_s
     bool show_particules;
     int fps;
     sfUint8 mode;
-    int width;
-    int height;
+    float width;
+    float height;
 }all_t;
 
 #endif /* STRUCTURES_H_ */

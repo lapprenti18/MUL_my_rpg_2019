@@ -10,6 +10,7 @@
 
 #include "./my.h"
 
+void scale_sprites(all_t *store, int y);
 void update_video(all_t *store, game_object_t *copy);
 void handle_video_click(all_t *store, game_object_t *copy);
 

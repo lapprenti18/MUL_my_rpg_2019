@@ -31,6 +31,8 @@
 #include "./blend_mode.h"
 #include "./handle_video_click.h"
 #include "./update_structures.h"
+#include "./setup_keyboard.h"
+#include "./handle_keyboard_click.h"
 
 #include "./lib.h"
 

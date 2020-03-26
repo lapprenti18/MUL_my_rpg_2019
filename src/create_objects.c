@@ -43,6 +43,7 @@ void add_node_back(game_object_t **nodes, coding_style_t coding)
     new_node->max_rect = coding.max_rect;
     new_node->timing = coding.timing;
     new_node->seconds = 0.0;
+    new_node->save_pos = new_node->pos;
     if (*nodes) {
         while (copy->next)
             copy = copy->next;
@@ -62,6 +63,7 @@ game_object_t **create_objects(sfRenderWindow *window)
     objects[MENU_OPTIONS] = setup_options_sprites();
     objects[MENU_AUDIO] = setup_audio_sprites();
     objects[MENU_VIDEO] = setup_video_sprites();
+    objects[MENU_KEYBOARD] = setup_keyboard_sprites();
     objects[SAVES_SCREEN] = setup_saves_sprites();
     objects[PLAYING] = setup_playing_sprites();
     for (int index = MENU; index < TOTAL; index += 1) {

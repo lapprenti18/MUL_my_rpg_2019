@@ -80,8 +80,10 @@ COMP	=	src/main.c	\
 			src/handle_options_click.c	\
 			src/handle_saves_click.c	\
 			src/handle_video_click.c	\
+			src/handle_keyboard_click.c	\
 			src/setup_scenes_2.c	\
 			src/blend_mode.c	\
+			src/setup_keyboard.c	\
 			src/update_structures.c	\
 			src/garbage_collector.c
 

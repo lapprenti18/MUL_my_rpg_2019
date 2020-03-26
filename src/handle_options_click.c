@@ -15,4 +15,6 @@ void handle_options_click(all_t *store, game_object_t *copy)
         store->scene = MENU_AUDIO;
     if (copy->type == VIDEO)
         store->scene = MENU_VIDEO;
+    if (copy->type == KEYBOARD)
+        store->scene = MENU_KEYBOARD;
 }
