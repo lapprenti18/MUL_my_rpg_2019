@@ -15,6 +15,7 @@
 typedef enum
 {
     BACKGROUND,
+    CURSEUR,
     NAME,
     PLAY,
     OPTIONS,
@@ -33,6 +34,15 @@ typedef enum
     CURSOR_2,
     CURSOR_3,
     RESET_DEFAULT,
+    VIDEO_SHAPE,
+    RESOLUTION,
+    FULL_SCREEN,
+    PARTICULES,
+    FRAME_RATE,
+    ON_OFF_1,
+    ON_OFF_2,
+    ON_OFF_3,
+    RES_CURSOR,
     PROFILE,
     SAVE_1,
     SAVE_2,
@@ -53,6 +63,7 @@ typedef enum
     MENU,
     MENU_OPTIONS,
     MENU_AUDIO,
+    MENU_VIDEO,
     SAVES_SCREEN,
     PLAYING,
     TOTAL
@@ -110,6 +121,11 @@ typedef struct all_s
     sfMusic **musics;
     sfRectangleShape **rectangles;
     sfVector2f vel;
+    bool show_particules;
+    int fps;
+    sfUint8 mode;
+    int width;
+    int height;
 }all_t;
 
 #endif /* STRUCTURES_H_ */

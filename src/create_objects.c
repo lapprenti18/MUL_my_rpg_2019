@@ -17,7 +17,6 @@ game_object_t *complete_node(coding_style_t code)
     new_node->length = (int)code.float_rect.width;
     new_node->height = (int)code.float_rect.height;
     new_node->rect = code.rect;
-    new_node->seconds = 0.0;
     new_node->sprite = sfSprite_create();
     new_node->texture = sfTexture_createFromFile(code.filepath, NULL);
     new_node->change_pos = change_pos;
@@ -27,8 +26,9 @@ game_object_t *complete_node(coding_style_t code)
     sfSprite_setTexture(new_node->sprite, new_node->texture, sfTrue);
     sfSprite_setTextureRect(new_node->sprite, new_node->rect);
     sfSprite_setPosition(new_node->sprite, new_node->pos);
-    sfSprite_setOrigin(new_node->sprite, (sfVector2f){new_node->length / 2, \
-    new_node->height / 2});
+    if (new_node->type != CURSEUR)
+        sfSprite_setOrigin(new_node->sprite, (sfVector2f)\
+        {new_node->length / 2, new_node->height / 2});
     return (new_node);
 }
 
@@ -42,6 +42,7 @@ void add_node_back(game_object_t **nodes, coding_style_t coding)
     new_node->animated = coding.animated;
     new_node->max_rect = coding.max_rect;
     new_node->timing = coding.timing;
+    new_node->seconds = 0.0;
     if (*nodes) {
         while (copy->next)
             copy = copy->next;
@@ -50,17 +51,25 @@ void add_node_back(game_object_t **nodes, coding_style_t coding)
         *nodes = new_node;
 }
 
-game_object_t **create_objects(void)
+game_object_t **create_objects(sfRenderWindow *window)
 {
     game_object_t **objects = my_malloc(sizeof(game_object_t) * (TOTAL + 1));
+    sfVector2i mouse = sfMouse_getPositionRenderWindow(window);
 
     if (!objects)
         return (NULL);
     objects[MENU] = setup_menu_sprites();
     objects[MENU_OPTIONS] = setup_options_sprites();
     objects[MENU_AUDIO] = setup_audio_sprites();
+    objects[MENU_VIDEO] = setup_video_sprites();
     objects[SAVES_SCREEN] = setup_saves_sprites();
     objects[PLAYING] = setup_playing_sprites();
+    for (int index = MENU; index < TOTAL; index += 1) {
+        add_node_back(&objects[index], (coding_style_t){CURSEUR, \
+        (sfFloatRect){mouse.x, mouse.y, 25, 25}, \
+        (sfIntRect){0, 0, 25, 25}, "assets/textures/curseur.png", \
+        false, false, -1, -1});
+    }
     objects[TOTAL] = NULL;
     return (objects);
 }

@@ -12,6 +12,8 @@ void move_rect(game_object_t *object, int offset, int size_max)
     object->rect.left += offset;
     if (object->rect.left > size_max)
         object->rect.left = 0;
+    if (object->rect.left < 0)
+        object->rect.left = size_max;
     sfSprite_setTextureRect(object->sprite, object->rect);
 }
 

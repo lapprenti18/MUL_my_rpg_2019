@@ -12,6 +12,6 @@
 
 game_object_t *complete_node(coding_style_t coding);
 void add_node_back(game_object_t **nodes, coding_style_t coding);
-game_object_t **create_objects(void);
+game_object_t **create_objects(sfRenderWindow *window);
 
 #endif /* CREATE_OBJECT_H */

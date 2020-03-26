@@ -37,7 +37,7 @@ sfMusic **create_tab_music(void)
     musics[TOTAL] = NULL;
     for (int index = 0; musics[index]; index += 1) {
         sfMusic_setLoop(musics[index], sfTrue);
-        sfMusic_setVolume(musics[index], 20);
+        sfMusic_setVolume(musics[index], 16);
     }
     return (musics);
 }
@@ -67,13 +67,14 @@ particles_t **create_particles(int *random)
     return (particules);
 }
 
-sfRenderWindow *create_window(int fps)
+sfRenderWindow *create_window(int fps, sfUint32 style, int width, int height)
 {
     sfRenderWindow* window;
-    sfVideoMode mode = {WIDTH, HEIGHT, 32};
+    sfVideoMode mode = {width, height, 32};
 
-    window = sfRenderWindow_create(mode, "RPG", sfResize | sfClose, NULL);
+    window = sfRenderWindow_create(mode, "RPG", style | sfClose, NULL);
     sfRenderWindow_setFramerateLimit(window, fps);
+    sfRenderWindow_setMouseCursorVisible(window, sfFalse);
     return (window);
 }
 
@@ -81,10 +82,15 @@ void set_structures(all_t *store)
 {
     int random[2];
 
+    store->mode = sfResize;
+    store->fps = 300;
+    store->width = 1920;
+    store->height = 1080;
     store->scene = MENU;
-    store->window = create_window(60);
-    store->objects = create_objects();
+    store->window = create_window(300, sfResize, WIDTH, HEIGHT);
+    store->objects = create_objects(store->window);
     store->particules = create_particles(random);
     store->musics = create_tab_music();
     store->rectangles = create_white_rectangles();
+    store->show_particules = true;
 }

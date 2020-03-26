@@ -10,6 +10,8 @@
 
 #include "./my.h"
 
+game_object_t *setup_video_next(game_object_t *video);
+game_object_t *setup_video_sprites(void);
 game_object_t *setup_saves_next(game_object_t *save);
 game_object_t *setup_saves_sprites(void);
 

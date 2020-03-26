@@ -17,6 +17,8 @@ void handle_click(all_t *store, game_object_t *copy, sfVector2i mouse)
         return (handle_options_click(store, copy));
     if (store->scene == SAVES_SCREEN)
         return (handle_saves_click(store, copy));
+    if (store->scene == MENU_VIDEO)
+        return (handle_video_click(store, copy));
 }
 
 void manage_mouse_clicked(all_t *store)
@@ -31,9 +33,9 @@ void manage_mouse_clicked(all_t *store)
         && mouse.y >= copy->pos.y - (copy->height / 2) \
         && mouse.y <= copy->pos.y + (copy->height / 2))
             handle_click(store, copy, mouse);
-        if (copy->type >= CURSOR_1 && copy->type <=CURSOR_3) {
+        if (copy->type >= CURSOR_1 && copy->type <= CURSOR_3) {
             rect_pos = sfRectangleShape_getSize(store->\
-            rectangles[copy->type - 15]);
+            rectangles[copy->type - CURSOR_1]);
             copy->change_pos(copy, (sfVector2f){rect_pos.x + \
             1045, copy->pos.y});
         }
