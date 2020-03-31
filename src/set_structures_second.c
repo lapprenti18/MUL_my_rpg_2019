@@ -7,6 +7,22 @@
 
 #include "../include/my.h"
 
+sfKeyCode *create_codes(void)
+{
+    sfKeyCode *codes = my_malloc(sizeof(sfKeyCode) * 7);
+
+    if (!codes)
+        return (NULL);
+    codes[0] = sfKeyZ;
+    codes[1] = sfKeyS;
+    codes[2] = sfKeyQ;
+    codes[3] = sfKeyD;
+    codes[4] = sfKeyM;
+    codes[5] = sfKeySpace;
+    codes[6] = sfKeyI;
+    return (codes);
+}
+
 sfText *create_text(sfVector2f pos, char *str)
 {
     sfText *text = sfText_create();

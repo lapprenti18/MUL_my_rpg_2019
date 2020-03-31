@@ -10,6 +10,7 @@
 
 #include "./my.h"
 
+sfKeyCode *create_codes(void);
 sfText *create_text(sfVector2f pos, char *str);
 sfText **create_keys(void);
 

@@ -136,7 +136,8 @@ typedef struct all_s
     sfUint8 mode;
     float width;
     float height;
-    sfText **keys;
+    sfText **keys_text;
+    sfKeyCode *keys_code;
 }all_t;
 
 #endif /* STRUCTURES_H_ */
