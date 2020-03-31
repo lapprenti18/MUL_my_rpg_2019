@@ -26,8 +26,10 @@ sfKeyCode *create_codes(void)
 sfText *create_text(sfVector2f pos, char *str)
 {
     sfText *text = sfText_create();
-    sfFont *font = sfFont_createFromFile("assets/fonts/keys.ttf");
+    static sfFont *font = NULL;
 
+    if (!font)
+        font = sfFont_createFromFile("assets/fonts/keys.ttf");
     sfText_setFont(text, font);
     sfText_setPosition(text, pos);
     sfText_setString(text, str);

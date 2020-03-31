@@ -39,7 +39,8 @@ void manage_mouse_clicked(all_t *store)
         if (copy->type >= CURSOR_1 && copy->type <= CURSOR_3) {
             rect_pos = sfRectangleShape_getSize(store->\
             rectangles[copy->type - CURSOR_1]);
-            temp_x = (store->width == 1920) ? 1045 : (store->width == 1600) ? 844 : 644;
+            temp_x = (store->width == 1920) ? 1045 : \
+            (store->width == 1600) ? 844 : 644;
             copy->change_pos(copy, (sfVector2f){rect_pos.x + \
             temp_x, copy->pos.y});
         }

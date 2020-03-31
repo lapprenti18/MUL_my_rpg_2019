@@ -99,6 +99,6 @@ void set_structures(all_t *store)
     store->velocity.y = 0;
     store->mana_level = 0;
     store->nb_jump = 1;
-    store->gravity = 0.75;
+    store->gravity = 2;
     store->right_or_left = 0;
 }

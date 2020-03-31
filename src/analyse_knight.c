@@ -7,11 +7,11 @@
 
 #include "../include/my.h"
 
-all_t *analyse_knight(all_t *store)
+void analyse_knight(all_t *store)
 {
     game_object_t *knight = store->objects[PLAYING];
 
-    for(; knight->type != KNIGHT; knight = knight->next);
+    for (; knight->type != KNIGHT; knight = knight->next);
     knight = check_animated(knight);
     if (store->right_or_left == 1) {
         if (knight->rect.left >= 620)
@@ -24,13 +24,13 @@ all_t *analyse_knight(all_t *store)
         knight->rect.top = 127;
     }
     if (store->event.type == sfEvtKeyPressed) {
-        store = analyse_knight_right_left(store, knight);
-        store = analyse_knight_jump(store, knight);
+        analyse_knight_right_left(store, knight);
+        analyse_knight_jump(store);
     }
-    return (analyse_knight_2(store, knight));
+    analyse_knight_2(store, knight);
 }
 
-all_t *analyse_knight_2(all_t *store, game_object_t *knight)
+void analyse_knight_2(all_t *store, game_object_t *knight)
 {
     if (store->event.type == sfEvtKeyReleased) {
         if (store->event.key.code == store->keys_code[3]) {
@@ -45,19 +45,17 @@ all_t *analyse_knight_2(all_t *store, game_object_t *knight)
     knight = check_animated(knight);
     store->right_or_left = 0;
     sfSprite_setTextureRect(knight->sprite, knight->rect);
-    return (store);
 }
 
-all_t *analyse_knight_jump(all_t *store, game_object_t *knight)
+void analyse_knight_jump(all_t *store)
 {
     if (sfKeyboard_isKeyPressed(store->keys_code[5]) && store->nb_jump == 1) {
         store->nb_jump = 0;
         store->velocity.y -= 30;
     }
-    return (store);
 }
 
-all_t *analyse_knight_right_left(all_t *store, game_object_t *knight)
+void analyse_knight_right_left(all_t *store, game_object_t *knight)
 {
     if (sfKeyboard_isKeyPressed(store->keys_code[3])) {
         store->velocity.x -= 3;
@@ -73,5 +71,4 @@ all_t *analyse_knight_right_left(all_t *store, game_object_t *knight)
             knight->rect.left = 0;
         knight->rect.top = 381;
     }
-    return (store);
 }

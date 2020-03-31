@@ -55,8 +55,8 @@ game_object_t *setup_playing_sprites(void)
     game_object_t *playing  = NULL;
 
     add_node_back(&playing, (coding_style_t){MANA_BAR, (sfFloatRect){229, 146, \
-    229, 146}, (sfIntRect){0, 0, 229, 146}, "assets/textures/mana_bar_final-min.png", \
-    false, true, 687, 0.2});
+    229, 146}, (sfIntRect){0, 0, 229, 146}, "assets/textures/mana_bar_\
+    final-min.png", false, true, 687, 0.2});
     for (; x < 651; x += 75)
         add_node_back(&playing, (coding_style_t){HEALTH, (sfFloatRect){x, 146, \
     51, 66}, (sfIntRect){0, 0, 51, 66}, \

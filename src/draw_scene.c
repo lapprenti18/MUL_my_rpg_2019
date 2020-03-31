@@ -21,7 +21,8 @@ void draw_scene(all_t *store)
             store->rectangles[index], NULL);
         for (int index = 0; store->scene == MENU_KEYBOARD && \
         store->keys_text[index]; index += 1)
-            sfRenderWindow_drawText(store->window, store->keys_text[index], NULL);
+            sfRenderWindow_drawText(store->window, \
+            store->keys_text[index], NULL);
         for (int index = 0; store->scene < PLAYING && \
         store->particules[index] && store->show_particules; index += 1)
             sfRenderWindow_drawCircleShape(store->window, \

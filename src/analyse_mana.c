@@ -7,7 +7,7 @@
 
 #include "../include/my.h"
 
-all_t *analyse_mana_bar(all_t *store)
+void analyse_mana_bar(all_t *store)
 {
     game_object_t *mana = store->objects[PLAYING];
 
@@ -19,10 +19,10 @@ all_t *analyse_mana_bar(all_t *store)
         mana->rect.left = 0;
         mana->rect.top = 146;
     }
-    return (analyse_mana_bar_2(store, mana));
+    analyse_mana_bar_2(store, mana);
 }
 
-all_t *analyse_mana_bar_2(all_t *store, game_object_t *mana)
+void analyse_mana_bar_2(all_t *store, game_object_t *mana)
 {
     if (store->mana_level == 1)
         mana->rect.top = 292;
@@ -34,14 +34,13 @@ all_t *analyse_mana_bar_2(all_t *store, game_object_t *mana)
         mana->rect.top = 730;
     if (store->mana_level == 5)
         mana->rect.top = 876;
-    if (store->mana_level == 6) 
+    if (store->mana_level == 6)
         mana->rect.top = 1022;
-    if (store->mana_level == 7) 
+    if (store->mana_level == 7)
         mana->rect.top = 1168;
     if (store->mana_level == 8)
         mana->rect.top = 1314;
     sfSprite_setTextureRect(mana->sprite, mana->rect);
-    return (store);
 }
 
 void analyse_mana_bar_3(all_t *store)
