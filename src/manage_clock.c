@@ -30,6 +30,8 @@ void manage_clock(game_object_t *objects)
     if (objects->animated) {
         objects->time = sfClock_getElapsedTime(objects->clock);
         objects->seconds = objects->time.microseconds / 1000000.0;
+        if (objects->type == MANA_BAR && objects->rect.left >= 687 && objects->rect.top == 0)
+            return;
         if (objects->seconds > objects->timing) {
             objects->move_rect(objects, objects->length, objects->max_rect);
             sfClock_restart(objects->clock);

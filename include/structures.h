@@ -10,7 +10,6 @@
 
 #define WIDTH 1920
 #define HEIGHT 1080
-#define GRAV 9.8
 
 typedef enum
 {
@@ -130,7 +129,7 @@ typedef struct all_s
     particles_t **particules;
     sfMusic **musics;
     sfRectangleShape **rectangles;
-    sfVector2f vel;
+    sfVector2f velocity;
     bool show_particules;
     int fps;
     sfUint8 mode;
@@ -138,6 +137,10 @@ typedef struct all_s
     float height;
     sfText **keys_text;
     sfKeyCode *keys_code;
+    int nb_jump;
+    int mana_level;
+    float gravity;
+    int right_or_left;
 }all_t;
 
 #endif /* STRUCTURES_H_ */

@@ -86,7 +86,10 @@ COMP	=	src/main.c	\
 			src/blend_mode.c	\
 			src/setup_keyboard.c	\
 			src/update_structures.c	\
-			src/garbage_collector.c
+			src/garbage_collector.c	\
+			src/manage_jump.c	\
+			src/analyse_mana.c	\
+			src/analyse_knight.c
 
 CFLAGS  =	-W -Wall -Wextra -lcsfml-graphics -lcsfml-window -lcsfml-system -lcsfml-audio -lm -Iinclude -g3
 

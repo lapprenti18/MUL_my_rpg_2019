@@ -34,6 +34,9 @@
 #include "./setup_keyboard.h"
 #include "./handle_keyboard_click.h"
 #include "./set_structures_second.h"
+#include "./manage_jump.h"
+#include "./analyse_mana.h"
+#include "./analyse_knight.h"
 
 #include "./lib.h"
 

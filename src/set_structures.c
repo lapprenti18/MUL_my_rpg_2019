@@ -95,4 +95,10 @@ void set_structures(all_t *store)
     store->show_particules = true;
     store->keys_text = create_keys();
     store->keys_code = create_codes();
+    store->velocity.x = 0;
+    store->velocity.y = 0;
+    store->mana_level = 0;
+    store->nb_jump = 1;
+    store->gravity = 0.75;
+    store->right_or_left = 0;
 }

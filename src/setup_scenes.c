@@ -55,15 +55,15 @@ game_object_t *setup_playing_sprites(void)
     game_object_t *playing  = NULL;
 
     add_node_back(&playing, (coding_style_t){MANA_BAR, (sfFloatRect){229, 146, \
-    229, 146}, (sfIntRect){0, 0, 229, 146}, "assets/textures/mana_bar.png", \
-    false, true, 687, 0.1});
+    229, 146}, (sfIntRect){0, 0, 229, 146}, "assets/textures/mana_bar_final-min.png", \
+    false, true, 687, 0.2});
     for (; x < 651; x += 75)
         add_node_back(&playing, (coding_style_t){HEALTH, (sfFloatRect){x, 146, \
     51, 66}, (sfIntRect){0, 0, 51, 66}, \
     "assets/textures/animation_vie_v5-min.png", false, true, 260, 0.15});
     add_node_back(&playing, (coding_style_t){KNIGHT, (sfFloatRect){200, 500, \
-    65, 131}, (sfIntRect){0, 0, 65, 131}, \
-    "assets/textures/knight_run_v4-min.png", false, true, 195, 0.2});
+    89, 127}, (sfIntRect){0, 0, 89, 127}, \
+    "assets/textures/Knight_final-min.png", false, true, 1157, 0.2});
     return (playing);
 }
 

@@ -11,5 +11,6 @@
 #include "./my.h"
 
 void analyse_events(all_t *store);
+game_object_t *check_animated(game_object_t *knight);
 
 #endif /* ANALYSE_EVENTS_H_ */
