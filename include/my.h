@@ -33,6 +33,7 @@
 #include "./update_structures.h"
 #include "./setup_keyboard.h"
 #include "./handle_keyboard_click.h"
+#include "./set_structures_second.h"
 
 #include "./lib.h"
 

@@ -93,4 +93,5 @@ void set_structures(all_t *store)
     store->musics = create_tab_music();
     store->rectangles = create_white_rectangles();
     store->show_particules = true;
+    store->keys = create_keys();
 }

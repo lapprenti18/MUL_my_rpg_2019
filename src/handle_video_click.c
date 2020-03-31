@@ -7,6 +7,14 @@
 
 #include "../include/my.h"
 
+void update_game_object(all_t *store, game_object_t *object)
+{
+    sfSprite_setScale(object->sprite, (sfVector2f)\
+    {store->width / WIDTH, store->height / HEIGHT});
+    object->change_pos(object, (sfVector2f){object->save_pos.x * \
+    store->width / WIDTH, object->save_pos.y * store->height / HEIGHT});
+}
+
 void scale_sprites(all_t *store, int y)
 {
     if (store->mode != sfResize) {
@@ -17,12 +25,8 @@ void scale_sprites(all_t *store, int y)
     }
     for (int index = 0; store->objects[index]; index += 1) {
         for (game_object_t *copy = store->objects[index]; copy; \
-        copy = copy->next) {
-            sfSprite_setScale(copy->sprite, (sfVector2f)\
-            {store->width / WIDTH, store->height / HEIGHT});
-            copy->change_pos(copy, (sfVector2f){copy->save_pos.x * \
-            store->width / WIDTH, copy->save_pos.y * store->height / HEIGHT});
-        }
+        copy = copy->next)
+            update_game_object(store, copy);
     }
     for (int index = 0; store->rectangles[index]; index += 1, y += 63) {
         sfRectangleShape_setScale(store->rectangles[index], (sfVector2f)\
@@ -79,5 +83,5 @@ void handle_video_click(all_t *store, game_object_t *copy)
     }
     update_video(store, copy);
     store->scene = (copy->type == BACK) ? MENU_OPTIONS : store->scene;
-    (copy->type == RES_CURSOR || RESET_DEFAULT) ? scale_sprites(store, 382) : 0;
+    (copy->type == RES_CURSOR || copy->type == RESET_DEFAULT) ? scale_sprites(store, 382) : 0;
 }

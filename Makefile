@@ -65,6 +65,7 @@ NAME	=	my_rpg
 
 COMP	=	src/main.c	\
 			src/set_structures.c	\
+			src/set_structures_second.c	\
 			src/loop_game.c	\
 			src/analyse_events.c	\
 			src/draw_scene.c	\
