@@ -14,6 +14,6 @@ game_object_t *setup_audio_sprites_next(game_object_t *audio);
 game_object_t *setup_audio_sprites(void);
 game_object_t *setup_playing_sprites(void);
 game_object_t *setup_options_sprites(void);
-game_object_t *setup_menu_sprites(void);
+game_object_t *setup_menu_sprites(game_object_t *menu);
 
 #endif /* SETUP_SCENES_H_ */

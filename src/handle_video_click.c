@@ -63,15 +63,13 @@ void update_video(all_t *store, game_object_t *copy)
 
 void handle_video_click(all_t *store, game_object_t *copy)
 {
-    game_object_t *temp = NULL;
-
     if (copy->type >= ON_OFF_1 && copy->type <= ON_OFF_3)
         copy->move_rect(copy, copy->length, copy->max_rect);
     if (copy->type == RES_CURSOR)
         copy->move_rect(copy, copy->length, copy->max_rect);
     if (copy->type == RESET_DEFAULT) {
-        temp = store->objects[MENU_VIDEO];
-        for (; temp; temp = temp->next) {
+        for (game_object_t *temp = store->objects[MENU_VIDEO]; \
+        temp; temp = temp->next) {
             if (temp->type == ON_OFF_1 || temp->type == ON_OFF_3)
                 temp->rect.left = 50;
             if (temp->type == ON_OFF_2 \
@@ -83,5 +81,6 @@ void handle_video_click(all_t *store, game_object_t *copy)
     }
     update_video(store, copy);
     store->scene = (copy->type == BACK) ? MENU_OPTIONS : store->scene;
-    (copy->type == RES_CURSOR || copy->type == RESET_DEFAULT) ? scale_sprites(store, 382) : 0;
+    (copy->type == RES_CURSOR || copy->type == RESET_DEFAULT) ? \
+    scale_sprites(store, 382) : 0;
 }

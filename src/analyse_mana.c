@@ -7,11 +7,8 @@
 
 #include "../include/my.h"
 
-void analyse_mana_bar(all_t *store)
+void analyse_mana_bar(all_t *store, game_object_t *mana)
 {
-    game_object_t *mana = store->objects[PLAYING];
-
-    for (; mana->type != MANA_BAR; mana = mana->next);
     if (store->event.type == sfEvtKeyPressed) {
         analyse_mana_bar_3(store);
     }

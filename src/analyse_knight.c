@@ -7,12 +7,9 @@
 
 #include "../include/my.h"
 
-void analyse_knight(all_t *store)
+void analyse_knight(all_t *store, game_object_t *knight)
 {
-    game_object_t *knight = store->objects[PLAYING];
-
-    for (; knight->type != KNIGHT; knight = knight->next);
-    knight = check_animated(knight);
+    check_animated(knight);
     if (store->right_or_left == 1) {
         if (knight->rect.left >= 620)
             knight->rect.left = 0;
@@ -42,7 +39,7 @@ void analyse_knight_2(all_t *store, game_object_t *knight)
             knight->rect.top = 127;
         }
     }
-    knight = check_animated(knight);
+    check_animated(knight);
     store->right_or_left = 0;
     sfSprite_setTextureRect(knight->sprite, knight->rect);
 }

@@ -10,7 +10,7 @@
 
 #include "./my.h"
 
-void analyse_mana_bar(all_t *store);
+void analyse_mana_bar(all_t *store, game_object_t *mana);
 void analyse_mana_bar_2(all_t *store, game_object_t *mana);
 void analyse_mana_bar_3(all_t *store);
 

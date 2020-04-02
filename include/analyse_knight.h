@@ -10,7 +10,7 @@
 
 #include "./my.h"
 
-void analyse_knight(all_t *store);
+void analyse_knight(all_t *store, game_object_t *knight);
 void analyse_knight_2(all_t *store, game_object_t *knight);
 void analyse_knight_right_left(all_t *store, game_object_t *knight);
 void analyse_knight_jump(all_t *store);

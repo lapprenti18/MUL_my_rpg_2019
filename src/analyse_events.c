@@ -7,20 +7,16 @@
 
 #include "../include/my.h"
 
-game_object_t *check_animated(game_object_t *knight)
+void check_animated(game_object_t *knight)
 {
     if (knight->rect.top == 0 || knight->rect.top == 127)
         knight->animated = false;
     else
         knight->animated = true;
-    return (knight);
 }
 
 void analyse_events(all_t *store)
 {
-    game_object_t *copy = store->objects[PLAYING];
-
-    for (; copy->type != KNIGHT; copy = copy->next);
     if (store->event.type == sfEvtClosed || \
     store->event.key.code == sfKeyEscape)
         sfRenderWindow_close(store->window);
@@ -28,6 +24,11 @@ void analyse_events(all_t *store)
         manage_mouse_clicked(store);
     if (store->event.type == sfEvtMouseMoved)
         manage_mouse_moved(store);
-    analyse_mana_bar(store);
-    analyse_knight(store);
+    for (game_object_t *copy = store->objects[PLAYING]; copy; \
+    copy = copy->next) {
+        if (copy->type == MANA_BAR)
+            analyse_mana_bar(store, copy);
+        if (copy->type == KNIGHT)
+            analyse_knight(store, copy);
+    }
 }

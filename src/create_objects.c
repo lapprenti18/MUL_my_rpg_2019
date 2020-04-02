@@ -59,7 +59,7 @@ game_object_t **create_objects(sfRenderWindow *window)
 
     if (!objects)
         return (NULL);
-    objects[MENU] = setup_menu_sprites();
+    objects[MENU] = setup_menu_sprites(NULL);
     objects[MENU_OPTIONS] = setup_options_sprites();
     objects[MENU_AUDIO] = setup_audio_sprites();
     objects[MENU_VIDEO] = setup_video_sprites();
