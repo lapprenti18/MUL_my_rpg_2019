@@ -12,5 +12,6 @@
 
 sfView *init_view(void);
 void set_structures_next(all_t *store);
+char **get_array(char *filepath);
 
 #endif /* SET_STRUCTURES_2_H_ */

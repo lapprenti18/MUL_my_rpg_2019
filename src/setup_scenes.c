@@ -56,7 +56,7 @@ game_object_t *setup_playing_sprites(void)
 
     add_node_back(&playing, (coding_style_t){BACKGROUND, (sfFloatRect){960, \
     540, 1920, 1080}, (sfIntRect){0, 0, 1920, 1080}, \
-    "assets/textures/first_screen.png", false, false, 687, 0.2});
+    "assets/textures/1er_map.png", false, false, 687, 0.2});
     sfSprite_setScale(playing->sprite, (sfVector2f){1.5, 1.5});
     playing->change_pos(playing, (sfVector2f){playing->pos.x - 280, \
     playing->pos.y});

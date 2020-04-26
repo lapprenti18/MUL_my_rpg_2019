@@ -25,5 +25,6 @@ void destroy_structures(all_t *store)
         sfRectangleShape_destroy(store->rectangles[index]);
     for (int index = 0; store->keys_text[index]; index += 1)
         sfText_destroy(store->keys_text[index]);
+    sfView_destroy(store->view);
     sfRenderWindow_destroy(store->window);
 }

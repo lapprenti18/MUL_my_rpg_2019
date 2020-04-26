@@ -144,6 +144,7 @@ typedef struct all_s
     int right_or_left;
     sfVector2f view_pos;
     sfView *view;
+    char **current;
 }all_t;
 
 #endif /* STRUCTURES_H_ */
