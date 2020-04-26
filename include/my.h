@@ -16,6 +16,7 @@
 #include "./draw_scene.h"
 #include "./loop_game.h"
 #include "./set_structures.h"
+#include "./set_structures_2.h"
 #include "./create_objects.h"
 #include "./destroy_structures.h"
 #include "./setup_functions.h"

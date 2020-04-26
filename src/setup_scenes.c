@@ -54,6 +54,13 @@ game_object_t *setup_playing_sprites(void)
     int x = 325;
     game_object_t *playing  = NULL;
 
+    add_node_back(&playing, (coding_style_t){BACKGROUND, (sfFloatRect){960, \
+    540, 1920, 1080}, (sfIntRect){0, 0, 1920, 1080}, \
+    "assets/textures/first_screen.png", false, false, 687, 0.2});
+    sfSprite_setScale(playing->sprite, (sfVector2f){1.5, 1.5});
+    playing->change_pos(playing, (sfVector2f){playing->pos.x - 280, \
+    playing->pos.y});
+    playing->get_viewed = false;
     add_node_back(&playing, (coding_style_t){MANA_BAR, (sfFloatRect){229, 146, \
     229, 146}, (sfIntRect){0, 0, 229, 146}, \
     "assets/textures/mana_bar_final-min.png", false, true, 687, 0.2});
@@ -61,7 +68,7 @@ game_object_t *setup_playing_sprites(void)
         add_node_back(&playing, (coding_style_t){HEALTH, (sfFloatRect){x, 146, \
     51, 66}, (sfIntRect){0, 0, 51, 66}, \
     "assets/textures/animation_vie_v5-min.png", false, true, 260, 0.15});
-    add_node_back(&playing, (coding_style_t){KNIGHT, (sfFloatRect){200, 500, \
+    add_node_back(&playing, (coding_style_t){KNIGHT, (sfFloatRect){201, 500, \
     89, 127}, (sfIntRect){0, 0, 89, 127}, \
     "assets/textures/Knight_final-min.png", false, true, 1157, 0.2});
     return (playing);

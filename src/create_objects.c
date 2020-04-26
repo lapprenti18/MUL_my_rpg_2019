@@ -44,6 +44,7 @@ void add_node_back(game_object_t **nodes, coding_style_t coding)
     new_node->timing = coding.timing;
     new_node->seconds = 0.0;
     new_node->save_pos = new_node->pos;
+    new_node->get_viewed = false;
     if (*nodes) {
         while (copy->next)
             copy = copy->next;

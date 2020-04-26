@@ -10,6 +10,7 @@
 
 #include "./my.h"
 
+void draw_sprite(all_t *store, game_object_t *object);
 void draw_scene(all_t *store);
 
 #endif /* DRAW_SCENE_H_ */
