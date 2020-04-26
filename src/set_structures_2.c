@@ -15,9 +15,8 @@ char **get_array(char *filepath)
     if (!fd)
         return (NULL);
     my_memset(buffer, 0, 5200);
-    if (read(fd, buffer, 5200) == 0)
+    if (read(fd, buffer, 5200) <= 0)
         return (NULL);
-    printf("%s\n", buffer);
     close(fd);
     return (my_str_to_word_array(buffer, "\n"));
 }

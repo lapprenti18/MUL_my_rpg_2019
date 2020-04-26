@@ -64,6 +64,7 @@ SRC	=	lib/my/my_putnbr_base.c	\
 NAME	=	my_rpg
 
 COMP	=	src/main.c	\
+			src/collisions.c	\
 			src/set_structures.c	\
 			src/set_structures_2.c	\
 			src/set_structures_second.c	\

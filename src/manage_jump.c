@@ -10,7 +10,9 @@
 void update_jump(all_t *store)
 {
     game_object_t *copy = store->objects[PLAYING];
+    int check = check_collision(store);
 
+    //printf("%d\n", check);
     for (; copy->type != KNIGHT; copy = copy->next);
     if (store->velocity.x > 2)
         store->velocity.x = 2;
