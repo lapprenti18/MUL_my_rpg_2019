@@ -146,6 +146,8 @@ typedef struct all_s
     sfTexture **textures;
     int index_maps;
     bool change_texture;
+    sfVector2f accel;
+    float frottement;
 }all_t;
 
 #endif /* STRUCTURES_H_ */

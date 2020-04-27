@@ -45,19 +45,19 @@ void update_jump(all_t *store)
     int check = check_collision(store);
 
     for (; copy->type != KNIGHT; copy = copy->next);
-    if (store->velocity.x > 2)
-        store->velocity.x = 2;
-    if (store->velocity.x < -2)
-        store->velocity.x = -2;
-    copy->pos.x -= store->velocity.x;
-    copy->pos.y += store->velocity.y;
+    store->accel.x = 0;
+    store->accel.y = store->gravity;
+    store->accel.x += store->velocity.x * store->frottement;
+    store->accel.y += store->velocity.y;
+    store->velocity.x += store->accel.x;
+    store->velocity.y += store->accel.y;
+    copy->pos.x += store->velocity.x + 0.5 * store->accel.x;
+    copy->pos.y += store->velocity.y + 0.5 * store->accel.y;
     change_screen(store, copy);
-    if (copy->pos.y < check) {
-        store->velocity.y += store->gravity;
-    } else {
+    if (copy->pos.y > check) {
+        store->nb_jump = 1;
         store->velocity.y = 0;
         copy->pos.y = check;
-        store->nb_jump = 1;
     }
     sfSprite_setPosition(copy->sprite, copy->pos);
 }

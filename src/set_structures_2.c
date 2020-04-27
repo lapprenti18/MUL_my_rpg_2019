@@ -39,4 +39,7 @@ void set_structures_next(all_t *store)
     store->textures = init_backgrounds();
     store->index_maps = 0;
     store->change_texture = false;
+    store->accel.x = 0;
+    store->accel.y = store->gravity;
+    store->frottement = -0.12;
 }
