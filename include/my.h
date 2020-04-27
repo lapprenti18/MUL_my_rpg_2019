@@ -23,6 +23,7 @@
 #include "./setup_functions.h"
 #include "./manage_mouse_clicked.h"
 #include "./manage_mouse_moved.h"
+#include "./manage_key_pressed.h"
 #include "./setup_scenes.h"
 #include "./setup_scenes_2.h"
 #include "./manage_clock.h"

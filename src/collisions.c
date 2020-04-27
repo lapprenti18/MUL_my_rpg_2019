@@ -22,12 +22,15 @@ int check_collision(all_t *store)
             pos.y = ob->pos.y;
             break;
         }
-    y = (pos.y + ob->height / 2) / 20 - 1;
-    x = (pos.x + ob->length / 2) / 20 - 1;
+    y = (pos.y + ob->height / 2) / 20;
+    x = (pos.x + ob->length / 2) / 20;
     if (x < 0 || y < 0 || x > 95 || y > 95)
         return (-1);
-    for (; store->current[y]; y += 1)
+    printf("y : %d x : %d\n", y, x);
+    for (; store->current[y]; y += 1) {
+        printf("%c\n", store->current[y][x]);
         if (store->current[y][x] == '1')
-            return ((y + 1) * 20 - (ob->height / 2));
+            return (y * 20 - (ob->height / 2));
+    }
     return (1200);
 }
