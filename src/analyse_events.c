@@ -24,8 +24,8 @@ void analyse_events(all_t *store)
         manage_mouse_clicked(store);
     if (store->event.type == sfEvtMouseMoved)
         manage_mouse_moved(store);
-    //if (store->event.type == sfEvtKeyPressed)
-    //    manage_key_pressed(store);
+    if (store->event.type == sfEvtKeyPressed)
+        manage_key_pressed(store);
     /*for (game_object_t *copy = store->objects[PLAYING]; copy; \
     copy = copy->next) {
         if (copy->type == MANA_BAR)

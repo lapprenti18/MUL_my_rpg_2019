@@ -55,7 +55,7 @@ game_object_t *setup_playing_sprites(void)
     game_object_t *playing  = NULL;
 
     add_node_back(&playing, (coding_style_t){BACKGROUND, (sfFloatRect){960, \
-    540, 1920, 1080}, (sfIntRect){0, 0, 1920, 1080}, \
+    525, 1920, 1080}, (sfIntRect){0, 0, 1920, 1080}, \
     "assets/textures/1er_map.png", false, false, 687, 0.2});
     add_node_back(&playing, (coding_style_t){MANA_BAR, (sfFloatRect){229, 146, \
     229, 146}, (sfIntRect){0, 0, 229, 146}, \
