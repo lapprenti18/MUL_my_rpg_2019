@@ -57,10 +57,6 @@ game_object_t *setup_playing_sprites(void)
     add_node_back(&playing, (coding_style_t){BACKGROUND, (sfFloatRect){960, \
     540, 1920, 1080}, (sfIntRect){0, 0, 1920, 1080}, \
     "assets/textures/1er_map.png", false, false, 687, 0.2});
-    sfSprite_setScale(playing->sprite, (sfVector2f){1.5, 1.5});
-    playing->change_pos(playing, (sfVector2f){playing->pos.x - 280, \
-    playing->pos.y});
-    playing->get_viewed = false;
     add_node_back(&playing, (coding_style_t){MANA_BAR, (sfFloatRect){229, 146, \
     229, 146}, (sfIntRect){0, 0, 229, 146}, \
     "assets/textures/mana_bar_final-min.png", false, true, 687, 0.2});

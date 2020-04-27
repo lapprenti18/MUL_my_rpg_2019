@@ -7,20 +7,13 @@
 
 #include "../include/my.h"
 
-void draw_sprite(all_t *store, game_object_t *object)
+void draw_single_sprite(all_t *store, game_object_t *temp)
 {
-    sfVector2f pos;
-
-    pos.x = object->pos.x + store->view_pos.x;
-    pos.y = object->pos.y + store->view_pos.y;
-    if (!object->get_viewed) {
-            if (object->type == BACKGROUND && store->scene == PLAYING) {
-                pos.x -= store->view_pos.x;
-                pos.y -= store->view_pos.y;
-            }
-            sfSprite_setPosition(object->sprite, pos);
-    }
-    sfRenderWindow_drawSprite(store->window, object->sprite, NULL);
+    if (temp->type == BACKGROUND && store->scene == PLAYING && \
+    store->change_texture)
+        sfSprite_setTexture(temp->sprite, \
+        store->textures[store->index_maps], sfTrue);
+    sfRenderWindow_drawSprite(store->window, temp->sprite, NULL);
 }
 
 void draw_scene(all_t *store)
@@ -30,7 +23,7 @@ void draw_scene(all_t *store)
     for (game_object_t *temp = store->objects[store->scene]; \
     temp; temp = temp->next) {
         update(store, temp, mouse);
-        draw_sprite(store, temp);
+        draw_single_sprite(store, temp);
         for (int index = 0; store->scene == MENU_AUDIO && \
         store->rectangles[index]; index += 1)
             sfRenderWindow_drawRectangleShape(store->window, \

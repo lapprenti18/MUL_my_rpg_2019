@@ -142,9 +142,10 @@ typedef struct all_s
     int mana_level;
     float gravity;
     int right_or_left;
-    sfVector2f view_pos;
-    sfView *view;
     char **current;
+    sfTexture **textures;
+    int index_maps;
+    bool change_texture;
 }all_t;
 
 #endif /* STRUCTURES_H_ */

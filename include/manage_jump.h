@@ -11,6 +11,7 @@
 #include "./my.h"
 
 void update_jump(all_t *store);
-void manage_jump(all_t *store);
+void change_screen(all_t *store, game_object_t *object);
+void change_screen_next(all_t *store, game_object_t *object);
 
 #endif /* MANAGE_JUMP_H_ */

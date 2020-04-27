@@ -21,19 +21,22 @@ char **get_array(char *filepath)
     return (my_str_to_word_array(buffer, "\n"));
 }
 
-sfView *init_view(void)
+sfTexture **init_backgrounds(void)
 {
-    sfView *view = sfView_create();
+    sfTexture **tab = my_malloc(sizeof(sfTexture *) * 2);
 
-    sfView_setSize(view, (sfVector2f){1920, 1080});
-    sfView_setCenter(view, (sfVector2f){200, 500});
-    return (view);
+    if (!tab)
+        return (NULL);
+    tab[0] = sfTexture_createFromFile("assets/textures/1er_map.png", NULL);
+    tab[1] = sfTexture_createFromFile("assets/textures/town.png", NULL);
+    return (tab);
 }
 
 void set_structures_next(all_t *store)
 {
     store->right_or_left = 0;
-    store->view = init_view();
-    store->view_pos = (sfVector2f){0, 0};
     store->current = get_array("assets/collisions/first_screen.txt");
+    store->textures = init_backgrounds();
+    store->index_maps = 0;
+    store->change_texture = false;
 }

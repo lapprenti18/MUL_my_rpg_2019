@@ -13,5 +13,6 @@
 sfView *init_view(void);
 void set_structures_next(all_t *store);
 char **get_array(char *filepath);
+sfTexture **init_backgrounds(void);
 
 #endif /* SET_STRUCTURES_2_H_ */
