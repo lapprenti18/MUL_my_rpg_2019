@@ -7,6 +7,12 @@
 
 #include "../include/my.h"
 
+col_t spe_array[2] =
+{
+    {0, "assets/collisions/first_screen.txt"},
+    {1, "assets/collisions/second_screen.txt"}
+};
+
 void change_screen_next(all_t *store, game_object_t *object)
 {
     if (store->index_maps == 1) {
@@ -18,6 +24,7 @@ void change_screen_next(all_t *store, game_object_t *object)
             store->index_maps = 0;
             object->change_pos(object, (sfVector2f){1900, object->pos.y});
             store->change_texture = true;
+            store->current = get_array(spe_array[0].filepath);
         }
     }
 }
@@ -33,6 +40,7 @@ void change_screen(all_t *store, game_object_t *object)
             store->index_maps = 1;
             object->change_pos(object, (sfVector2f){50, object->pos.y});
             store->change_texture = true;
+            store->current = get_array(spe_array[1].filepath);
         }
         return;
     }

@@ -82,6 +82,12 @@ typedef enum
     TOTAL
 } SCENE;
 
+typedef struct col_s
+{
+    int index;
+    char *filepath;
+} col_t;
+
 typedef struct game_object_s
 {
     SPRITES type;
@@ -153,6 +159,7 @@ typedef struct all_s
     bool change_texture;
     sfVector2f accel;
     float frottement;
+    int save;
 }all_t;
 
 #endif /* STRUCTURES_H_ */

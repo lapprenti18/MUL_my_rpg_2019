@@ -16,6 +16,8 @@ typedef struct format_t
     void (*ptr)(va_list);
 } format_t;
 
+char *my_ftoa(float number, char *buffer, int afterpoint);
+double my_getfloat(char *str);
 double my_getfloat(char *str);
 void my_memset(char *buffer, char c, int number);
 int    my_putnbr_base(int nbr, char const *base);

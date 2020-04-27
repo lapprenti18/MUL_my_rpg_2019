@@ -5,7 +5,56 @@
 ** my_getfloat.c
 */
 
-int my_getnbr(char *str);
+#include "../../include/my.h"
+
+int int_to_ascii(int number, char *buffer, int afterpoint)
+{
+    int index = 0;
+
+    for (; number > 0; number /= 10) {
+        buffer[index] = (number % 10) + '0';
+        index += 1;
+    }
+    while (index < afterpoint) {
+        buffer[index] = 0;
+        index += 1;
+    }
+    buffer[index] = 0;
+    my_revstr(buffer);
+    return (index);
+}
+
+char *get_neg(char *buffer)
+{
+    int index = 0;
+
+    my_revstr(buffer);
+    for (; buffer[index]; index += 1);
+    buffer[index] = '-';
+    return (my_revstr(buffer));
+}
+
+char *my_ftoa(float number, char *buffer, int afterpoint)
+{
+    int i_part = 0;
+    float f_part = 0.0;
+    int index = 0;
+    int check = 0;
+
+    (number < 0) ? check = 1 : 0;
+    (check == 1) ? number *= -1 : 0;
+    i_part = (int)number;
+    f_part = number - (float)i_part;
+    index = int_to_ascii(i_part, buffer, 0);
+    if (afterpoint != 0) {
+        buffer[index] = '.';
+        f_part = f_part * pow(10, afterpoint);
+        int_to_ascii((int)f_part, buffer + index + 1, afterpoint);
+    }
+    if (check == 1)
+        buffer = get_neg(buffer);
+    return (buffer);
+}
 
 int is_num(char c)
 {

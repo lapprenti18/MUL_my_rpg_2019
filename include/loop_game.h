@@ -11,8 +11,8 @@
 #include "./my.h"
 
 void loop_game(all_t *store);
-void update_view(all_t *store);
-void update_view_next(all_t *store, game_object_t *ob, game_object_t *copy);
+void write_in_file(all_t *store);
+char *my_int_to_ascii(int number);
 
 
 #endif /* LOOP_GAME_H_ */
