@@ -14,6 +14,7 @@ void handle_saves_click(all_t *store, game_object_t *copy)
     if (copy->type >= SAVE_1 && copy->type <= SAVE_4) {
         sfMusic_pause(store->musics[MENU]);
         sfMusic_play(store->musics[PLAYING]);
+        store->show_particules = false;
         store->scene = PLAYING;
     }
 }

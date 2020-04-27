@@ -9,8 +9,10 @@
 
 void handle_pause_click(all_t *store, game_object_t *copy)
 {
-    if (copy->type == PAUSE_CONTINUE)
+    if (copy->type == PAUSE_CONTINUE) {
+        store->show_particules = false;
         store->scene = PLAYING;
+    }
     if (copy->type == PAUSE_OPTIONS)
         store->scene = MENU_OPTIONS;
     if (copy->type == PAUSE_QUIT)
