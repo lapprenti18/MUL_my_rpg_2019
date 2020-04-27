@@ -22,7 +22,7 @@ void handle_click(all_t *store, game_object_t *copy, sfVector2i mouse)
     if (store->scene == MENU_KEYBOARD)
         return (handle_keyboard_click(store, copy));
     if (store->scene == PAUSE)
-        return(handle_pause_click(store, copy));
+        return (handle_pause_click(store, copy));
 }
 
 void manage_mouse_clicked(all_t *store)

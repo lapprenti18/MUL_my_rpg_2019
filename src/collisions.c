@@ -26,9 +26,8 @@ int check_collision(all_t *store)
     x = (int)(pos.x + ob->length / 2) / 20 - 3;
     if (x < 0 || y < 0 || x > 95 || y > 54)
         return (-1);
-    for (; store->current[y]; y += 1) {
+    for (; store->current[y]; y += 1)
         if (store->current[y][x] == '1')
             return (y * 20 - (ob->height / 2));
-    }
     return (1200);
 }

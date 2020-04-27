@@ -21,7 +21,6 @@ void update_save(all_t *store, char *filepath)
 
     if (!array || !array[0])
         return;
-    printf("%s\n", array[0]);
     save_index = my_getnbr(array[2]);
     for (; object; object = object->next) {
         if (object->type == KNIGHT) {
@@ -31,7 +30,8 @@ void update_save(all_t *store, char *filepath)
         }
         if (object->type == BACKGROUND) {
             store->current = get_array(tab_spe[save_index].filepath);
-            sfSprite_setTexture(object->sprite, store->textures[save_index], sfTrue);
+            sfSprite_setTexture(object->sprite, \
+            store->textures[save_index], sfTrue);
             store->index_maps = save_index;
         }
     }

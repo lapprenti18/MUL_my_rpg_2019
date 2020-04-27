@@ -46,11 +46,9 @@ void write_in_file(all_t *store)
     write(fd, buffer, my_strlen(buffer));
     write(fd, "\n", 1);
     buffer = my_ftoa(object->pos.y, buffer, 6);
-    printf("%s\n", buffer);
     write(fd, buffer, my_strlen(buffer));
     write(fd, "\n", 1);
     buffer = my_int_to_ascii(store->index_maps);
-    printf("%s %d\n", buffer, store->index_maps);
     write(fd, buffer, my_strlen(buffer));
     write(fd, "\n", 1);
 }
