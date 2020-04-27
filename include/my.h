@@ -40,6 +40,7 @@
 #include "./manage_jump.h"
 #include "./analyse_mana.h"
 #include "./analyse_knight.h"
+#include "./setup_pause_sprites.h"
 
 #include "./lib.h"
 

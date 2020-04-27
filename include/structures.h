@@ -62,6 +62,10 @@ typedef enum
     MANA_BAR,
     HEALTH,
     KNIGHT,
+    SHAPE_PAUSE,
+    PAUSE_CONTINUE,
+    PAUSE_OPTIONS,
+    PAUSE_QUIT,
     BACK
 } SPRITES;
 
@@ -74,6 +78,7 @@ typedef enum
     MENU_KEYBOARD,
     SAVES_SCREEN,
     PLAYING,
+    PAUSE,
     TOTAL
 } SCENE;
 

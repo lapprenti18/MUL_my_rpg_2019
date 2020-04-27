@@ -92,7 +92,8 @@ COMP	=	src/main.c	\
 			src/garbage_collector.c	\
 			src/manage_jump.c	\
 			src/analyse_mana.c	\
-			src/analyse_knight.c
+			src/analyse_knight.c	\
+			src/setup_pause_sprites.c	\
 
 CFLAGS  =	-W -Wall -Wextra -lcsfml-graphics -lcsfml-window -lcsfml-system -lcsfml-audio -lm -Iinclude -g3
 
