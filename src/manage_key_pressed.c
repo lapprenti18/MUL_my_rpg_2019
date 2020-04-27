@@ -7,24 +7,18 @@
 
 #include "../include/my.h"
 
-void check_left(all_t *store, game_object_t *object)
+void check_input(all_t *store, game_object_t *object)
 {
     if (object->type == KNIGHT) {
-        store->velocity.x = -15;
-    }
-}
-
-void check_jump(all_t *store, game_object_t *object)
-{
-    if (object->type == KNIGHT) {
-        store->velocity.y = -0.5;
-    }
-}
-
-void check_right(all_t *store, game_object_t *object)
-{
-    if (object->type == KNIGHT) {
-        store->velocity.x = 15;
+        if (sfKeyboard_isKeyPressed(store->keys_code[2]))
+            store->velocity.x = -3;
+        if (sfKeyboard_isKeyPressed(store->keys_code[3]))
+            store->velocity.x = 3;
+        if (sfKeyboard_isKeyPressed(store->keys_code[5]) && \
+        store->nb_jump != 0) {
+            store->velocity.y = -10;
+            store->nb_jump = 0;
+        }
     }
 }
 
@@ -32,16 +26,6 @@ void manage_key_pressed(all_t *store)
 {
     if (store->scene != PLAYING)
         return;
-    if (store->event.key.code == store->keys_code[3]) {
-        for (game_object_t *ob = store->objects[PLAYING]; ob; ob = ob->next)
-            check_right(store, ob);
-    }
-    if (store->event.key.code == store->keys_code[2]) {
-        for (game_object_t *ob = store->objects[PLAYING]; ob; ob = ob->next)
-            check_left(store, ob);
-    }
-    if (store->event.key.code == store->keys_code[5]) {
-        for (game_object_t *ob = store->objects[PLAYING]; ob; ob = ob->next)
-            check_jump(store, ob);
-    }
+    for (game_object_t *ob = store->objects[PLAYING]; ob; ob = ob->next)
+        check_input(store, ob);
 }

@@ -48,7 +48,6 @@ void update_jump(all_t *store)
     store->accel.x = 0;
     store->accel.y = store->gravity;
     store->accel.x += store->velocity.x * store->frottement;
-    store->accel.y += store->velocity.y;
     store->velocity.x += store->accel.x;
     store->velocity.y += store->accel.y;
     copy->pos.x += store->velocity.x + 0.5 * store->accel.x;
