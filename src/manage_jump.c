@@ -52,11 +52,11 @@ void update_jump(all_t *store)
     copy->pos.x -= store->velocity.x;
     copy->pos.y += store->velocity.y;
     change_screen(store, copy);
-    if (copy->pos.y < 980) {
+    if (copy->pos.y < check) {
         store->velocity.y += store->gravity;
     } else {
         store->velocity.y = 0;
-        copy->pos.y = 980;
+        copy->pos.y = check;
         store->nb_jump = 1;
     }
     sfSprite_setPosition(copy->sprite, copy->pos);
