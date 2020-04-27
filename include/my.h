@@ -41,6 +41,7 @@
 #include "./analyse_mana.h"
 #include "./analyse_knight.h"
 #include "./setup_pause_sprites.h"
+#include "./handle_pause_click.h"
 
 #include "./lib.h"
 

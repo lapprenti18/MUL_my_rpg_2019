@@ -27,6 +27,8 @@ void manage_key_pressed(all_t *store)
     if (store->scene == PLAYING)
         for (game_object_t *ob = store->objects[PLAYING]; ob; ob = ob->next)
             check_input(store, ob);
-    if (store->event.key.code == sfKeyP)
+    if (store->event.key.code == sfKeyP) {
+        store->show_particules = true;
         store->scene = PAUSE;
+    }
 }

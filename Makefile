@@ -94,6 +94,7 @@ COMP	=	src/main.c	\
 			src/analyse_mana.c	\
 			src/analyse_knight.c	\
 			src/setup_pause_sprites.c	\
+			src/handle_pause_click.c	\
 
 CFLAGS  =	-W -Wall -Wextra -lcsfml-graphics -lcsfml-window -lcsfml-system -lcsfml-audio -lm -Iinclude -g3
 
