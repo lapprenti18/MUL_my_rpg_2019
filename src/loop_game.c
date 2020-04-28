@@ -53,6 +53,9 @@ void write_in_file(all_t *store)
     buffer = my_int_to_ascii(store->index_maps);
     write(fd, buffer, my_strlen(buffer));
     write(fd, "\n", 1);
+    buffer = my_int_to_ascii(store->nb_golds);
+    write(fd, buffer, my_strlen(buffer));
+    write(fd, "\n", 1);
 }
 
 void clear_keypress(all_t *store)
