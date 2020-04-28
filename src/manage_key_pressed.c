@@ -22,8 +22,19 @@ void check_input(all_t *store, game_object_t *object)
     }
 }
 
+void change_key(all_t *store)
+{
+    for (int i = 0; i < sfKeyCount; i++)
+        if (store->event.key.code == i)
+            store->key_press[i] = 1;
+}
+
 void manage_key_pressed(all_t *store)
 {
+    if (store->scene == MENU_KEYBOARD) {
+        change_key(store);
+        return;
+    }
     if (store->scene == PLAYING) {
         for (game_object_t *ob = store->objects[PLAYING]; ob; ob = ob->next)
             check_input(store, ob);

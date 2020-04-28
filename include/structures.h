@@ -45,10 +45,10 @@ typedef enum
     KEY_SHAPE,
     UP,
     DOWN,
-    JUMP,
     LEFT,
     RIGHT,
     ATTACK,
+    JUMP,
     INVENTORY,
     PROFILE,
     SAVE_1,
@@ -148,6 +148,7 @@ typedef struct all_s
     float width;
     float height;
     sfText **keys_text;
+    int *key_press;
     sfKeyCode *keys_code;
     int nb_jump;
     int mana_level;

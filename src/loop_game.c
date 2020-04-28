@@ -53,11 +53,18 @@ void write_in_file(all_t *store)
     write(fd, "\n", 1);
 }
 
+void clear_keypress(all_t *store)
+{
+    for (int i = 0; i < sfKeyCount; i++)
+        store->key_press[i] = 0;
+}
+
 void loop_game(all_t *store)
 {
     sfMusic_play(store->musics[MENU]);
     while (sfRenderWindow_isOpen(store->window)) {
         sfRenderWindow_clear(store->window, sfCyan);
+        clear_keypress(store);
         while (sfRenderWindow_pollEvent(store->window, &store->event))
             analyse_events(store);
         manage_key_pressed(store);
