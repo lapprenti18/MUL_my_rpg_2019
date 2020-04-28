@@ -58,8 +58,6 @@ game_object_t **create_objects(sfRenderWindow *window)
     game_object_t **objects = my_malloc(sizeof(game_object_t) * (TOTAL + 1));
     sfVector2i mouse = sfMouse_getPositionRenderWindow(window);
 
-    if (!objects)
-        return (NULL);
     objects[MENU] = setup_menu_sprites(NULL);
     objects[MENU_OPTIONS] = setup_options_sprites();
     objects[MENU_AUDIO] = setup_audio_sprites();
@@ -69,6 +67,7 @@ game_object_t **create_objects(sfRenderWindow *window)
     objects[PLAYING] = setup_playing_sprites();
     objects[PAUSE] = setup_pause_sprites();
     objects[INVENTORY] = setup_inventory_sprites();
+    objects[SHOP] = setup_shop_sprites();
     for (int index = MENU; index < TOTAL; index += 1)
         add_node_back(&objects[index], (coding_style_t){CURSEUR, \
         (sfFloatRect){mouse.x, mouse.y, 25, 25}, \

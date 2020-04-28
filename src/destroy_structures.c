@@ -27,5 +27,6 @@ void destroy_structures(all_t *store)
         sfText_destroy(store->keys_text[index]);
     for (int index = 0; index < 2; index += 1)
         sfTexture_destroy(store->textures[index]);
+    sfText_destroy(store->golds);
     sfRenderWindow_destroy(store->window);
 }

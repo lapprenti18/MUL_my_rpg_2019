@@ -23,6 +23,7 @@ void update_save(all_t *store, char *filepath)
     if (!array || !array[0])
         return;
     save_index = my_getnbr(array[2]);
+    store->nb_golds = my_getnbr(array[3]);
     for (; object; object = object->next) {
         if (object->type == KNIGHT) {
             object->pos.x = my_getfloat(array[0]);

@@ -36,6 +36,7 @@ sfMusic **create_tab_music(void)
     musics[PLAYING] = sfMusic_createFromFile("assets/musics/playing.ogg");
     musics[PAUSE] = NULL;
     musics[INVENTORY] = NULL;
+    musics[SHOP] = NULL;
     musics[TOTAL] = NULL;
     for (int index = 0; musics[index]; index += 1) {
         sfMusic_setLoop(musics[index], sfTrue);

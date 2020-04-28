@@ -66,6 +66,7 @@ typedef enum
     PAUSE_CONTINUE,
     PAUSE_OPTIONS,
     PAUSE_QUIT,
+    GOLDS,
     BACK
 } SPRITES;
 
@@ -80,6 +81,7 @@ typedef enum
     PLAYING,
     PAUSE,
     INVENTORY,
+    SHOP,
     TOTAL
 } SCENE;
 
@@ -163,7 +165,8 @@ typedef struct all_s
     float frottement;
     int save;
     bool in_inventory;
-    int inv;
+    int nb_golds;
+    sfText *golds;
 }all_t;
 
 #endif /* STRUCTURES_H_ */

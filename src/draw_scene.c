@@ -9,10 +9,22 @@
 
 void draw_single_sprite(all_t *store, game_object_t *temp)
 {
-    if (temp->type == BACKGROUND && store->scene == PLAYING && \
-    store->change_texture)
-        sfSprite_setTexture(temp->sprite, \
-        store->textures[store->index_maps], sfTrue);
+    if (temp->type == BACKGROUND) {
+        if (store->scene == PLAYING && store->change_texture)
+            sfSprite_setTexture(temp->sprite, \
+            store->textures[store->index_maps], sfTrue);
+        sfRenderWindow_drawSprite(store->window, temp->sprite, NULL);
+        sfText_setString(store->golds, my_int_to_ascii(store->nb_golds));
+        if (store->scene == PLAYING) {
+            sfText_setPosition(store->golds, (sfVector2f){1750, 75});
+            sfRenderWindow_drawText(store->window, store->golds, NULL);
+        }
+        if (store->scene == SHOP) {
+            sfText_setPosition(store->golds, (sfVector2f){140, 75});
+            sfRenderWindow_drawText(store->window, store->golds, NULL);
+        }
+        return;
+    }
     sfRenderWindow_drawSprite(store->window, temp->sprite, NULL);
 }
 

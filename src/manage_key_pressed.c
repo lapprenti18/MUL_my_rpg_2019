@@ -26,6 +26,9 @@ int change_rect(game_object_t *object, int right)
 void check_input(all_t *store, game_object_t *object)
 {
     if (object->type == KNIGHT) {
+        if (sfKeyboard_isKeyPressed(store->keys_code[0]) && \
+        store->nb_jump != 0 && object->pos.x >= 975 && object->pos.x <= 1050)
+            store->scene = SHOP;
         if (sfKeyboard_isKeyPressed(store->keys_code[2])) {
             store->velocity.x = -3;
             object->rect.top = change_rect(object, 2);
@@ -64,6 +67,10 @@ void manage_key_pressed(all_t *store)
             store->show_particules = true;
             store->scene = PAUSE;
         }
+        if (sfKeyboard_isKeyPressed(sfKeyA))
+            store->nb_golds += 1;
+        if (sfKeyboard_isKeyPressed(sfKeyE))
+            store->nb_golds -= 1;
     }
     if (sfKeyboard_isKeyPressed(store->keys_code[6]))
         if (store->in_inventory == false && store->scene == PLAYING) {

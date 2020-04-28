@@ -40,6 +40,8 @@ void write_in_file(all_t *store)
     char *buffer = my_malloc(sizeof(char) * 40);
     game_object_t *object = store->objects[PLAYING];
 
+    if (!fd)
+        return;
     for (; object->type != KNIGHT; object = object->next);
     my_memset(buffer, 0, 40);
     buffer = my_ftoa(object->pos.x, buffer, 6);
@@ -49,6 +51,9 @@ void write_in_file(all_t *store)
     write(fd, buffer, my_strlen(buffer));
     write(fd, "\n", 1);
     buffer = my_int_to_ascii(store->index_maps);
+    write(fd, buffer, my_strlen(buffer));
+    write(fd, "\n", 1);
+    buffer = my_int_to_ascii(store->nb_golds);
     write(fd, buffer, my_strlen(buffer));
     write(fd, "\n", 1);
 }
