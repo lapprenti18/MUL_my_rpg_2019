@@ -7,18 +7,44 @@
 
 #include "../include/my.h"
 
+int change_rect(game_object_t *object, int right)
+{
+    if (right == 1) {
+        if (object->rect.top == 0 || object->rect.top == 127)
+            return (0);
+        if (object->rect.top == 889)
+            return (762);
+    } else {
+        if (object->rect.top == 0 || object->rect.top == 127)
+            return (127);
+        if (object->rect.top == 762)
+            return (889);
+    }
+    return (object->rect.top);
+}
+
 void check_input(all_t *store, game_object_t *object)
 {
     if (object->type == KNIGHT) {
-        if (sfKeyboard_isKeyPressed(store->keys_code[2]))
+        if (sfKeyboard_isKeyPressed(store->keys_code[2])) {
+            if (check_left_collision(store))
+                store->velocity.x = 0;
             store->velocity.x = -3;
-        if (sfKeyboard_isKeyPressed(store->keys_code[3]))
+            object->rect.top = change_rect(object, 2);
+        }
+        if (sfKeyboard_isKeyPressed(store->keys_code[3])) {
             store->velocity.x = 3;
+            if (check_right_collision(store))
+                store->velocity.x = 0;
+            object->rect.top = change_rect(object, 1);
+        }
         if (sfKeyboard_isKeyPressed(store->keys_code[5]) && \
         store->nb_jump != 0) {
             store->velocity.y = -10;
             store->nb_jump = 0;
+            object->rect.top = (object->rect.top == 0) ? 762 : 889;
         }
+        sfSprite_setTextureRect(object->sprite, object->rect);
     }
 }
 

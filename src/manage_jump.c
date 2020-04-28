@@ -52,6 +52,8 @@ void change_screen_next(all_t *store, game_object_t *object)
 
 void change_screen(all_t *store, game_object_t *object)
 {
+    if (object->pos.y >= 1000)
+        object->change_pos(object, (sfVector2f){200, 500});
     if (store->index_maps == 0) {
         if (object->pos.x <= 10) {
             object->change_pos(object, (sfVector2f){10, object->pos.y});
@@ -75,7 +77,6 @@ void update_jump(all_t *store)
 
     for (; copy->type != KNIGHT; copy = copy->next);
     check = check_collision(store);
-    change_screen(store, copy);
     store->accel.x = 0;
     store->accel.y = store->gravity;
     store->accel.x += store->velocity.x * store->frottement;
@@ -87,6 +88,9 @@ void update_jump(all_t *store)
         store->nb_jump = 1;
         store->velocity.y = 0;
         copy->pos.y = check;
+        copy->rect.top = (copy->rect.top <= 127) ? copy->rect.top : copy->rect.top - 762;
+        sfSprite_setTextureRect(copy->sprite, copy->rect);
     }
+    change_screen(store, copy);
     sfSprite_setPosition(copy->sprite, copy->pos);
 }
