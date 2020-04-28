@@ -7,6 +7,20 @@
 
 #include "../include/my.h"
 
+game_object_t *setup_shop_sprites_next(game_object_t *shop)
+{
+    add_node_back(&shop, (coding_style_t){MANA_CHARM, \
+    (sfFloatRect){1470, 522, 840, 136}, (sfIntRect){0, 272, 849, 136}, \
+    "assets/textures/shop_charms.png", true, false, -1, -1});
+    add_node_back(&shop, (coding_style_t){GOLD_CHARM, \
+    (sfFloatRect){1470, 658, 840, 136}, (sfIntRect){0, 408, 849, 136}, \
+    "assets/textures/shop_charms.png", true, false, -1, -1});
+    add_node_back(&shop, (coding_style_t){HEART_CHARM, \
+    (sfFloatRect){1470, 794, 840, 136}, (sfIntRect){0, 544, 849, 136}, \
+    "assets/textures/shop_charms.png", true, false, -1, -1});
+    return (shop);
+}
+
 game_object_t *setup_shop_sprites(void)
 {
     game_object_t *shop = NULL;
@@ -20,5 +34,11 @@ game_object_t *setup_shop_sprites(void)
     add_node_back(&shop, (coding_style_t){BACK, (sfFloatRect){200, 920, \
     309, 70}, (sfIntRect){0, 210, 309, 70}, \
     "assets/textures/menu_options.png", true, false, -1, -1});
-    return (shop);
+    add_node_back(&shop, (coding_style_t){LIFE_CHARM, \
+    (sfFloatRect){1470, 250, 840, 136}, (sfIntRect){0, 0, 849, 136}, \
+    "assets/textures/shop_charms.png", true, false, -1, -1});
+    add_node_back(&shop, (coding_style_t){ATTACK_CHARM, \
+    (sfFloatRect){1470, 386, 840, 136}, (sfIntRect){0, 136, 849, 136}, \
+    "assets/textures/shop_charms.png", true, false, -1, -1});
+    return (setup_shop_sprites_next(shop));
 }

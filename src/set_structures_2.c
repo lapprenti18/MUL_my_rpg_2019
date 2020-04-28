@@ -47,6 +47,15 @@ sfTexture **init_backgrounds(void)
     return (tab);
 }
 
+bool *is_that_buy(void)
+{
+    bool *tab = my_malloc(sizeof(bool) * 5);
+
+    for (int index = 0; index < 5; index += 1)
+        tab[index] = false;
+    return (tab);
+}
+
 void set_structures_next(all_t *store)
 {
     store->right_or_left = 0;
@@ -62,4 +71,5 @@ void set_structures_next(all_t *store)
     store->in_inventory = 0;
     store->nb_golds = 0;
     store->golds = init_text((sfVector2f){1750, 75}, "0");
+    store->buys = is_that_buy();
 }

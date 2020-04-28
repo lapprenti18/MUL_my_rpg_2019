@@ -7,6 +7,17 @@
 
 #include "../include/my.h"
 
+void check_for_charms(all_t *store, game_object_t *temp)
+{
+    if (store->scene == INVENTORY && temp->type >= LIFE_CHARM && \
+    !store->buys[temp->type - LIFE_CHARM])
+        return;
+    if (store->scene == SHOP && temp->type >= LIFE_CHARM && \
+    store->buys[temp->type - LIFE_CHARM])
+        return;
+    sfRenderWindow_drawSprite(store->window, temp->sprite, NULL);
+}
+
 void draw_single_sprite(all_t *store, game_object_t *temp)
 {
     if (temp->type == BACKGROUND) {
@@ -25,7 +36,7 @@ void draw_single_sprite(all_t *store, game_object_t *temp)
         }
         return;
     }
-    sfRenderWindow_drawSprite(store->window, temp->sprite, NULL);
+    check_for_charms(store, temp);
 }
 
 void draw_scene(all_t *store)

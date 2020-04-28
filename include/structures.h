@@ -67,7 +67,12 @@ typedef enum
     PAUSE_OPTIONS,
     PAUSE_QUIT,
     GOLDS,
-    BACK
+    BACK,
+    LIFE_CHARM,
+    ATTACK_CHARM,
+    MANA_CHARM,
+    GOLD_CHARM,
+    HEART_CHARM
 } SPRITES;
 
 typedef enum
@@ -84,6 +89,12 @@ typedef enum
     SHOP,
     TOTAL
 } SCENE;
+
+typedef struct charm_s
+{
+    int index;
+    int price;
+} charm_t;
 
 typedef struct col_s
 {
@@ -167,6 +178,7 @@ typedef struct all_s
     int in_inventory;
     int nb_golds;
     sfText *golds;
+    bool *buys;
 }all_t;
 
 #endif /* STRUCTURES_H_ */
