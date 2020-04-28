@@ -164,7 +164,7 @@ typedef struct all_s
     sfVector2f accel;
     float frottement;
     int save;
-    bool in_inventory;
+    int in_inventory;
     int nb_golds;
     sfText *golds;
 }all_t;

@@ -53,7 +53,7 @@ void change_screen_next(all_t *store, game_object_t *object)
 void change_screen(all_t *store, game_object_t *object)
 {
     if (object->pos.y >= 1000)
-        object->change_pos(object, (sfVector2f){200, 500});
+        object->change_pos(object, (sfVector2f){200, 90});
     if (store->index_maps == 0) {
         if (object->pos.x <= 10) {
             object->change_pos(object, (sfVector2f){10, object->pos.y});

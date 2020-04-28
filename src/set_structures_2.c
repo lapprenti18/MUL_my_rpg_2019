@@ -59,7 +59,7 @@ void set_structures_next(all_t *store)
     store->frottement = -0.09;
     store->save = 0;
     store->key_press = my_malloc(sizeof(int) * (sfKeyCount));
-    store->in_inventory = false;
+    store->in_inventory = 0;
     store->nb_golds = 0;
     store->golds = init_text((sfVector2f){1750, 75}, "0");
 }

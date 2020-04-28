@@ -10,6 +10,6 @@
 
 #include "./my.h"
 
-void manage_key_pressed(all_t *store);
+void manage_key_pressed(all_t *store, int status);
 
 #endif /* MANAGE_KEY_PRESSED_H_ */

@@ -54,12 +54,25 @@ void change_key(all_t *store)
             store->key_press[i] = 1;
 }
 
-void manage_key_pressed(all_t *store)
+void check_inventory(all_t *store, int status)
 {
-    if (store->scene == MENU_KEYBOARD) {
-        change_key(store);
-        return;
+    if (status == 1) {
+        if (store->event.key.code == store->keys_code[6] && \
+        store->in_inventory == 0 && store->scene == PLAYING) {
+            store->scene = INVENTORY;
+            store->in_inventory += 1;
+        }
+        if (store->event.key.code == store->keys_code[6] && \
+        store->in_inventory == 0 && store->scene == INVENTORY)
+                store->scene = PLAYING;
+        store->in_inventory = 0;
     }
+}
+
+void manage_key_pressed(all_t *store, int status)
+{
+    if (store->scene == MENU_KEYBOARD)
+        return (change_key(store));
     if (store->scene == PLAYING) {
         for (game_object_t *ob = store->objects[PLAYING]; ob; ob = ob->next)
             check_input(store, ob);
@@ -72,13 +85,5 @@ void manage_key_pressed(all_t *store)
         if (sfKeyboard_isKeyPressed(sfKeyE))
             store->nb_golds -= 1;
     }
-    if (sfKeyboard_isKeyPressed(store->keys_code[6]))
-        if (store->in_inventory == false && store->scene == PLAYING) {
-            store->scene = INVENTORY;
-            store->in_inventory = true;
-        }
-    if (sfKeyboard_isKeyPressed(store->keys_code[6]))
-        if (store->in_inventory == false && store->scene == INVENTORY)
-            store->scene = PLAYING;
-    store->in_inventory = false;
+    check_inventory(store, status);
 }

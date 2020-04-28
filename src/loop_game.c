@@ -72,9 +72,10 @@ void loop_game(all_t *store)
         clear_keypress(store);
         while (sfRenderWindow_pollEvent(store->window, &store->event))
             analyse_events(store);
-        manage_key_pressed(store);
+        manage_key_pressed(store, 0);
         manage_all_clock(store);
-        update_jump(store);
+        if (store->scene == PLAYING)
+            update_jump(store);
         draw_scene(store);
         sfRenderWindow_display(store->window);
     }
