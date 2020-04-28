@@ -45,4 +45,6 @@ void set_structures_next(all_t *store)
     store->frottement = -0.09;
     store->save = 0;
     store->key_press = my_malloc(sizeof(int) * (sfKeyCount));
+    store->in_inventory = false;
+    store->inv = 0;
 }

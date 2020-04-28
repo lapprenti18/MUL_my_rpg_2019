@@ -65,4 +65,13 @@ void manage_key_pressed(all_t *store)
             store->scene = PAUSE;
         }
     }
+    if (sfKeyboard_isKeyPressed(store->keys_code[6]))
+        if (store->in_inventory == false && store->scene == PLAYING) {
+            store->scene = INVENTORY;
+            store->in_inventory = true;
+        }
+    if (sfKeyboard_isKeyPressed(store->keys_code[6]))
+        if (store->in_inventory == false && store->scene == INVENTORY)
+            store->scene = PLAYING;
+    store->in_inventory = false;
 }

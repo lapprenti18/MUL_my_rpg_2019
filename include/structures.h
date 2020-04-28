@@ -49,7 +49,7 @@ typedef enum
     RIGHT,
     ATTACK,
     JUMP,
-    INVENTORY,
+    S_INVENTORY,
     PROFILE,
     SAVE_1,
     SAVE_2,
@@ -79,6 +79,7 @@ typedef enum
     SAVES_SCREEN,
     PLAYING,
     PAUSE,
+    INVENTORY,
     TOTAL
 } SCENE;
 
@@ -161,6 +162,8 @@ typedef struct all_s
     sfVector2f accel;
     float frottement;
     int save;
+    bool in_inventory;
+    int inv;
 }all_t;
 
 #endif /* STRUCTURES_H_ */

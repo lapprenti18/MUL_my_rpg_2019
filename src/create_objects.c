@@ -68,12 +68,12 @@ game_object_t **create_objects(sfRenderWindow *window)
     objects[SAVES_SCREEN] = setup_saves_sprites();
     objects[PLAYING] = setup_playing_sprites();
     objects[PAUSE] = setup_pause_sprites();
-    for (int index = MENU; index < TOTAL; index += 1) {
+    objects[INVENTORY] = setup_inventory_sprites();
+    for (int index = MENU; index < TOTAL; index += 1)
         add_node_back(&objects[index], (coding_style_t){CURSEUR, \
         (sfFloatRect){mouse.x, mouse.y, 25, 25}, \
         (sfIntRect){0, 0, 25, 25}, "assets/textures/curseur.png", \
         false, false, -1, -1});
-    }
     objects[TOTAL] = NULL;
     return (objects);
 }

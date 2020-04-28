@@ -43,6 +43,7 @@
 #include "./analyse_knight.h"
 #include "./setup_pause_sprites.h"
 #include "./handle_pause_click.h"
+#include "./setup_inventory_sprites.h"
 
 #include "./lib.h"
 
