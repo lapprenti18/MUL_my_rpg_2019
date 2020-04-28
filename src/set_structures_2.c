@@ -23,12 +23,13 @@ char **get_array(char *filepath)
 
 sfTexture **init_backgrounds(void)
 {
-    sfTexture **tab = my_malloc(sizeof(sfTexture *) * 2);
+    sfTexture **tab = my_malloc(sizeof(sfTexture *) * 3);
 
     if (!tab)
         return (NULL);
     tab[0] = sfTexture_createFromFile("assets/textures/1er_map.png", NULL);
     tab[1] = sfTexture_createFromFile("assets/textures/town.png", NULL);
+    tab[2] = sfTexture_createFromFile("assets/textures/3eme_map.png", NULL);
     return (tab);
 }
 

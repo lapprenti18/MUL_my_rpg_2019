@@ -15,7 +15,7 @@ int check_collision(all_t *store)
     game_object_t *ob = NULL;
 
     if (store->scene != PLAYING)
-        return (-1);
+        return (50);
     for (ob = store->objects[PLAYING]; ob; ob = ob->next)
         if (ob->type == KNIGHT) {
             pos.x = ob->pos.x;
@@ -25,7 +25,7 @@ int check_collision(all_t *store)
     y = (int)(pos.y + ob->height / 2) / 20;
     x = (int)(pos.x + ob->length / 2) / 20 - 3;
     if (x < 0 || y < 0 || x > 95 || y > 54)
-        return (-1);
+        return (pos.y);
     for (; store->current[y]; y += 1)
         if (store->current[y][x] == '1')
             return (y * 20 - (ob->height / 2));
