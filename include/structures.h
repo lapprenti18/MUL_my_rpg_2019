@@ -66,6 +66,7 @@ typedef enum
     PAUSE_CONTINUE,
     PAUSE_OPTIONS,
     PAUSE_QUIT,
+    GOLDS,
     BACK
 } SPRITES;
 
@@ -79,6 +80,7 @@ typedef enum
     SAVES_SCREEN,
     PLAYING,
     PAUSE,
+    SHOP,
     TOTAL
 } SCENE;
 
@@ -161,6 +163,8 @@ typedef struct all_s
     sfVector2f accel;
     float frottement;
     int save;
+    int nb_golds;
+    sfText *golds;
 }all_t;
 
 #endif /* STRUCTURES_H_ */

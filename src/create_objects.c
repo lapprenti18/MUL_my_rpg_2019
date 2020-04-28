@@ -68,6 +68,7 @@ game_object_t **create_objects(sfRenderWindow *window)
     objects[SAVES_SCREEN] = setup_saves_sprites();
     objects[PLAYING] = setup_playing_sprites();
     objects[PAUSE] = setup_pause_sprites();
+    objects[SHOP] = setup_shop_sprites();
     for (int index = MENU; index < TOTAL; index += 1) {
         add_node_back(&objects[index], (coding_style_t){CURSEUR, \
         (sfFloatRect){mouse.x, mouse.y, 25, 25}, \

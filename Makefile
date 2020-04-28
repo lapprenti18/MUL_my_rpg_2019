@@ -73,6 +73,7 @@ COMP	=	src/main.c	\
 			src/loop_game.c	\
 			src/analyse_events.c	\
 			src/draw_scene.c	\
+			src/setup_shop_sprites.c	\
 			src/create_objects.c	\
 			src/destroy_structures.c	\
 			src/setup_functions.c	\
@@ -85,6 +86,7 @@ COMP	=	src/main.c	\
 			src/handle_options_click.c	\
 			src/handle_saves_click.c	\
 			src/handle_video_click.c	\
+			src/handle_shop_click.c	\
 			src/handle_keyboard_click.c	\
 			src/setup_scenes_2.c	\
 			src/blend_mode.c	\

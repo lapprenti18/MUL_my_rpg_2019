@@ -40,6 +40,8 @@ void write_in_file(all_t *store)
     char *buffer = my_malloc(sizeof(char) * 40);
     game_object_t *object = store->objects[PLAYING];
 
+    if (!fd)
+        return;
     for (; object->type != KNIGHT; object = object->next);
     my_memset(buffer, 0, 40);
     buffer = my_ftoa(object->pos.x, buffer, 6);

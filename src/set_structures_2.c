@@ -21,6 +21,20 @@ char **get_array(char *filepath)
     return (my_str_to_word_array(buffer, "\n"));
 }
 
+sfText *init_text(sfVector2f pos, char *str)
+{
+    sfText *text = sfText_create();
+    static sfFont *font = NULL;
+
+    if (!font)
+        font = sfFont_createFromFile("assets/fonts/pointfree.ttf");
+    sfText_setFont(text, font);
+    sfText_setPosition(text, pos);
+    sfText_setString(text, str);
+    sfText_setCharacterSize(text, 40);
+    return (text);
+}
+
 sfTexture **init_backgrounds(void)
 {
     sfTexture **tab = my_malloc(sizeof(sfTexture *) * 3);
@@ -45,4 +59,6 @@ void set_structures_next(all_t *store)
     store->frottement = -0.09;
     store->save = 0;
     store->key_press = my_malloc(sizeof(int) * (sfKeyCount));
+    store->nb_golds = 0;
+    store->golds = init_text((sfVector2f){1750, 75}, "0");
 }
