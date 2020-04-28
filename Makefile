@@ -65,6 +65,7 @@ NAME	=	my_rpg
 
 COMP	=	src/main.c	\
 			src/collisions.c	\
+			src/projection.c	\
 			src/manage_key_pressed.c	\
 			src/set_structures.c	\
 			src/set_structures_2.c	\

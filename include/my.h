@@ -25,6 +25,7 @@
 #include "./manage_mouse_moved.h"
 #include "./manage_key_pressed.h"
 #include "./setup_scenes.h"
+#include "./projection.h"
 #include "./setup_scenes_2.h"
 #include "./manage_clock.h"
 #include "./handle_audio_click.h"

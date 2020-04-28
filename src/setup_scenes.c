@@ -66,7 +66,7 @@ game_object_t *setup_playing_sprites(void)
     "assets/textures/animation_vie_v5-min.png", false, true, 260, 0.15});
     add_node_back(&playing, (coding_style_t){KNIGHT, (sfFloatRect){201, 500, \
     89, 127}, (sfIntRect){0, 0, 89, 127}, \
-    "assets/textures/Knight_final-min.png", false, false, 1157, 0.2});
+    "assets/textures/Knight_final-min.png", false, true, 700, 0.2});
     return (playing);
 }
 

@@ -77,18 +77,13 @@ void update_jump(all_t *store)
 
     for (; copy->type != KNIGHT; copy = copy->next);
     check = check_collision(store);
-    store->accel.x = 0;
-    store->accel.y = store->gravity;
-    store->accel.x += store->velocity.x * store->frottement;
-    store->velocity.x += store->accel.x;
-    store->velocity.y += store->accel.y;
-    copy->pos.x += store->velocity.x + 0.5 * store->accel.x;
-    copy->pos.y += store->velocity.y + 0.5 * store->accel.y;
+    update_and_check(store, copy);
     if (copy->pos.y > check) {
         store->nb_jump = 1;
         store->velocity.y = 0;
         copy->pos.y = check;
-        copy->rect.top = (copy->rect.top <= 127) ? copy->rect.top : copy->rect.top - 762;
+        copy->rect.top = (copy->rect.top <= 127) ? \
+        copy->rect.top : copy->rect.top - 762;
         sfSprite_setTextureRect(copy->sprite, copy->rect);
     }
     change_screen(store, copy);
