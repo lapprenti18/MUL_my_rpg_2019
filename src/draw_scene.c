@@ -78,7 +78,7 @@ void draw_other(all_t *store)
     && store->show_particules; index += 1)
         sfRenderWindow_drawCircleShape(store->window, \
         store->particules[index]->shape, NULL);
-    for (int index = 0; index < 10; index += 1)
+    for (int index = 0; store->scene == PLAYING && index < 10; index += 1)
         if (store->mobs[index].alive == true)
             sfRenderWindow_drawSprite(store->window, \
             store->mobs[index].sprite, NULL);
