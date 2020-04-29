@@ -7,6 +7,21 @@
 
 #include "../include/my.h"
 
+void destroy_next(all_t *store)
+{
+    for (int index = 0; index < 2; index += 1)
+        sfTexture_destroy(store->textures[index]);
+    sfText_destroy(store->golds);
+    for (int index = 0; index < 10; index += 1) {
+        if (store->mobs[index].sprite)
+            sfSprite_destroy(store->mobs[index].sprite);
+        if (store->mobs[index].texture)
+            sfTexture_destroy(store->mobs[index].texture);
+        if (store->mobs[index].clock)
+            sfClock_destroy(store->mobs[index].clock);
+    }
+}
+
 void destroy_structures(all_t *store)
 {
     for (int index = 0; store->objects[index]; index += 1) {
@@ -25,8 +40,6 @@ void destroy_structures(all_t *store)
         sfRectangleShape_destroy(store->rectangles[index]);
     for (int index = 0; store->keys_text[index]; index += 1)
         sfText_destroy(store->keys_text[index]);
-    for (int index = 0; index < 2; index += 1)
-        sfTexture_destroy(store->textures[index]);
-    sfText_destroy(store->golds);
+    destroy_next(store);
     sfRenderWindow_destroy(store->window);
 }

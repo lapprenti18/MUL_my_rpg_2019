@@ -65,6 +65,7 @@ NAME	=	my_rpg
 
 COMP	=	src/main.c	\
 			src/collisions.c	\
+			src/mobs.c	\
 			src/projection.c	\
 			src/manage_key_pressed.c	\
 			src/set_structures.c	\
@@ -82,6 +83,7 @@ COMP	=	src/main.c	\
 			src/setup_scenes.c	\
 			src/manage_clock.c	\
 			src/handle_audio_click.c	\
+			src/handle_inventory_click.c	\
 			src/handle_menu_click.c	\
 			src/handle_options_click.c	\
 			src/handle_saves_click.c	\
@@ -97,6 +99,7 @@ COMP	=	src/main.c	\
 			src/analyse_mana.c	\
 			src/analyse_knight.c	\
 			src/setup_pause_sprites.c	\
+			src/setup_playing_sprites.c	\
 			src/handle_pause_click.c	\
 			src/setup_inventory_sprites.c	\
 

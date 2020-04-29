@@ -12,6 +12,7 @@
 #include "./garbage_collector.h"
 #include "./structures.h"
 
+#include "./mobs.h"
 #include "./analyse_events.h"
 #include "./draw_scene.h"
 #include "./loop_game.h"
@@ -25,6 +26,7 @@
 #include "./manage_mouse_moved.h"
 #include "./manage_key_pressed.h"
 #include "./setup_scenes.h"
+#include "./setup_playing_sprites.h"
 #include "./setup_shop_sprites.h"
 #include "./projection.h"
 #include "./setup_scenes_2.h"
@@ -36,6 +38,7 @@
 #include "./blend_mode.h"
 #include "./handle_video_click.h"
 #include "./handle_shop_click.h"
+#include "./handle_inventory_click.h"
 #include "./update_structures.h"
 #include "./setup_keyboard.h"
 #include "./handle_keyboard_click.h"

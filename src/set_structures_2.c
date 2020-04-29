@@ -9,13 +9,13 @@
 
 char **get_array(char *filepath)
 {
-    char *buffer = my_malloc(sizeof(char) * 5200);
+    char *buffer = my_malloc(sizeof(char) * 6000);
     int fd = open(filepath, O_RDONLY);
 
     if (!fd)
         return (NULL);
-    my_memset(buffer, 0, 5200);
-    if (read(fd, buffer, 5200) <= 0)
+    my_memset(buffer, 0, 6000);
+    if (read(fd, buffer, 6000) <= 0)
         return (NULL);
     close(fd);
     return (my_str_to_word_array(buffer, "\n"));
@@ -75,4 +75,6 @@ void set_structures_next(all_t *store)
     store->golds = init_text((sfVector2f){1750, 75}, "0");
     store->buys = is_that_buy();
     store->show_enter = false;
+    store->show_enter_2 = false;
+    store->mobs = init_mobs();
 }

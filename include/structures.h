@@ -69,6 +69,7 @@ typedef enum
     GOLDS,
     BACK,
     ENTER,
+    ENTER_2,
     LIFE_CHARM, // rajouter aucun enum apres celui-ci, toujours en rajouter avant
     ATTACK_CHARM,
     MANA_CHARM,
@@ -90,6 +91,19 @@ typedef enum
     SHOP,
     TOTAL
 } SCENE;
+
+typedef struct mob_s
+{
+    int hp;
+    int reward;
+    sfSprite *sprite;
+    sfTexture *texture;
+    sfVector2f pos;
+    sfIntRect rect;
+    sfClock *clock;
+    sfTime time;
+    bool alive;
+} mob_t;
 
 typedef struct charm_s
 {
@@ -181,6 +195,8 @@ typedef struct all_s
     sfText *golds;
     bool *buys;
     bool show_enter;
+    bool show_enter_2;
+    mob_t *mobs;
 }all_t;
 
 #endif /* STRUCTURES_H_ */

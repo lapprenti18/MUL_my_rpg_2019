@@ -28,6 +28,7 @@ void change_screen_last(all_t *store, game_object_t *object)
             object->change_pos(object, (sfVector2f){1900, object->pos.y});
             store->change_texture = true;
             store->current = get_array(spe_array[2].filepath);
+            add_mobs(store);
         }
     }
 }
@@ -43,12 +44,14 @@ void change_screen_next(all_t *store, game_object_t *object)
                 object->change_pos(object, (sfVector2f){50, object->pos.y});
             store->change_texture = true;
             store->current = get_array(spe_array[store->index_maps].filepath);
+            add_mobs(store);
         }
         if (object->pos.x <= 20) {
             store->index_maps -= 1;
             object->change_pos(object, (sfVector2f){1900, object->pos.y});
             store->change_texture = true;
             store->current = get_array(spe_array[store->index_maps].filepath);
+            add_mobs(store);
         }
         return;
     }
@@ -69,6 +72,7 @@ void change_screen(all_t *store, game_object_t *object)
             object->change_pos(object, (sfVector2f){50, object->pos.y});
             store->change_texture = true;
             store->current = get_array(spe_array[1].filepath);
+            add_mobs(store);
         }
         return;
     }

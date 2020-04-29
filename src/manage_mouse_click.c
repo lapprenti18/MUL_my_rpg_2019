@@ -25,6 +25,8 @@ void handle_click(all_t *store, game_object_t *copy, sfVector2i mouse)
         return (handle_pause_click(store, copy));
     if (store->scene == SHOP)
         return (handle_shop_click(store, copy));
+    if (store->scene == INVENTORY)
+        return (handle_inventory_click(store, copy, mouse));
 }
 
 void manage_mouse_clicked(all_t *store)
