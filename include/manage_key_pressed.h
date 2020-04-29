@@ -11,5 +11,6 @@
 #include "./my.h"
 
 void manage_key_pressed(all_t *store, int status);
+int change_rect(game_object_t *object, int right);
 
 #endif /* MANAGE_KEY_PRESSED_H_ */

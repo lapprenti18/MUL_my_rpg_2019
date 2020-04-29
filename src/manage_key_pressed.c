@@ -30,24 +30,7 @@ void check_input(all_t *store, game_object_t *object)
         store->nb_jump != 0 && object->pos.x >= 975 && \
         object->pos.x <= 1050 && store->index_maps == 1)
             store->scene = SHOP;
-        if (sfKeyboard_isKeyPressed(store->keys_code[0]) && \
-        store->nb_jump != 0 && object->pos.x >= 140 && \
-        object->pos.x <= 280 && store->index_maps == 1)
-            store->scene = QUEST;
-        if (sfKeyboard_isKeyPressed(store->keys_code[2])) {
-            store->velocity.x = -3;
-            object->rect.top = change_rect(object, 2);
-        }
-        if (sfKeyboard_isKeyPressed(store->keys_code[3])) {
-            store->velocity.x = 3;
-            object->rect.top = change_rect(object, 1);
-        }
-        if (sfKeyboard_isKeyPressed(store->keys_code[5]) && \
-        store->nb_jump != 0) {
-            store->velocity.y = -10;
-            store->nb_jump = 0;
-            object->rect.top = (object->rect.top == 0) ? 762 : 889;
-        }
+        check_input2(store, object);
         sfSprite_setTextureRect(object->sprite, object->rect);
     }
 }

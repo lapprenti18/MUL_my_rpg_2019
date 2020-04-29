@@ -50,6 +50,7 @@
 #include "./handle_pause_click.h"
 #include "./setup_inventory_sprites.h"
 #include "./setup_quest_sprites.h"
+#include "./manage_key_pressed_2.h"
 
 #include "./lib.h"
 
