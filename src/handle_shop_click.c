@@ -23,7 +23,8 @@ void handle_shop_click(all_t *store, game_object_t *object)
     if (object->type == BACK)
         store->scene = PLAYING;
     if (object->type >= LIFE_CHARM) {
-        if (store->nb_golds >= tab_charm[index].price) {
+        if (store->nb_golds >= tab_charm[index].price && \
+        store->buys[index] == false) {
             store->buys[index] = true;
             store->nb_golds -= tab_charm[index].price;
         }

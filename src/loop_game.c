@@ -15,22 +15,11 @@ col_t spe_tab[4] =
     {4, "saves/save_4"}
 };
 
-char *my_int_to_ascii(int number)
+void write_in_file_next(all_t *store, int fd, char *buffer)
 {
-    char *result = NULL;
-    int len = 0;
-
-    if (number == 0)
-        return ("0");
-    for (int save = number; save > 0; save /= 10)
-        len += 1;
-    result = my_malloc(sizeof(char) * len + 1);
-    my_memset(result, 0, len + 1);
-    for (int index = 0; number > 0; number /= 10) {
-        result[index] = number % 10 + '0';
-        index += 1;
-    }
-    return (my_revstr(result));
+    buffer = my_int_to_ascii(store->nb_golds);
+    write(fd, buffer, my_strlen(buffer));
+    write(fd, "\n", 1);
 }
 
 void write_in_file(all_t *store)
@@ -53,9 +42,7 @@ void write_in_file(all_t *store)
     buffer = my_int_to_ascii(store->index_maps);
     write(fd, buffer, my_strlen(buffer));
     write(fd, "\n", 1);
-    buffer = my_int_to_ascii(store->nb_golds);
-    write(fd, buffer, my_strlen(buffer));
-    write(fd, "\n", 1);
+    write_in_file_next(store, fd, buffer);
 }
 
 void clear_keypress(all_t *store)
