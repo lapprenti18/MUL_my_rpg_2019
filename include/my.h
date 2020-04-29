@@ -51,6 +51,7 @@
 #include "./setup_inventory_sprites.h"
 #include "./setup_quest_sprites.h"
 #include "./manage_key_pressed_2.h"
+#include "./handle_quest_click.h"
 
 #include "./lib.h"
 
