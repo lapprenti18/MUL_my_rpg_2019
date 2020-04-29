@@ -7,12 +7,13 @@
 
 #include "../include/my.h"
 
-col_t tab_spe[4] =
+col_t tab_spe[5] =
 {
     {0, "assets/collisions/first_screen.txt"},
     {1, "assets/collisions/second_screen.txt"},
     {2, "assets/collisions/third_screen.txt"},
-    {3, "assets/collisions/four_screen.txt"}
+    {3, "assets/collisions/four_screen.txt"},
+    {4, "assets/collisions/five_screen.txt"}
 };
 
 void update_save_next(all_t *store, char **array)
