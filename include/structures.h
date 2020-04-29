@@ -68,7 +68,8 @@ typedef enum
     PAUSE_QUIT,
     GOLDS,
     BACK,
-    LIFE_CHARM,
+    ENTER,
+    LIFE_CHARM, // rajouter aucun enum apres celui-ci, toujours en rajouter avant
     ATTACK_CHARM,
     MANA_CHARM,
     GOLD_CHARM,
@@ -179,6 +180,7 @@ typedef struct all_s
     int nb_golds;
     sfText *golds;
     bool *buys;
+    bool show_enter;
 }all_t;
 
 #endif /* STRUCTURES_H_ */

@@ -72,4 +72,5 @@ void set_structures_next(all_t *store)
     store->nb_golds = 0;
     store->golds = init_text((sfVector2f){1750, 75}, "0");
     store->buys = is_that_buy();
+    store->show_enter = false;
 }

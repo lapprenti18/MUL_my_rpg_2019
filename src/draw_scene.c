@@ -15,6 +15,15 @@ void check_for_charms(all_t *store, game_object_t *temp)
     if (store->scene == SHOP && temp->type >= LIFE_CHARM && \
     store->buys[temp->type - LIFE_CHARM])
         return;
+    if (store->scene == PLAYING && temp->type == KNIGHT) {
+        if (store->nb_jump != 0 && temp->pos.x >= 975 && temp->pos.x <= 1050)
+            store->show_enter = true;
+        else
+            store->show_enter = false;
+    }
+    if (store->scene == PLAYING && temp->type == ENTER \
+    && store->show_enter == false)
+        return;
     sfRenderWindow_drawSprite(store->window, temp->sprite, NULL);
 }
 

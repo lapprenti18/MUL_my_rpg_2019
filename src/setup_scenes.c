@@ -67,6 +67,9 @@ game_object_t *setup_playing_sprites(void)
     add_node_back(&playing, (coding_style_t){KNIGHT, (sfFloatRect){201, 500, \
     89, 127}, (sfIntRect){0, 0, 89, 127}, \
     "assets/textures/Knight_final-min.png", false, false, 700, 0.2});
+    add_node_back(&playing, (coding_style_t){ENTER, (sfFloatRect){1000, \
+    700, 160, 128}, (sfIntRect){0, 0, 160, 128}, \
+    "assets/textures/panneau_enter.png", false, false, -1, -1});
     add_node_back(&playing, (coding_style_t){GOLDS, (sfFloatRect){1700, \
     100, 55, 57}, (sfIntRect){0, 0, 55, 57}, \
     "assets/textures/gold.png", false, false, -1, -1});
