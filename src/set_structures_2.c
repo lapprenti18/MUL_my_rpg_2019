@@ -37,13 +37,14 @@ sfText *init_text(sfVector2f pos, char *str)
 
 sfTexture **init_backgrounds(void)
 {
-    sfTexture **tab = my_malloc(sizeof(sfTexture *) * 3);
+    sfTexture **tab = my_malloc(sizeof(sfTexture *) * 4);
 
     if (!tab)
         return (NULL);
     tab[0] = sfTexture_createFromFile("assets/textures/1er_map.png", NULL);
     tab[1] = sfTexture_createFromFile("assets/textures/town.png", NULL);
     tab[2] = sfTexture_createFromFile("assets/textures/3eme_map.png", NULL);
+    tab[3] = sfTexture_createFromFile("assets/textures/4eme_map.png", NULL);
     return (tab);
 }
 

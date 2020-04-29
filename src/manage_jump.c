@@ -7,16 +7,17 @@
 
 #include "../include/my.h"
 
-col_t spe_array[3] =
+col_t spe_array[4] =
 {
     {0, "assets/collisions/first_screen.txt"},
     {1, "assets/collisions/second_screen.txt"},
-    {2, "assets/collisions/third_screen.txt"}
+    {2, "assets/collisions/third_screen.txt"},
+    {3, "assets/collisions/four_screen.txt"}
 };
 
 void change_screen_last(all_t *store, game_object_t *object)
 {
-    if (store->index_maps == 2) {
+    if (store->index_maps == 3) {
         if (object->pos.x >= 1900) {
             object->change_pos(object, (sfVector2f){1900, object->pos.y});
             store->change_texture = false;
@@ -25,25 +26,25 @@ void change_screen_last(all_t *store, game_object_t *object)
             store->index_maps -= 1;
             object->change_pos(object, (sfVector2f){1900, object->pos.y});
             store->change_texture = true;
-            store->current = get_array(spe_array[1].filepath);
+            store->current = get_array(spe_array[2].filepath);
         }
     }
 }
 
 void change_screen_next(all_t *store, game_object_t *object)
 {
-    if (store->index_maps == 1) {
+    if (store->index_maps == 1 || store->index_maps == 2) {
         if (object->pos.x >= 1900) {
             store->index_maps += 1;
             object->change_pos(object, (sfVector2f){50, object->pos.y});
             store->change_texture = true;
-            store->current = get_array(spe_array[2].filepath);
+            store->current = get_array(spe_array[store->index_maps].filepath);
         }
         if (object->pos.x <= 0) {
             store->index_maps -= 1;
             object->change_pos(object, (sfVector2f){1900, object->pos.y});
             store->change_texture = true;
-            store->current = get_array(spe_array[0].filepath);
+            store->current = get_array(spe_array[store->index_maps].filepath);
         }
         return;
     }
