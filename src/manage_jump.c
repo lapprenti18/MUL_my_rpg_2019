@@ -23,7 +23,7 @@ void change_screen_last(all_t *store, game_object_t *object)
             object->change_pos(object, (sfVector2f){1900, object->pos.y});
             store->change_texture = false;
         }
-        if (object->pos.x <= 0) {
+        if (object->pos.x <= 20) {
             store->index_maps -= 1;
             object->change_pos(object, (sfVector2f){1900, object->pos.y});
             store->change_texture = true;
@@ -44,7 +44,7 @@ void change_screen_next(all_t *store, game_object_t *object)
             store->change_texture = true;
             store->current = get_array(spe_array[store->index_maps].filepath);
         }
-        if (object->pos.x <= 0) {
+        if (object->pos.x <= 20) {
             store->index_maps -= 1;
             object->change_pos(object, (sfVector2f){1900, object->pos.y});
             store->change_texture = true;

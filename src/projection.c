@@ -32,6 +32,8 @@ int proj_x(all_t *store, game_object_t *copy, float x_temp)
 
     if (store->scene != PLAYING)
         return (1);
+    if (x_temp <= 30 && store->index_maps == 0)
+        return (0);
     y[0] = (int)(copy->pos.y - copy->height / 2) / 20;
     y[1] = (int)(copy->pos.y + copy->height / 2) / 20;
     x = (int)(x_temp + copy->length / 2) / 20 - 3;
