@@ -14,11 +14,17 @@ col_t tab_spe[3] =
     {2, "assets/collisions/third_screen.txt"}
 };
 
-void update_save(all_t *store, char *filepath)
+void update_save_next(all_t *store, char **array)
+{
+    for (int index = 4; index < 9; index += 1)
+        if (my_getnbr(array[index]) == 1)
+            store->buys[index - 4] = true;
+}
+
+void update_save(all_t *store, char *filepath, int save_index)
 {
     char **array = get_array(filepath);
     game_object_t *object = store->objects[PLAYING];
-    int save_index = 0;
 
     if (!array || !array[0])
         return;
@@ -37,6 +43,7 @@ void update_save(all_t *store, char *filepath)
             store->index_maps = save_index;
         }
     }
+    update_save_next(store, array);
 }
 
 void get_save(all_t *store, game_object_t *copy)
@@ -59,24 +66,7 @@ void get_save(all_t *store, game_object_t *copy)
         filepath = "saves/save_4";
         store->save = 4;
     }
-    update_save(store, filepath);
-}
-
-void clear_save(int file)
-{
-    char *filepath = NULL;
-    int fd = 0;
-
-    if (file == 0)
-        filepath = "saves/save_1";
-    if (file == 1)
-        filepath = "saves/save_2";
-    if (file == 2)
-        filepath = "saves/save_3";
-    if (file == 3)
-        filepath = "saves/save_4";
-    fd = open(filepath, O_WRONLY | O_TRUNC);
-    close(fd);
+    update_save(store, filepath, 0);
 }
 
 void handle_saves_click(all_t *store, game_object_t *copy)

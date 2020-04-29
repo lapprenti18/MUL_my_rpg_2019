@@ -20,6 +20,13 @@ void write_in_file_next(all_t *store, int fd, char *buffer)
     buffer = my_int_to_ascii(store->nb_golds);
     write(fd, buffer, my_strlen(buffer));
     write(fd, "\n", 1);
+    for (int index = 0; index < 5; index += 1) {
+        if (store->buys[index] == true)
+            write(fd, "1", 1);
+        else
+            write(fd, "0", 1);
+        write(fd, "\n", 1);
+    }
 }
 
 void write_in_file(all_t *store)

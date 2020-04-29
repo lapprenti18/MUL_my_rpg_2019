@@ -7,6 +7,23 @@
 
 #include "../include/my.h"
 
+void clear_save(int file)
+{
+    char *filepath = NULL;
+    int fd = 0;
+
+    if (file == 0)
+        filepath = "saves/save_1";
+    if (file == 1)
+        filepath = "saves/save_2";
+    if (file == 2)
+        filepath = "saves/save_3";
+    if (file == 3)
+        filepath = "saves/save_4";
+    fd = open(filepath, O_WRONLY | O_TRUNC);
+    close(fd);
+}
+
 sfRenderStates *blend_mode(sfTexture *texture)
 {
     sfRenderStates *states = malloc(sizeof(sfRenderStates));

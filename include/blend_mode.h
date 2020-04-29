@@ -10,6 +10,7 @@
 
 #include "./my.h"
 
+void clear_save(int file);
 sfRenderStates *blend_mode(sfTexture *texture);
 
 #endif /* BLEND_MODE_H_ */
