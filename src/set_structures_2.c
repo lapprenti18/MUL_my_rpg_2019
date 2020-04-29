@@ -37,7 +37,7 @@ sfText *init_text(sfVector2f pos, char *str)
 
 sfTexture **init_backgrounds(void)
 {
-    sfTexture **tab = my_malloc(sizeof(sfTexture *) * 5);
+    sfTexture **tab = my_malloc(sizeof(sfTexture *) * 6);
 
     if (!tab)
         return (NULL);
@@ -46,6 +46,7 @@ sfTexture **init_backgrounds(void)
     tab[2] = sfTexture_createFromFile("assets/textures/3eme_map.png", NULL);
     tab[3] = sfTexture_createFromFile("assets/textures/4eme_map.png", NULL);
     tab[4] = sfTexture_createFromFile("assets/textures/5eme_map.png", NULL);
+    tab[5] = sfTexture_createFromFile("assets/textures/6eme_map.png", NULL);
     return (tab);
 }
 
@@ -53,7 +54,7 @@ bool *is_that_buy(void)
 {
     bool *tab = my_malloc(sizeof(bool) * 5);
 
-    for (int index = 0; index < 5; index += 1)
+    for (int index = 0; index < 6; index += 1)
         tab[index] = false;
     return (tab);
 }

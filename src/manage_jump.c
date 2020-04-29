@@ -7,18 +7,19 @@
 
 #include "../include/my.h"
 
-col_t spe_array[5] =
+col_t spe_array[6] =
 {
     {0, "assets/collisions/first_screen.txt"},
     {1, "assets/collisions/second_screen.txt"},
     {2, "assets/collisions/third_screen.txt"},
     {3, "assets/collisions/four_screen.txt"},
-    {4, "assets/collisions/five_screen.txt"}
+    {4, "assets/collisions/five_screen.txt"},
+    {5, "assets/collisions/six_screen.txt"}
 };
 
 void change_screen_last(all_t *store, game_object_t *object)
 {
-    if (store->index_maps == 4) {
+    if (store->index_maps == 5) {
         if (object->pos.x >= 1900) {
             object->change_pos(object, (sfVector2f){1900, object->pos.y});
             store->change_texture = false;
@@ -35,7 +36,7 @@ void change_screen_last(all_t *store, game_object_t *object)
 
 void change_screen_next(all_t *store, game_object_t *object)
 {
-    if (store->index_maps >= 1 && store->index_maps <= 3) {
+    if (store->index_maps >= 1 && store->index_maps <= 5) {
         if (object->pos.x >= 1900 || object->pos.y >= 1000) {
             store->index_maps += 1;
             if (store->index_maps == 4)
