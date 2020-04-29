@@ -14,5 +14,8 @@ game_object_t *setup_quest_sprites(void)
     add_node_back(&quest, (coding_style_t){BACKGROUND, (sfFloatRect){960, \
     540, 1920, 1080}, (sfIntRect){0, 0, 1920, 1080}, \
     "assets/textures/house_quest.png", false, false, -1, -1});
+    add_node_back(&quest, (coding_style_t){BACK, (sfFloatRect){150, 950, \
+    309, 70}, (sfIntRect){0, 210, 309, 70}, \
+    "assets/textures/menu_options.png", true, false, -1, -1});
     return (quest);
 }

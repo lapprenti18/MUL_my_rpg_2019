@@ -103,6 +103,7 @@ COMP	=	src/main.c	\
 			src/handle_pause_click.c	\
 			src/setup_inventory_sprites.c	\
 			src/setup_quest_sprites.c	\
+			src/handle_quest_click.c	\
 
 CFLAGS  =	-W -Wall -Wextra -lcsfml-graphics -lcsfml-window -lcsfml-system -lcsfml-audio -lm -Iinclude -g3
 
