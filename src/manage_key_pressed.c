@@ -30,6 +30,10 @@ void check_input(all_t *store, game_object_t *object)
         store->nb_jump != 0 && object->pos.x >= 975 && \
         object->pos.x <= 1050 && store->index_maps == 1)
             store->scene = SHOP;
+        if (sfKeyboard_isKeyPressed(store->keys_code[0]) && \
+        store->nb_jump != 0 && object->pos.x >= 140 && \
+        object->pos.x <= 280 && store->index_maps == 1)
+            store->scene = QUEST;
         if (sfKeyboard_isKeyPressed(store->keys_code[2])) {
             store->velocity.x = -3;
             object->rect.top = change_rect(object, 2);

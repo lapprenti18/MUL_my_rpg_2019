@@ -89,6 +89,7 @@ typedef enum
     PAUSE,
     INVENTORY,
     SHOP,
+    QUEST,
     TOTAL
 } SCENE;
 

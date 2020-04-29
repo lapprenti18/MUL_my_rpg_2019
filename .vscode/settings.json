@@ -1,5 +1,8 @@
 {
     "files.associations": {
-        "my.h": "c"
+        "my.h": "c",
+        "setup_inventory_sprites.h": "c",
+        "create_objects.h": "c",
+        "handle_video_click.h": "c"
     }
 }
