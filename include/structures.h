@@ -72,6 +72,7 @@ typedef enum
     ENTER_2,
     LISTEN,
     QUEST_BOX,
+    SWORD_EFFECT,
     LIFE_CHARM, // rajouter aucun enum apres celui-ci, toujours en rajouter avant
     ATTACK_CHARM,
     MANA_CHARM,
@@ -202,6 +203,8 @@ typedef struct all_s
     bool show_enter_2;
     mob_t *mobs;
     int quest_status;
+    bool show_quest;
+    bool show_sword;
 }all_t;
 
 #endif /* STRUCTURES_H_ */

@@ -19,6 +19,8 @@ void check_for_enter(all_t *store, game_object_t *temp)
     if (store->scene == PLAYING && temp->type == ENTER_2 \
     && store->show_enter_2 == false)
         return;
+    if (temp->type == SWORD_EFFECT && store->show_sword == false)
+        return;
     sfRenderWindow_drawSprite(store->window, temp->sprite, NULL);
 }
 
@@ -61,6 +63,9 @@ void draw_single_sprite(all_t *store, game_object_t *temp)
         }
         return;
     }
+    if (store->scene == QUEST && store->show_quest == true \
+    && temp->type == QUEST_BOX)
+        sfRenderWindow_drawSprite(store->window, temp->sprite, NULL);
     check_for_charms(store, temp);
 }
 
@@ -82,6 +87,9 @@ void draw_other(all_t *store)
         if (store->mobs[index].alive == true)
             sfRenderWindow_drawSprite(store->window, \
             store->mobs[index].sprite, NULL);
+    if (store->scene == QUEST && store->show_quest == true)
+        sfRenderWindow_drawSprite(store->window, \
+        store->objects[QUEST]->sprite, NULL);
 }
 
 void draw_scene(all_t *store)

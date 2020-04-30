@@ -35,11 +35,28 @@ void check_input(all_t *store, game_object_t *object)
     }
 }
 
-void change_key(all_t *store)
+void check_for_sword(all_t *store)
 {
-    for (int i = 0; i < sfKeyCount; i++)
-        if (store->event.key.code == i)
-            store->key_press[i] = 1;
+    game_object_t *object = store->objects[PLAYING];
+    game_object_t *copy = store->objects[PLAYING];
+
+    for (; object->type != KNIGHT ; object = object->next);
+    for (; copy->type != SWORD_EFFECT ; copy = copy->next);
+    if (sfKeyboard_isKeyPressed(store->keys_code[4])) {
+        store->show_sword = true;
+        if (object->rect.top == 0 || object->rect.top == 762) {
+            copy->rect.left = 0;
+            sfSprite_setTextureRect(copy->sprite, copy->rect);
+            copy->change_pos(copy, (sfVector2f){object->pos.x + 50, object->pos.y});
+            return;
+        }
+        if (object->rect.top == 127 || object->rect.top == 889) {
+            copy->rect.left = 179;
+            sfSprite_setTextureRect(copy->sprite, copy->rect);
+            copy->change_pos(copy, (sfVector2f){object->pos.x - 90, object->pos.y});
+            return;
+        }
+    }
 }
 
 void check_inventory(all_t *store, int status)
@@ -60,8 +77,11 @@ void check_inventory(all_t *store, int status)
 void manage_key_pressed(all_t *store, int status)
 {
     if (store->scene == MENU_KEYBOARD)
-        return (change_key(store));
+        for (int i = 0; i < sfKeyCount; i++)
+            if (store->event.key.code == i)
+                store->key_press[i] = 1;
     if (store->scene == PLAYING) {
+        check_for_sword(store);
         for (game_object_t *ob = store->objects[PLAYING]; ob; ob = ob->next)
             check_input(store, ob);
         if (store->event.key.code == sfKeyP) {
@@ -72,6 +92,11 @@ void manage_key_pressed(all_t *store, int status)
             store->nb_golds += 1;
         if (sfKeyboard_isKeyPressed(sfKeyE))
             store->nb_golds -= 1;
+    }
+    if (store->scene == QUEST && store->event.key.code == store->keys_code[1]) {
+        store->show_quest = true;
+        store->quest_status = 1;
+        store->scene = PLAYING;
     }
     check_inventory(store, status);
 }
