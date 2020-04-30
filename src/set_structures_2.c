@@ -79,4 +79,5 @@ void set_structures_next(all_t *store)
     store->show_enter_2 = false;
     store->mobs = init_mobs();
     store->quest_status = 0;
+    store->spawn = 1;
 }

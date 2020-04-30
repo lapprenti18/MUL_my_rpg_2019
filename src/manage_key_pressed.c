@@ -73,5 +73,11 @@ void manage_key_pressed(all_t *store, int status)
         if (sfKeyboard_isKeyPressed(sfKeyE))
             store->nb_golds -= 1;
     }
+    if (store->scene == QUEST) {
+        if (store->event.key.code == store->keys_code[1])
+            store->show_quest = true;
+        if (store->event.key.code == store->keys_code[2])
+            store->show_quest = false;
+    }
     check_inventory(store, status);
 }
