@@ -22,6 +22,6 @@ game_object_t *setup_quest_sprites(void)
     "assets/textures/panneau_listen.png", false, false, -1, -1});
     add_node_back(&quest, (coding_style_t){QUEST_BOX, (sfFloatRect){1560, \
     575, 434, 614}, (sfIntRect){0, 0, 434, 614}, \
-    "assets/textures/quest_box.png", false, false, -1, -1});
+    "assets/textures/quest_box1.png", false, false, -1, -1});
     return (quest);
 }
