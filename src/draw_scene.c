@@ -19,6 +19,8 @@ void check_for_enter(all_t *store, game_object_t *temp)
     if (store->scene == PLAYING && temp->type == ENTER_2 \
     && store->show_enter_2 == false)
         return;
+    if (temp->type == SWORD_EFFECT && store->show_sword == false)
+        return;
     sfRenderWindow_drawSprite(store->window, temp->sprite, NULL);
 }
 

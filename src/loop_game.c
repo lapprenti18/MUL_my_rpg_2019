@@ -64,6 +64,7 @@ void loop_game(all_t *store)
     while (sfRenderWindow_isOpen(store->window)) {
         sfRenderWindow_clear(store->window, sfCyan);
         clear_keypress(store);
+        store->show_sword = false;
         while (sfRenderWindow_pollEvent(store->window, &store->event))
             analyse_events(store);
         manage_key_pressed(store, 0);
