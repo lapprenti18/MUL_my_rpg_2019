@@ -70,6 +70,8 @@ typedef enum
     BACK,
     ENTER,
     ENTER_2,
+    LISTEN,
+    QUEST_BOX,
     LIFE_CHARM, // rajouter aucun enum apres celui-ci, toujours en rajouter avant
     ATTACK_CHARM,
     MANA_CHARM,
@@ -193,11 +195,14 @@ typedef struct all_s
     int save;
     int in_inventory;
     int nb_golds;
+    int spawn;
     sfText *golds;
     bool *buys;
     bool show_enter;
     bool show_enter_2;
     mob_t *mobs;
+    int quest_status;
+    bool show_quest;
 }all_t;
 
 #endif /* STRUCTURES_H_ */

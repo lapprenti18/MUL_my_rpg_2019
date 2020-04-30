@@ -26,9 +26,10 @@ void change_screen_last(all_t *store, game_object_t *object)
         }
         if (object->pos.x <= 20) {
             store->index_maps -= 1;
+            store->spawn = 2;
             object->change_pos(object, (sfVector2f){1900, object->pos.y});
             store->change_texture = true;
-            store->current = get_array(spe_array[2].filepath);
+            store->current = get_array(spe_array[store->index_maps].filepath);
             add_mobs(store);
         }
     }
@@ -36,19 +37,18 @@ void change_screen_last(all_t *store, game_object_t *object)
 
 void change_screen_next(all_t *store, game_object_t *object)
 {
-    if (store->index_maps >= 1 && store->index_maps <= 5) {
+    if (store->index_maps >= 1 && store->index_maps <= 4) {
         if (object->pos.x >= 1900 || object->pos.y >= 1000) {
             store->index_maps += 1;
-            if (store->index_maps == 4)
-                object->change_pos(object, (sfVector2f){object->pos.x, 0});
-            else
-                object->change_pos(object, (sfVector2f){50, object->pos.y});
+            store->spawn = 1;
+            change_position(store, object);
             store->change_texture = true;
             store->current = get_array(spe_array[store->index_maps].filepath);
             add_mobs(store);
         }
         if (object->pos.x <= 20) {
             store->index_maps -= 1;
+            store->spawn = 2;
             object->change_pos(object, (sfVector2f){1900, object->pos.y});
             store->change_texture = true;
             store->current = get_array(spe_array[store->index_maps].filepath);
@@ -62,19 +62,13 @@ void change_screen_next(all_t *store, game_object_t *object)
 void change_screen(all_t *store, game_object_t *object)
 {
     if (object->pos.y >= 1000 && store->index_maps != 3)
-        object->change_pos(object, (sfVector2f){200, 90});
+        respawn(store, object);
+    if (object->pos.y <= 10 && store->index_maps == 4) {
+        change_screen_four(store, object);
+        return;
+    }
     if (store->index_maps == 0) {
-        if (object->pos.x <= 10) {
-            object->change_pos(object, (sfVector2f){10, object->pos.y});
-            store->change_texture = false;
-        }
-        if (object->pos.x >= 1900) {
-            store->index_maps += 1;
-            object->change_pos(object, (sfVector2f){50, object->pos.y});
-            store->change_texture = true;
-            store->current = get_array(spe_array[1].filepath);
-            add_mobs(store);
-        }
+        change_screen_zero(store, object);
         return;
     }
     change_screen_next(store, object);
