@@ -202,7 +202,6 @@ typedef struct all_s
     bool show_enter_2;
     mob_t *mobs;
     int quest_status;
-    bool show_quest;
 }all_t;
 
 #endif /* STRUCTURES_H_ */
