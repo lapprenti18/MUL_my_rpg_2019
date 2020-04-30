@@ -105,6 +105,9 @@ COMP	=	src/main.c	\
 			src/setup_quest_sprites.c	\
 			src/manage_key_pressed_2.c	\
 			src/handle_quest_click.c	\
+			src/respawn.c	\
+			src/manage_jump_two.c	\
+			src/change_pos.c
 
 CFLAGS  =	-W -Wall -Wextra -lcsfml-graphics -lcsfml-window -lcsfml-system -lcsfml-audio -lm -Iinclude -g3
 

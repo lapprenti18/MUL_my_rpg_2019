@@ -52,6 +52,9 @@
 #include "./setup_quest_sprites.h"
 #include "./manage_key_pressed_2.h"
 #include "./handle_quest_click.h"
+#include "./respawn.h"
+#include "./manage_jump_two.h"
+#include "./change_pos.h"
 
 #include "./lib.h"
 
