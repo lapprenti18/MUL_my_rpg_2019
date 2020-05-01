@@ -33,6 +33,8 @@ void check_input(all_t *store, game_object_t *object)
         check_input2(store, object);
         sfSprite_setTextureRect(object->sprite, object->rect);
     }
+    if (object->type == MANA_BAR)
+        analyse_mana_bar(store, object);
 }
 
 void check_for_sword(all_t *store)
