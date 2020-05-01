@@ -7,6 +7,69 @@
 
 #include "../include/my.h"
 
+void analyse_right(all_t *store, game_object_t *knight, mob_t *mob)
+{
+    if (knight->pos.y - knight->height / 2 - 40 <= mob->pos.y && \
+    knight->pos.y + knight->height / 2 >= mob->pos.y && \
+    knight->pos.x - knight->length / 2 <= mob->pos.x && \
+    knight->pos.x + knight->length / 2 + 100 >= mob->pos.x) {
+        mob->hp -= 1;
+        mob->pos.x += 10;
+        sfSprite_setPosition(mob->sprite, mob->pos);
+        if (mob->hp <= 0) {
+            mob->hp = 50;
+            mob->alive = false;
+            store->nb_golds += mob->reward;
+            store->mana_level += 1;
+        }
+    }
+}
+
+void analyse_left(all_t *store, game_object_t *knight, mob_t *mob)
+{
+    if (knight->pos.y - knight->height / 2 - 40 <= mob->pos.y && \
+    knight->pos.y + knight->height / 2 >= mob->pos.y && \
+    knight->pos.x + knight->length / 2 >= mob->pos.x && \
+    knight->pos.x - knight->length / 2 - 150 <= mob->pos.x) {
+        mob->hp -= 1;
+        mob->pos.x -= 10;
+        sfSprite_setPosition(mob->sprite, mob->pos);
+        if (mob->hp <= 0) {
+            mob->hp = 50;
+            mob->alive = false;
+            store->nb_golds += mob->reward;
+            store->mana_level += 1;
+        }
+    }
+}
+
+void check_a_mob(all_t *store, game_object_t *knight, \
+game_object_t *temp, mob_t *mob)
+{
+    if (mob->alive == false)
+        return;
+    if (temp->rect.left == 0)
+        analyse_right(store, knight, mob);
+    else
+        analyse_left(store, knight, mob);
+}
+
+void hitbox_on_mobs(all_t *store)
+{
+    game_object_t *ob = store->objects[PLAYING];
+    game_object_t *temp = store->objects[PLAYING];
+
+    if (store->scene != PLAYING)
+        return;
+    for (; ob->type != KNIGHT; ob = ob->next);
+    for (; temp->type != SWORD_EFFECT; temp = temp->next);
+    if (store->show_sword == true) {
+        for (int index = 0; index < 10; index += 1)
+            check_a_mob(store, ob, temp, &(store->mobs[index]));
+        return;
+    }
+}
+
 void check_input2(all_t *store, game_object_t *object)
 {
     if (sfKeyboard_isKeyPressed(store->keys_code[0]) && \

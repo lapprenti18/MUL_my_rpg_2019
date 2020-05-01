@@ -32,6 +32,7 @@ mob_t create_mob(char *filepath, sfVector2f pos, sfIntRect rect, int hp)
 
     mob.hp = hp;
     mob.rect = rect;
+    mob.reward = 10;
     mob.pos = pos;
     mob.texture = sfTexture_createFromFile(filepath, NULL);
     mob.sprite = sfSprite_create();

@@ -9,9 +9,6 @@
 
 void analyse_mana_bar(all_t *store, game_object_t *mana)
 {
-    if (store->event.type == sfEvtKeyPressed) {
-        analyse_mana_bar_3(store);
-    }
     if (mana->rect.left >= 687 && store->mana_level == 0) {
         mana->rect.left = 0;
         mana->rect.top = 146;
