@@ -93,7 +93,8 @@ void manage_key_pressed(all_t *store, int status)
         if (sfKeyboard_isKeyPressed(sfKeyE))
             store->nb_golds -= 1;
     }
-    if (store->scene == QUEST && store->event.key.code == store->keys_code[1]) {
+    if (store->scene == QUEST && store->event.key.code == sfKeyF \
+    && store->show_quest == false) {
         store->show_quest = true;
         store->quest_status = 1;
         store->scene = PLAYING;
