@@ -11,5 +11,6 @@
 #include "./my.h"
 
 void check_input2(all_t *store, game_object_t *object);
+void hitbox_on_mobs(all_t *store);
 
 #endif /* MANAGE_KEY_PRESSED_2_H_ */

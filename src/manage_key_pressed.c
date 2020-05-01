@@ -48,14 +48,13 @@ void check_for_sword(all_t *store)
             copy->rect.left = 0;
             sfSprite_setTextureRect(copy->sprite, copy->rect);
             copy->change_pos(copy, (sfVector2f){object->pos.x + 50, object->pos.y});
-            return;
         }
         if (object->rect.top == 127 || object->rect.top == 889) {
             copy->rect.left = 179;
             sfSprite_setTextureRect(copy->sprite, copy->rect);
             copy->change_pos(copy, (sfVector2f){object->pos.x - 90, object->pos.y});
-            return;
         }
+        hitbox_on_mobs(store);
     }
 }
 
