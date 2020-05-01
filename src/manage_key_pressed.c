@@ -66,7 +66,6 @@ void check_inventory(all_t *store, int status)
             store->show_quest = false;
             store->quest_status = 1;
             store->scene = PLAYING;
-            printf("yolo\n");
             return;
         }
         if (store->event.key.code == store->keys_code[6] && \

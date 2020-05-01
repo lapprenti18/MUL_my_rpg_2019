@@ -18,6 +18,9 @@ game_object_t *setup_playing_sprites_next(game_object_t *playing)
     add_node_back(&playing, (coding_style_t){SWORD_EFFECT, (sfFloatRect){1700, \
     100, 179, 157}, (sfIntRect){0, 0, 179, 157}, \
     "assets/textures/sword_effect.png", false, false, -1, 1});
+    add_node_back(&playing, (coding_style_t){LITTLE_QUEST , (sfFloatRect){960, \
+    540, 319, 135}, (sfIntRect){0, 0, 319, 135}, \
+    "assets/textures/little_quest.png", false, false, -1, -1});
     return (playing);
 }
 

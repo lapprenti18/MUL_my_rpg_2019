@@ -13,7 +13,6 @@ void check_input2(all_t *store, game_object_t *object)
         store->nb_jump != 0 && object->pos.x >= 140 && \
         object->pos.x <= 280 && store->index_maps == 1) {
             store->scene = QUEST;
-            printf("yo\n");
             return;
         }
     if (sfKeyboard_isKeyPressed(store->keys_code[2]) && store->scene == PLAYING) {

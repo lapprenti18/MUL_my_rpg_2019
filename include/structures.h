@@ -73,6 +73,7 @@ typedef enum
     LISTEN,
     QUEST_BOX,
     SWORD_EFFECT,
+    LITTLE_QUEST,
     LIFE_CHARM, // rajouter aucun enum apres celui-ci, toujours en rajouter avant
     ATTACK_CHARM,
     MANA_CHARM,
