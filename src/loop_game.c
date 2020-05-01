@@ -66,27 +66,46 @@ void update_ennemy(all_t *store)
         if (ob->type == KNIGHT) {
             break;
         }
-    
-    // if (store->index_maps == 1) {
+    if (store->index_maps != 5) {
         for (int i = 0; i < 10; i += 1) {
             if (store->mobs[i].alive == true) {
-                if (store->mobs[i].pos.x - ob->pos.x < 400 && store->mobs[i].pos.y - ob->pos.y < 200) {
-                    if (store->mobs[i].pos.x < ob->pos.x - 30)
-                        store->mobs[i].pos.x += 1;
-                    if (store->mobs[i].pos.x > ob->pos.x - 30)
-                        store->mobs[i].pos.x -= 1;
-                    if (store->mobs[i].pos.y < ob->pos.y - 100)
-                        store->mobs[i].pos.y += 1;
-                    if (store->mobs[i].pos.y > ob->pos.y - 100)
-                        store->mobs[i].pos.y -= 1;
-                    // printf("%f | %f | %d\n", store->mobs[i].pos.y, store->mobs[i].pos.x ,i);
+                if (store->mobs[i].pos.x - ob->pos.x < 400 && store->mobs[i].pos.y - ob->pos.y < 200 && store->mobs[i].pos.x - ob->pos.x > -400) {
+                    if (store->mobs[i].pos.x <= ob->pos.x - 30) {
+                        if (store->current[(int)store->mobs[i].pos.y / 20][(int)(store->mobs[i].pos.x + 1) / 20 - 1] == '0')
+                            store->mobs[i].pos.x += 1;
+                    }
+                    if (store->mobs[i].pos.x > ob->pos.x - 10) {
+                        if (store->current[(int)store->mobs[i].pos.y / 20][(int)(store->mobs[i].pos.x - 1) / 20 - 1] == '0')
+                            store->mobs[i].pos.x -= 1;
+                    }
+                    if (store->mobs[i].pos.y <= ob->pos.y - 100) {
+                        if (store->current[(int)(store->mobs[i].pos.y + 1) / 20][(int)store->mobs[i].pos.x / 20 - 1] == '0')
+                            store->mobs[i].pos.y += 1;
+                    }
+                    if (store->mobs[i].pos.y > ob->pos.y - 100) {
+                        if (store->current[(int)(store->mobs[i].pos.y - 1) / 20][(int)store->mobs[i].pos.x / 20 - 1] == '0')
+                            store->mobs[i].pos.y -= 1;
+                    }
                     sfSprite_setPosition(store->mobs[i].sprite, store->mobs[i].pos);
                     sfRenderWindow_drawSprite(store->window, store->mobs[i].sprite, NULL);
                 }
             }
         }
-    // }
-    // if (store->index_maps >= 1 && store->index_maps <= 5)
+    }
+    if (store->index_maps == 5) {
+        for (int i = 1; i < 10; i += 1)
+            store->mobs[i].alive = false;
+        store->mobs[0].alive = true;
+        store->mobs[0].pos.y = 650;
+        sfSprite_setPosition(store->mobs[0].sprite, store->mobs[0].pos);
+        sfRenderWindow_drawSprite(store->window, store->mobs[0].sprite, NULL);
+        if (ob->pos.y >= 700) {
+            if (store->mobs[0].pos.x < ob->pos.x)
+                store->mobs[0].pos.x += 10;
+            else
+                store->mobs[0].pos.x -= 10;
+        }
+    }
 }
 
 void loop_game(all_t *store)
