@@ -63,8 +63,9 @@ void draw_single_sprite(all_t *store, game_object_t *temp)
         }
         return;
     }
-    if (store->scene == QUEST && store->show_quest == false \
-    && temp->type == QUEST_BOX)
+    if ((store->scene == QUEST && store->show_quest == false \
+    && temp->type == QUEST_BOX) || (store->scene == PLAYING && \
+    store->quest_status == 0 && temp->type == LITTLE_QUEST))
         return;
     check_for_charms(store, temp);
 }
@@ -96,9 +97,6 @@ void draw_scene(all_t *store)
     for (game_object_t *temp = store->objects[store->scene]; \
     temp; temp = temp->next) {
         update(store, temp, mouse);
-        //if (store->scene == PLAYING && store->quest_status == 0 && \
-        //temp->type == LITTLE_QUEST)
-        //    return;
         draw_single_sprite(store, temp);
     }
     draw_other(store);
