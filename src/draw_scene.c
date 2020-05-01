@@ -96,9 +96,9 @@ void draw_scene(all_t *store)
     for (game_object_t *temp = store->objects[store->scene]; \
     temp; temp = temp->next) {
         update(store, temp, mouse);
-        if (store->scene == PLAYING && store->quest_status == 0 && \
-        temp->type == LITTLE_QUEST)
-            return;
+        //if (store->scene == PLAYING && store->quest_status == 0 && \
+        //temp->type == LITTLE_QUEST)
+        //    return;
         draw_single_sprite(store, temp);
     }
     draw_other(store);
