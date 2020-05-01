@@ -208,6 +208,9 @@ typedef struct all_s
     int quest_status;
     bool show_quest;
     bool show_sword;
+    int knight_dgs;
+    int more_golds;
+    int more_mana;
 }all_t;
 
 #endif /* STRUCTURES_H_ */
