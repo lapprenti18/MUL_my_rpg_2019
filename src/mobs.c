@@ -16,7 +16,7 @@ void add_mobs(all_t *store)
 
     for (index = 0; index < rng; index += 1) {
         rng_x = rand() % 1700 + 100;
-        rng_y = rand() % 500 + 300;
+        rng_y = rand() % 700 + 100;
         store->mobs[index] = create_mob("assets/textures/mobs.png", \
         (sfVector2f){rng_x, rng_y}, (sfIntRect){0, 200, 97, 113}, 50);
     }
