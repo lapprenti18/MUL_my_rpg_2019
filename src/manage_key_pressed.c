@@ -97,10 +97,6 @@ void manage_key_pressed(all_t *store, int status)
             store->show_particules = true;
             store->scene = PAUSE;
         }
-        if (sfKeyboard_isKeyPressed(sfKeyA))
-            store->nb_golds += 1;
-        if (sfKeyboard_isKeyPressed(sfKeyE))
-            store->nb_golds -= 1;
     }
     check_inventory(store, status);
 }
