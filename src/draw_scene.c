@@ -63,9 +63,9 @@ void draw_single_sprite(all_t *store, game_object_t *temp)
         }
         return;
     }
-    if (store->scene == QUEST && store->show_quest == true \
+    if (store->scene == QUEST && store->show_quest == false \
     && temp->type == QUEST_BOX)
-        sfRenderWindow_drawSprite(store->window, temp->sprite, NULL);
+        return;
     check_for_charms(store, temp);
 }
 
@@ -87,9 +87,6 @@ void draw_other(all_t *store)
         if (store->mobs[index].alive == true)
             sfRenderWindow_drawSprite(store->window, \
             store->mobs[index].sprite, NULL);
-    if (store->scene == QUEST && store->show_quest == true)
-        sfRenderWindow_drawSprite(store->window, \
-        store->objects[QUEST]->sprite, NULL);
 }
 
 void draw_scene(all_t *store)
@@ -99,6 +96,9 @@ void draw_scene(all_t *store)
     for (game_object_t *temp = store->objects[store->scene]; \
     temp; temp = temp->next) {
         update(store, temp, mouse);
+        if (store->scene == PLAYING && store->quest_status == 0 && \
+        temp->type == LITTLE_QUEST)
+            return;
         draw_single_sprite(store, temp);
     }
     draw_other(store);

@@ -62,6 +62,12 @@ void check_for_sword(all_t *store)
 void check_inventory(all_t *store, int status)
 {
     if (status == 1) {
+        if (store->scene == QUEST && sfKeyboard_isKeyPressed(sfKeyF)) {
+            store->show_quest = false;
+            store->quest_status = 1;
+            store->scene = PLAYING;
+            return;
+        }
         if (store->event.key.code == store->keys_code[6] && \
         store->in_inventory == 0 && store->scene == PLAYING) {
             store->scene = INVENTORY;
@@ -92,11 +98,6 @@ void manage_key_pressed(all_t *store, int status)
             store->nb_golds += 1;
         if (sfKeyboard_isKeyPressed(sfKeyE))
             store->nb_golds -= 1;
-    }
-    if (store->scene == QUEST && store->event.key.code == sfKeyF) {
-        store->show_quest = true;
-        store->quest_status = 1;
-        store->scene = PLAYING;
     }
     check_inventory(store, status);
 }

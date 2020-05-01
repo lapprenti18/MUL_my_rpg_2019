@@ -80,6 +80,6 @@ void set_structures_next(all_t *store)
     store->mobs = init_mobs();
     store->quest_status = 0;
     store->spawn = 1;
-    store->show_quest = false;
+    store->show_quest = true;
     store->show_sword = false;
 }
