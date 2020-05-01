@@ -9,33 +9,33 @@
 
 void respawn_left(all_t *store, game_object_t *object)
 {
-    if (store->index_maps == 0 )
+    if (store->index_maps == 0)
         object->change_pos(object, (sfVector2f){200, 850});
-    if (store->index_maps == 1 )
+    if (store->index_maps == 1)
         object->change_pos(object, (sfVector2f){200, 850});
-    if (store->index_maps == 2 )
+    if (store->index_maps == 2)
         object->change_pos(object, (sfVector2f){200, 850});
-    if (store->index_maps == 3 )
+    if (store->index_maps == 3)
         object->change_pos(object, (sfVector2f){200, 850});
-    if (store->index_maps == 4 )
+    if (store->index_maps == 4)
         object->change_pos(object, (sfVector2f){960, 150});
-    if (store->index_maps == 5 )
+    if (store->index_maps == 5)
         object->change_pos(object, (sfVector2f){100, 700});
 }
 
 void respawn_right(all_t *store, game_object_t *object)
 {
-    if (store->index_maps == 0 )
+    if (store->index_maps == 0)
         object->change_pos(object, (sfVector2f){1800, 850});
-    if (store->index_maps == 1 )
+    if (store->index_maps == 1)
         object->change_pos(object, (sfVector2f){1800, 850});
-    if (store->index_maps == 2 )
+    if (store->index_maps == 2)
         object->change_pos(object, (sfVector2f){1800, 850});
-    if (store->index_maps == 3 )
+    if (store->index_maps == 3)
         object->change_pos(object, (sfVector2f){1800, 850});
-    if (store->index_maps == 4 )
+    if (store->index_maps == 4)
         object->change_pos(object, (sfVector2f){1800, 700});
-    if (store->index_maps == 5 )
+    if (store->index_maps == 5)
         object->change_pos(object, (sfVector2f){100, 700});
 }
 

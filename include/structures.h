@@ -100,6 +100,8 @@ typedef struct mob_s
 {
     int hp;
     int reward;
+    int rec;
+    float sec;
     sfSprite *sprite;
     sfTexture *texture;
     sfVector2f pos;

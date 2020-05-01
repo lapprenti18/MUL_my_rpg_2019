@@ -69,22 +69,38 @@ void update_ennemy(all_t *store)
     if (store->index_maps != 5) {
         for (int i = 0; i < 10; i += 1) {
             if (store->mobs[i].alive == true) {
+
+
+                store->mobs[i].time = sfClock_getElapsedTime(store->mobs[i].clock);
+                store->mobs[i].sec = store->mobs[i].time.microseconds / 1000000.0;
+                if (store->mobs[i].sec > 0.1) {
+                    if (store->mobs[i].rec == 0)
+                    store->mobs[i].rect.left += 160;
+                    if (store->mobs[i].rec == 1)
+                        store->mobs[i].rect.left -= 160;
+                    sfSprite_setTextureRect(store->mobs[i].sprite, store->mobs[i].rect);
+                    if (store->mobs[i].rect.left >= 800)
+                        store->mobs[i].rec = 1;
+                    if (store->mobs[i].rect.left <= 0)
+                        store->mobs[i].rec = 0;
+                    sfClock_restart(store->mobs[i].clock);
+                }
+
+
                 if (store->mobs[i].pos.x - ob->pos.x < 400 && store->mobs[i].pos.y - ob->pos.y < 200 && store->mobs[i].pos.x - ob->pos.x > -400) {
                     if (store->mobs[i].pos.x <= ob->pos.x - 30) {
-                        if (store->current[(int)store->mobs[i].pos.y / 20][(int)(store->mobs[i].pos.x + 1) / 20 - 1] == '0')
-                            store->mobs[i].pos.x += 1;
+                        store->mobs[i].pos.x += 1;
+                        store->mobs[i].rect.top = 180;
                     }
                     if (store->mobs[i].pos.x > ob->pos.x - 10) {
-                        if (store->current[(int)store->mobs[i].pos.y / 20][(int)(store->mobs[i].pos.x - 1) / 20 - 1] == '0')
-                            store->mobs[i].pos.x -= 1;
+                        store->mobs[i].pos.x -= 1;
+                        store->mobs[i].rect.top = 0;
                     }
                     if (store->mobs[i].pos.y <= ob->pos.y - 100) {
-                        if (store->current[(int)(store->mobs[i].pos.y + 1) / 20][(int)store->mobs[i].pos.x / 20 - 1] == '0')
-                            store->mobs[i].pos.y += 1;
+                        store->mobs[i].pos.y += 1;
                     }
                     if (store->mobs[i].pos.y > ob->pos.y - 100) {
-                        if (store->current[(int)(store->mobs[i].pos.y - 1) / 20][(int)store->mobs[i].pos.x / 20 - 1] == '0')
-                            store->mobs[i].pos.y -= 1;
+                        store->mobs[i].pos.y -= 1;
                     }
                     sfSprite_setPosition(store->mobs[i].sprite, store->mobs[i].pos);
                     sfRenderWindow_drawSprite(store->window, store->mobs[i].sprite, NULL);
@@ -101,9 +117,9 @@ void update_ennemy(all_t *store)
         sfRenderWindow_drawSprite(store->window, store->mobs[0].sprite, NULL);
         if (ob->pos.y >= 700) {
             if (store->mobs[0].pos.x < ob->pos.x)
-                store->mobs[0].pos.x += 10;
+                store->mobs[0].pos.x += 5;
             else
-                store->mobs[0].pos.x -= 10;
+                store->mobs[0].pos.x -= 5;
         }
     }
 }

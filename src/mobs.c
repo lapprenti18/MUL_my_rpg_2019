@@ -17,8 +17,10 @@ void add_mobs(all_t *store)
     for (index = 0; index < rng; index += 1) {
         rng_x = rand() % 1700 + 100;
         rng_y = rand() % 500 + 300;
-        store->mobs[index] = create_mob("assets/textures/mobs.png", \
-        (sfVector2f){rng_x, rng_y}, (sfIntRect){0, 200, 97, 113}, 50);
+        store->mobs[index] = create_mob("assets/textures/boosito.png", \
+        (sfVector2f){rng_x, rng_y}, (sfIntRect){0, 0, 160, 180}, 50);
+        store->mobs[index].sec = 0;
+        store->mobs[index].rec = 0;
     }
     for (; index < 10; index += 1)
         store->mobs[index].alive = false;
