@@ -48,16 +48,44 @@ void move_enn(all_t *store, int i, game_object_t *ob)
     }
 }
 
+void clock_boss(all_t *store)
+{
+    store->mobs[0].time = sfClock_getElapsedTime(store->mobs[0].clock);
+    store->mobs[0].sec = store->mobs[0].time.microseconds / 1000000.0;
+    if (store->mobs[0].sec > 0.1) {
+        if (store->mobs[0].rec == 0)
+        store->mobs[0].rect.left += 200;
+        if (store->mobs[0].rec == 1)
+            store->mobs[0].rect.left -= 200;
+        sfSprite_setTextureRect(store->mobs[0].sprite, store->mobs[0].rect);
+        if (store->mobs[0].rect.left >= 800)
+            store->mobs[0].rec = 1;
+        if (store->mobs[0].rect.left <= 0)
+            store->mobs[0].rec = 0;
+        sfClock_restart(store->mobs[0].clock);
+    }
+}
+
 void boss(all_t *store, game_object_t *ob)
 {
+    clock_boss(store);
+    if (store->mobs[0].pos.x <= ob->pos.x - 100 && store->mobs[0].pos.x <= 1500) {
+        store->mobs[0].pos.x += 1;
+        store->mobs[0].rect.top = 0;
+    }
+    if (store->mobs[0].pos.x > ob->pos.x - 100 && store->mobs[0].pos.x > 300) {
+        store->mobs[0].pos.x -= 1;
+        store->mobs[0].rect.top = 300;
+    }
+    if (ob->pos.y >= 700) {
+        if (store->mobs[0].pos.x < ob->pos.x - 100) {
+            store->mobs[0].pos.x += 2;
+        }
+        else
+            store->mobs[0].pos.x -= 2;
+    }
     sfSprite_setPosition(store->mobs[0].sprite, store->mobs[0].pos);
     sfRenderWindow_drawSprite(store->window, store->mobs[0].sprite, NULL);
-    if (ob->pos.y >= 700) {
-        if (store->mobs[0].pos.x < ob->pos.x)
-            store->mobs[0].pos.x += 5;
-        else
-            store->mobs[0].pos.x -= 5;
-    }
 }
 
 void update_ennemy(all_t *store)

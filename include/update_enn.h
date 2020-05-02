@@ -14,5 +14,6 @@ void update_ennemy(all_t *store);
 void boss(all_t *store, game_object_t *ob);
 void move_enn(all_t *store, int i, game_object_t *ob);
 void clock_enn(all_t *store, int i);
+void clock_boss(all_t *store);
 
 #endif /* UPDATE_ENN_H_ */
