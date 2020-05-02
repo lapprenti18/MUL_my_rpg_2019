@@ -57,6 +57,7 @@
 #include "./change_pos.h"
 #include "update_enn.h"
 #include "update_sword.h"
+#include "./draw_quest.h"
 
 #include "./lib.h"
 

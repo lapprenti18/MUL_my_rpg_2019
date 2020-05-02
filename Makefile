@@ -109,7 +109,8 @@ COMP	=	src/main.c	\
 			src/respawn.c	\
 			src/manage_jump_two.c	\
 			src/change_pos.c	\
-			src/update_enn.c
+			src/update_enn.c	\
+			src/draw_quest.c	\
 
 CFLAGS  =	-W -Wall -Wextra -lcsfml-graphics -lcsfml-window -lcsfml-system -lcsfml-audio -lm -Iinclude -g3
 

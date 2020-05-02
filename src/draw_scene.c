@@ -63,9 +63,7 @@ void draw_single_sprite(all_t *store, game_object_t *temp)
         }
         return;
     }
-    if ((store->scene == QUEST && store->show_quest == false \
-    && temp->type == QUEST_BOX) || (store->scene == PLAYING && \
-    store->quest_status == 0 && temp->type == LITTLE_QUEST))
+    if (draw_sprites_quest(store, temp) == 1)
         return;
     check_for_charms(store, temp);
 }

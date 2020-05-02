@@ -7,6 +7,17 @@
 
 #include "../include/my.h"
 
+game_object_t *setup_quest_sprites2(game_object_t *quest)
+{
+    add_node_back(&quest, (coding_style_t){QUEST_BEGIN, (sfFloatRect){1560, \
+    575, 434, 614}, (sfIntRect){0, 0, 434, 614}, \
+    "assets/textures/quest_begin.png", false, false, -1, -1});
+    add_node_back(&quest, (coding_style_t){QUEST_END, (sfFloatRect){1560, \
+    575, 434, 614}, (sfIntRect){0, 0, 434, 614}, \
+    "assets/textures/quest_end.png", false, false, -1, -1});
+    return (quest);
+}
+
 game_object_t *setup_quest_sprites(void)
 {
     game_object_t *quest = NULL;
@@ -23,5 +34,5 @@ game_object_t *setup_quest_sprites(void)
     add_node_back(&quest, (coding_style_t){LISTEN, (sfFloatRect){860, 575, \
     165, 130}, (sfIntRect){0, 0, 165, 130}, \
     "assets/textures/panneau_listen.png", false, false, -1, -1});
-    return (quest);
+    return (setup_quest_sprites2(quest));
 }
