@@ -26,7 +26,6 @@ game_object_t *setup_playing_sprites_next(game_object_t *playing)
 
 game_object_t *setup_playing_sprites(void)
 {
-    int x = 325;
     game_object_t *playing  = NULL;
 
     add_node_back(&playing, (coding_style_t){BACKGROUND, (sfFloatRect){960, \
@@ -35,7 +34,7 @@ game_object_t *setup_playing_sprites(void)
     add_node_back(&playing, (coding_style_t){MANA_BAR, (sfFloatRect){229, 146, \
     229, 146}, (sfIntRect){0, 0, 229, 146}, \
     "assets/textures/mana_bar_final-min.png", false, true, 687, 0.2});
-    for (; x < 651; x += 75)
+    for (int x = 651; x > 325; x -= 75)
         add_node_back(&playing, (coding_style_t){HEALTH, (sfFloatRect){x, 146, \
     51, 66}, (sfIntRect){0, 0, 51, 66}, \
     "assets/textures/animation_vie_v5-min.png", false, true, 260, 0.15});

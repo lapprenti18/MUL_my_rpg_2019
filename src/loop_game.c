@@ -27,6 +27,12 @@ void write_in_file_next(all_t *store, int fd, char *buffer)
             write(fd, "0", 1);
         write(fd, "\n", 1);
     }
+    buffer = my_int_to_ascii(store->quest_status);
+    write(fd, buffer, my_strlen(buffer));
+    write(fd, "\n", 1);
+    buffer = my_int_to_ascii(store->knight_hp);
+    write(fd, buffer, my_strlen(buffer));
+    write(fd, "\n", 1);
 }
 
 void write_in_file(all_t *store)

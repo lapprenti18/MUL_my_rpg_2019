@@ -211,6 +211,7 @@ typedef struct all_s
     int knight_dgs;
     int more_golds;
     int more_mana;
+<<<<<<< HEAD
     int attack;
     sfClock *clock;
     sfTime time;
@@ -218,6 +219,9 @@ typedef struct all_s
     sfClock *clock_attack;
     sfTime time_attack;
     float sec_attack;
+=======
+    int knight_hp;
+>>>>>>> 4341fc3078026f130a07dc90037cb25bcf9e4d6d
 }all_t;
 
 #endif /* STRUCTURES_H_ */

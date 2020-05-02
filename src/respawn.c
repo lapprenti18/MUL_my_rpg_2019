@@ -55,6 +55,19 @@ void respawn_right(all_t *store, game_object_t *object)
 
 void respawn(all_t *store, game_object_t *object)
 {
+    if (store->knight_hp != 0) {
+        store->knight_hp -= 1;
+        for (game_object_t *ob = store->objects[PLAYING]; ob; ob = ob->next) {
+            if (ob->type == HEALTH && ob->rect.left != 306) {
+                ob->rect.left = 306;
+                ob->animated = false;
+                sfSprite_setTextureRect(ob->sprite, ob->rect);
+                break;
+            }
+        }
+        if (store->knight_hp == 0)
+            my_printf("DEAD!\n");
+    }
     if (store->spawn == 1)
         respawn_left(store, object);
     if (store->spawn == 2)
