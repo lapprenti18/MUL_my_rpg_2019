@@ -51,6 +51,7 @@ void set_structures_last(all_t *store)
     store->knight_dgs = 1;
     store->more_golds = 1;
     store->more_mana = 1;
+    store->knight_hp = 5;
 }
 
 void set_structures_next(all_t *store)

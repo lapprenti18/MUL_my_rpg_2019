@@ -24,9 +24,6 @@ game_object_t *setup_video_next(game_object_t *video)
     add_node_back(&video, (coding_style_t){ON_OFF_3, (sfFloatRect){1305, \
     610, 50, 20}, (sfIntRect){50, 0, 50, 20}, \
     "assets/textures/on_off.png", false, false, 50, -1});
-    add_node_back(&video, (coding_style_t){RES_CURSOR, (sfFloatRect){1255, \
-    388, 150, 20}, (sfIntRect){0, 0, 150, 20}, \
-    "assets/textures/resolutions.png", false, false, 300, -1});
     return (video);
 }
 
@@ -40,9 +37,6 @@ game_object_t *setup_video_sprites(void)
     add_node_back(&video, (coding_style_t){VIDEO_SHAPE, (sfFloatRect){960, 240\
     , 724, 114}, (sfIntRect){0, 0, 724, 114}, "assets/textures/video.png", \
     false, false, -1, -1});
-    add_node_back(&video, (coding_style_t){RESOLUTION, (sfFloatRect){960, 400\
-    , 840, 63}, (sfIntRect){0, 0, 840, 63}, "assets/textures/menu_video.png", \
-    true, false, -1, -1});
     add_node_back(&video, (coding_style_t){FULL_SCREEN, (sfFloatRect)\
     {960, 463, 840, 63}, (sfIntRect){0, 63, 840, 63}, \
     "assets/textures/menu_video.png", true, false, -1, -1});

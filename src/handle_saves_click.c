@@ -23,6 +23,10 @@ void update_save_next(all_t *store, char **array)
     for (int index = 4; index < 9; index += 1)
         if (my_getnbr(array[index]) == 1)
             store->buys[index - 4] = true;
+    store->quest_status = my_getnbr(array[9]);
+    if (store->quest_status >= 1)
+        store->show_quest = false;
+    store->knight_hp = my_getnbr(array[10]);
 }
 
 void update_save(all_t *store, char *filepath, int save_index)
