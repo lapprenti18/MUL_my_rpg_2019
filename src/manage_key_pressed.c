@@ -33,6 +33,8 @@ void check_input(all_t *store, game_object_t *object)
         check_input2(store, object);
         sfSprite_setTextureRect(object->sprite, object->rect);
     }
+    if (object->type == MANA_BAR)
+        analyse_mana_bar(store, object);
 }
 
 void check_for_sword(all_t *store)
@@ -47,12 +49,14 @@ void check_for_sword(all_t *store)
         if (object->rect.top == 0 || object->rect.top == 762) {
             copy->rect.left = 0;
             sfSprite_setTextureRect(copy->sprite, copy->rect);
-            copy->change_pos(copy, (sfVector2f){object->pos.x + 50, object->pos.y});
+            copy->change_pos(copy, (sfVector2f){object->pos.x + 50, \
+            object->pos.y});
         }
         if (object->rect.top == 127 || object->rect.top == 889) {
             copy->rect.left = 179;
             sfSprite_setTextureRect(copy->sprite, copy->rect);
-            copy->change_pos(copy, (sfVector2f){object->pos.x - 90, object->pos.y});
+            copy->change_pos(copy, (sfVector2f){object->pos.x - 90, \
+            object->pos.y});
         }
         hitbox_on_mobs(store);
     }
@@ -93,10 +97,6 @@ void manage_key_pressed(all_t *store, int status)
             store->show_particules = true;
             store->scene = PAUSE;
         }
-        if (sfKeyboard_isKeyPressed(sfKeyA))
-            store->nb_golds += 1;
-        if (sfKeyboard_isKeyPressed(sfKeyE))
-            store->nb_golds -= 1;
     }
     check_inventory(store, status);
 }

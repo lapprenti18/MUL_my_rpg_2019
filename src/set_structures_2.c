@@ -7,20 +7,6 @@
 
 #include "../include/my.h"
 
-char **get_array(char *filepath)
-{
-    char *buffer = my_malloc(sizeof(char) * 6000);
-    int fd = open(filepath, O_RDONLY);
-
-    if (!fd)
-        return (NULL);
-    my_memset(buffer, 0, 6000);
-    if (read(fd, buffer, 6000) <= 0)
-        return (NULL);
-    close(fd);
-    return (my_str_to_word_array(buffer, "\n"));
-}
-
 sfText *init_text(sfVector2f pos, char *str)
 {
     sfText *text = sfText_create();
@@ -59,6 +45,14 @@ bool *is_that_buy(void)
     return (tab);
 }
 
+void set_structures_last(all_t *store)
+{
+    store->show_sword = false;
+    store->knight_dgs = 1;
+    store->more_golds = 1;
+    store->more_mana = 1;
+}
+
 void set_structures_next(all_t *store)
 {
     store->right_or_left = 0;
@@ -81,5 +75,5 @@ void set_structures_next(all_t *store)
     store->quest_status = 0;
     store->spawn = 1;
     store->show_quest = true;
-    store->show_sword = false;
+    set_structures_last(store);
 }

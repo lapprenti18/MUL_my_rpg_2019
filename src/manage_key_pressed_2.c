@@ -13,14 +13,14 @@ void analyse_right(all_t *store, game_object_t *knight, mob_t *mob)
     knight->pos.y + knight->height / 2 >= mob->pos.y && \
     knight->pos.x - knight->length / 2 <= mob->pos.x && \
     knight->pos.x + knight->length / 2 + 100 >= mob->pos.x) {
-        mob->hp -= 1;
+        mob->hp -= store->knight_dgs;
         mob->pos.x += 10;
         sfSprite_setPosition(mob->sprite, mob->pos);
         if (mob->hp <= 0) {
             mob->hp = 50;
             mob->alive = false;
-            store->nb_golds += mob->reward;
-            store->mana_level += 1;
+            store->nb_golds += mob->reward * store->more_golds;
+            store->mana_level += 1 * store->more_mana;
         }
     }
 }
@@ -31,14 +31,14 @@ void analyse_left(all_t *store, game_object_t *knight, mob_t *mob)
     knight->pos.y + knight->height / 2 >= mob->pos.y && \
     knight->pos.x + knight->length / 2 >= mob->pos.x && \
     knight->pos.x - knight->length / 2 - 150 <= mob->pos.x) {
-        mob->hp -= 1;
+        mob->hp -= store->knight_dgs;
         mob->pos.x -= 10;
         sfSprite_setPosition(mob->sprite, mob->pos);
         if (mob->hp <= 0) {
             mob->hp = 50;
             mob->alive = false;
-            store->nb_golds += mob->reward;
-            store->mana_level += 1;
+            store->nb_golds += mob->reward * store->more_golds;
+            store->mana_level += store->more_mana;
         }
     }
 }
@@ -74,15 +74,15 @@ void check_input2(all_t *store, game_object_t *object)
 {
     if (sfKeyboard_isKeyPressed(store->keys_code[0]) && \
         store->nb_jump != 0 && object->pos.x >= 140 && \
-        object->pos.x <= 280 && store->index_maps == 1) {
+        object->pos.x <= 280 && store->index_maps == 1)
             store->scene = QUEST;
-            return;
-        }
-    if (sfKeyboard_isKeyPressed(store->keys_code[2]) && store->scene == PLAYING) {
+    if (sfKeyboard_isKeyPressed(store->keys_code[2]) && \
+    store->scene == PLAYING) {
         store->velocity.x = -3;
         object->rect.top = change_rect(object, 2);
     }
-    if (sfKeyboard_isKeyPressed(store->keys_code[3]) && store->scene == PLAYING) {
+    if (sfKeyboard_isKeyPressed(store->keys_code[3]) && \
+    store->scene == PLAYING) {
         store->velocity.x = 3;
         object->rect.top = change_rect(object, 1);
     }

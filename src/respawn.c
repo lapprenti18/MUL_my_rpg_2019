@@ -7,6 +7,20 @@
 
 #include "../include/my.h"
 
+char **get_array(char *filepath)
+{
+    char *buffer = my_malloc(sizeof(char) * 6000);
+    int fd = open(filepath, O_RDONLY);
+
+    if (!fd)
+        return (NULL);
+    my_memset(buffer, 0, 6000);
+    if (read(fd, buffer, 6000) <= 0)
+        return (NULL);
+    close(fd);
+    return (my_str_to_word_array(buffer, "\n"));
+}
+
 void respawn_left(all_t *store, game_object_t *object)
 {
     if (store->index_maps == 0)
