@@ -53,6 +53,28 @@ void respawn_right(all_t *store, game_object_t *object)
         object->change_pos(object, (sfVector2f){100, 700});
 }
 
+void update_damage(all_t *store, game_object_t *object)
+{
+    if (store->knight_hp == 0) {
+        store->nb_golds = 0;
+        store->mana_level = 0;
+        store->knight_hp = 5;
+        store->spawn = 1;
+        store->index_maps = 0;
+        store->change_texture = true;
+        for (game_object_t *ob = store->objects[PLAYING]; ob; ob = ob->next) {
+            if (ob->type == HEALTH) {
+                ob->rect.left = 0;
+                ob->animated = true;
+                sfSprite_setTextureRect(ob->sprite, ob->rect);
+            }
+        }
+        object->change_pos(object, (sfVector2f){50, 800});
+        store->current = get_array("assets/collisions/first_screen.txt");
+        return;
+    }
+}
+
 void respawn(all_t *store, game_object_t *object)
 {
     if (store->knight_hp != 0) {
@@ -65,8 +87,7 @@ void respawn(all_t *store, game_object_t *object)
                 break;
             }
         }
-        if (store->knight_hp == 0)
-            my_printf("DEAD!\n");
+        update_damage(store, object);
     }
     if (store->spawn == 1)
         respawn_left(store, object);
