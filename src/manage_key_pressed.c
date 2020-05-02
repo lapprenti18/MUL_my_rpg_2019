@@ -48,6 +48,18 @@ void check_for_sword(all_t *store)
             sfClock_restart(store->clock_attack);
         }
     }
+    if (sfKeyboard_isKeyPressed(sfKeyH) && store->knight_hp != 5 && \
+    store->mana_level > 2 && store->buys[0]) {
+        store->knight_hp += 1;
+        store->mana_level -= 2;
+        for (game_object_t *ob = store->objects[PLAYING]; ob; ob = ob->next)
+            if (ob->type == HEALTH && !ob->animated) {
+                ob->animated = true;
+                ob->rect.left = 0;
+                sfSprite_setTextureRect(ob->sprite, ob->rect);
+                break;
+            }
+    }
 }
 
 void check_inventory(all_t *store, int status)
