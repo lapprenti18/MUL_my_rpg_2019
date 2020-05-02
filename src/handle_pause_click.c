@@ -9,7 +9,7 @@
 
 void reset_struct(all_t *store)
 {
-    write_in_file(store); 
+    write_in_file(store);
     store->nb_golds = 0;
     store->index_maps = 0;
     store->current = get_array("assets/collisions/first_screen.txt");

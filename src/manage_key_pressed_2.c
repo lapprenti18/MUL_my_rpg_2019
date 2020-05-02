@@ -23,6 +23,8 @@ void analyse_right(all_t *store, game_object_t *knight, mob_t *mob)
             mob->alive = false;
             store->nb_golds += mob->reward * store->more_golds;
             store->mana_level += 1 * store->more_mana;
+            if (store->mana_level > 8)
+                store->mana_level = 8;
         }
     }
 }
@@ -43,6 +45,8 @@ void analyse_left(all_t *store, game_object_t *knight, mob_t *mob)
             mob->alive = false;
             store->nb_golds += mob->reward * store->more_golds;
             store->mana_level += store->more_mana;
+            if (store->mana_level > 8)
+                store->mana_level = 8;
         }
     }
 }
