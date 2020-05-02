@@ -72,6 +72,7 @@ void loop_game(all_t *store)
         if (store->scene == PLAYING)
             update_jump(store);
         update_ennemy(store);
+        update_sword(store);
         draw_scene(store);
         sfRenderWindow_display(store->window);
     }

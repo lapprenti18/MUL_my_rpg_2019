@@ -56,6 +56,7 @@
 #include "./manage_jump_two.h"
 #include "./change_pos.h"
 #include "update_enn.h"
+#include "update_sword.h"
 
 #include "./lib.h"
 

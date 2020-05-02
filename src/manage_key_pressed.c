@@ -39,26 +39,14 @@ void check_input(all_t *store, game_object_t *object)
 
 void check_for_sword(all_t *store)
 {
-    game_object_t *object = store->objects[PLAYING];
-    game_object_t *copy = store->objects[PLAYING];
-
-    for (; object->type != KNIGHT ; object = object->next);
-    for (; copy->type != SWORD_EFFECT ; copy = copy->next);
     if (sfKeyboard_isKeyPressed(store->keys_code[4])) {
-        store->show_sword = true;
-        if (object->rect.top == 0 || object->rect.top == 762) {
-            copy->rect.left = 0;
-            sfSprite_setTextureRect(copy->sprite, copy->rect);
-            copy->change_pos(copy, (sfVector2f){object->pos.x + 50, \
-            object->pos.y});
+        store->time = sfClock_getElapsedTime(store->clock);
+        store->sec = store->time.microseconds / 1000000.0;
+        if (store->sec > 0.5) {
+            store->attack = 1;
+            sfClock_restart(store->clock);
+            sfClock_restart(store->clock_attack);
         }
-        if (object->rect.top == 127 || object->rect.top == 889) {
-            copy->rect.left = 179;
-            sfSprite_setTextureRect(copy->sprite, copy->rect);
-            copy->change_pos(copy, (sfVector2f){object->pos.x - 90, \
-            object->pos.y});
-        }
-        hitbox_on_mobs(store);
     }
 }
 

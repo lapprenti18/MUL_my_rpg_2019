@@ -51,6 +51,15 @@ void set_structures_last(all_t *store)
     store->knight_dgs = 1;
     store->more_golds = 1;
     store->more_mana = 1;
+    store->mobs = init_mobs();
+    store->quest_status = 0;
+    store->spawn = 1;
+    store->attack = 0;
+    store->sec = 0;
+    store->clock = sfClock_create();
+    store->sec_attack = 0;
+    store->clock_attack = sfClock_create();
+    store->show_quest = true;
 }
 
 void set_structures_next(all_t *store)
@@ -71,9 +80,5 @@ void set_structures_next(all_t *store)
     store->buys = is_that_buy();
     store->show_enter = false;
     store->show_enter_2 = false;
-    store->mobs = init_mobs();
-    store->quest_status = 0;
-    store->spawn = 1;
-    store->show_quest = true;
     set_structures_last(store);
 }
