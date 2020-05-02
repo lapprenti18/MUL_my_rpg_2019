@@ -13,5 +13,7 @@
 mob_t create_mob(char *filepath, sfVector2f pos, sfIntRect rect, int hp);
 mob_t *init_mobs(void);
 void add_mobs(all_t *store);
+void spawn_mob(all_t *store);
+void spawn_boss(all_t *store);
 
 #endif /* MOBS_H_ */

@@ -7,7 +7,7 @@
 
 #include "../include/my.h"
 
-void add_mobs(all_t *store)
+void spawn_mob(all_t *store)
 {
     int rng = rand() % 6 + 4;
     int rng_x = 0;
@@ -24,6 +24,32 @@ void add_mobs(all_t *store)
     }
     for (; index < 10; index += 1)
         store->mobs[index].alive = false;
+}
+
+void spawn_boss(all_t *store)
+{
+    int rng_x = 0;
+    int rng_y = 0;
+
+    for (int i = 0; i < 10; i += 1)
+        store->mobs[i].alive = false;
+    if (store->quest_status == 1) {
+        store->mobs[0].alive = true;
+        rng_x = rand() % 1700 + 100;
+        rng_y = 650;
+        store->mobs[0] = create_mob("assets/textures/boosito.png", \
+        (sfVector2f){rng_x, rng_y}, (sfIntRect){0, 0, 160, 180}, 50);
+        store->mobs[0].sec = 0;
+        store->mobs[0].rec = 0;
+    }
+}
+
+void add_mobs(all_t *store)
+{
+    if (store->index_maps != 5)
+        spawn_mob(store);
+    if (store->index_maps == 5)
+        spawn_boss(store);
 }
 
 mob_t create_mob(char *filepath, sfVector2f pos, sfIntRect rect, int hp)

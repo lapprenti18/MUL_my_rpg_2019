@@ -55,6 +55,7 @@
 #include "./respawn.h"
 #include "./manage_jump_two.h"
 #include "./change_pos.h"
+#include "update_enn.h"
 
 #include "./lib.h"
 
