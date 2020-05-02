@@ -51,7 +51,6 @@ void set_structures_last(all_t *store)
     store->knight_dgs = 1;
     store->more_golds = 1;
     store->more_mana = 1;
-<<<<<<< HEAD
     store->mobs = init_mobs();
     store->quest_status = 0;
     store->spawn = 1;
@@ -61,9 +60,7 @@ void set_structures_last(all_t *store)
     store->sec_attack = 0;
     store->clock_attack = sfClock_create();
     store->show_quest = true;
-=======
     store->knight_hp = 5;
->>>>>>> 4341fc3078026f130a07dc90037cb25bcf9e4d6d
 }
 
 void set_structures_next(all_t *store)
