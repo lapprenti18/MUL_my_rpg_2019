@@ -36,9 +36,9 @@ void spawn_boss(all_t *store)
     if (store->quest_status == 1) {
         store->mobs[0].alive = true;
         rng_x = rand() % 1700 + 100;
-        rng_y = 650;
-        store->mobs[0] = create_mob("assets/textures/boosito.png", \
-        (sfVector2f){rng_x, rng_y}, (sfIntRect){0, 0, 160, 180}, 50);
+        rng_y = 600;
+        store->mobs[0] = create_mob("assets/textures/real_boss.png", \
+        (sfVector2f){rng_x, rng_y}, (sfIntRect){0, 0, 200, 210}, 50);
         store->mobs[0].sec = 0;
         store->mobs[0].rec = 0;
     }
