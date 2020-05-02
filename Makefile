@@ -70,6 +70,7 @@ COMP	=	src/main.c	\
 			src/manage_key_pressed.c	\
 			src/set_structures.c	\
 			src/set_structures_2.c	\
+			src/update_sword.c	\
 			src/set_structures_second.c	\
 			src/loop_game.c	\
 			src/analyse_events.c	\

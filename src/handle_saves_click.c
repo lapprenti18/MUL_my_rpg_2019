@@ -20,6 +20,8 @@ col_t tab_spe[6] =
 
 void update_save_next(all_t *store, char **array)
 {
+    int save_hp = 0;
+
     for (int index = 4; index < 9; index += 1)
         if (my_getnbr(array[index]) == 1)
             store->buys[index - 4] = true;
@@ -27,6 +29,17 @@ void update_save_next(all_t *store, char **array)
     if (store->quest_status >= 1)
         store->show_quest = false;
     store->knight_hp = my_getnbr(array[10]);
+    save_hp = 5 - store->knight_hp;
+    for (game_object_t *ob = store->objects[PLAYING]; ob; ob = ob->next) {
+        if (ob->type == HEALTH) {
+            ob->rect.left = 306;
+            ob->animated = false;
+            sfSprite_setTextureRect(ob->sprite, ob->rect);
+            save_hp -= 1;
+        }
+        if (save_hp == 0)
+            break;
+    }
 }
 
 void update_save(all_t *store, char *filepath, int save_index)
