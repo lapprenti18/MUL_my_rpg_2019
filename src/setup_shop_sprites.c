@@ -15,9 +15,6 @@ game_object_t *setup_shop_sprites_next(game_object_t *shop)
     add_node_back(&shop, (coding_style_t){GOLD_CHARM, \
     (sfFloatRect){1470, 658, 870, 136}, (sfIntRect){0, 408, 870, 136}, \
     "assets/textures/shop_charms.png", true, false, -1, -1});
-    add_node_back(&shop, (coding_style_t){HEART_CHARM, \
-    (sfFloatRect){1470, 794, 870, 136}, (sfIntRect){0, 544, 870, 136}, \
-    "assets/textures/shop_charms.png", true, false, -1, -1});
     return (shop);
 }
 

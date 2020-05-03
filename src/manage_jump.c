@@ -25,6 +25,10 @@ void change_screen_last(all_t *store, game_object_t *object)
             store->change_texture = false;
         }
         if (object->pos.x <= 20) {
+            if (store->quest_status == 2) {
+                sfMusic_pause(store->musics[PAUSE]);
+                sfMusic_play(store->musics[PLAYING]);
+            }
             norm_change_screen_last(store, object);
             if (store->quest_status == 1)
                 object->change_pos(object, (sfVector2f){20, 680});

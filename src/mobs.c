@@ -34,6 +34,8 @@ void spawn_boss(all_t *store)
     for (int i = 0; i < 10; i += 1)
         store->mobs[i].alive = false;
     if (store->quest_status == 1) {
+        sfMusic_pause(store->musics[PLAYING]);
+        sfMusic_play(store->musics[PAUSE]);
         store->mobs[0].alive = true;
         store->mobs[0] = create_mob("assets/textures/real_boss.png", \
         (sfVector2f){rng_x, rng_y}, (sfIntRect){0, 0, 200, 210}, 50);

@@ -43,6 +43,10 @@ void game_is_over(all_t *store, game_object_t *ob)
     store->nb_golds = 0;
     store->show_enter = false;
     store->show_enter_2 = false;
+    for (int index = 0; index < 10; index += 1)
+        store->mobs[index].alive = false;
+    sfMusic_pause(store->musics[PAUSE]);
+    sfMusic_play(store->musics[PLAYING]);
 }
 
 void update_hp(all_t *store, game_object_t *ob)
