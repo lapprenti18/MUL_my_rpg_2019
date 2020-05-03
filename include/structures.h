@@ -231,6 +231,9 @@ typedef struct all_s
     int knight_hp;
     sounds_t *tab_sound;
     bool no_damages;
+    char **first_plan;
+    sfTexture *texture_plan;
+    sfSprite *sprite_plan;
 }all_t;
 
 #endif /* STRUCTURES_H_ */

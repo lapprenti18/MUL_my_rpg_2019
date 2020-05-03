@@ -25,15 +25,7 @@ void change_screen_last(all_t *store, game_object_t *object)
             store->change_texture = false;
         }
         if (object->pos.x <= 20) {
-            if (store->quest_status != 1) {
-                store->index_maps -= 1;
-                store->spawn = 2;
-                object->change_pos(object, (sfVector2f){1900, object->pos.y});
-                store->change_texture = true;
-                store->current = get_array(spe_array\
-                [store->index_maps].filepath);
-                add_mobs(store);
-            }
+            norm_change_screen_last(store, object);
             if (store->quest_status == 1)
                 object->change_pos(object, (sfVector2f){20, 680});
         }
@@ -50,16 +42,12 @@ void change_screen_next(all_t *store, game_object_t *object)
             store->change_texture = true;
             store->current = get_array(spe_array[store->index_maps].filepath);
             add_mobs(store);
+            store->texture_plan = sfTexture_createFromFile(\
+            store->first_plan[store->index_maps], NULL);
+            sfSprite_setTexture(store->sprite_plan, \
+            store->texture_plan, sfTrue);
         }
-        if (object->pos.x <= 20) {
-            store->index_maps -= 1;
-            store->spawn = 2;
-            object->change_pos(object, (sfVector2f){1900, object->pos.y});
-            store->change_texture = true;
-            store->current = get_array(spe_array[store->index_maps].filepath);
-            add_mobs(store);
-        }
-        return;
+        norm_change_screen_next(store, object);
     }
     change_screen_last(store, object);
 }
@@ -70,6 +58,9 @@ void change_screen(all_t *store, game_object_t *object)
         respawn(store, object);
     if (object->pos.y <= 10 && store->index_maps == 4) {
         change_screen_four(store, object);
+        store->texture_plan = sfTexture_createFromFile(\
+        store->first_plan[store->index_maps], NULL);
+        sfSprite_setTexture(store->sprite_plan, store->texture_plan, sfTrue);
         return;
     }
     if (store->index_maps == 0) {

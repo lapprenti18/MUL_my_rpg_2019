@@ -63,6 +63,11 @@ void set_structures_last(all_t *store)
     store->knight_hp = 5;
     store->tab_sound = create_tab_sound();
     store->no_damages = false;
+    store->first_plan = init_filepath();
+    store->texture_plan = sfTexture_createFromFile(\
+    "assets/textures/map1_premier_plan.png", NULL);
+    store->sprite_plan = sfSprite_create();
+    sfSprite_setTexture(store->sprite_plan, store->texture_plan, sfTrue);
 }
 
 void set_structures_next(all_t *store)

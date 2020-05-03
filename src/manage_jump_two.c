@@ -17,6 +17,39 @@ col_t array[6] =
     {5, "assets/collisions/six_screen.txt"}
 };
 
+void norm_change_screen_last(all_t *store, game_object_t *object)
+{
+    if (store->quest_status != 1) {
+        store->index_maps -= 1;
+        store->spawn = 2;
+        object->change_pos(object, (sfVector2f){1900, object->pos.y});
+        store->change_texture = true;
+        store->current = get_array(array\
+        [store->index_maps].filepath);
+        add_mobs(store);
+        store->texture_plan = sfTexture_createFromFile(\
+        store->first_plan[store->index_maps], NULL);
+        sfSprite_setTexture(store->sprite_plan, store->texture_plan, sfTrue);
+    }
+    return;
+}
+
+void norm_change_screen_next(all_t *store, game_object_t *object)
+{
+    if (object->pos.x <= 20) {
+        store->index_maps -= 1;
+        store->spawn = 2;
+        object->change_pos(object, (sfVector2f){1900, object->pos.y});
+        store->change_texture = true;
+        store->current = get_array(array[store->index_maps].filepath);
+        add_mobs(store);
+        store->texture_plan = sfTexture_createFromFile(\
+        store->first_plan[store->index_maps], NULL);
+        sfSprite_setTexture(store->sprite_plan, store->texture_plan, sfTrue);
+    }
+    return;
+}
+
 void change_screen_four(all_t *store, game_object_t *object)
 {
     store->index_maps -= 1;
@@ -38,5 +71,8 @@ void change_screen_zero(all_t *store, game_object_t *object)
         store->change_texture = true;
         store->current = get_array(array[1].filepath);
         add_mobs(store);
+        store->texture_plan = sfTexture_createFromFile(\
+        store->first_plan[store->index_maps], NULL);
+        sfSprite_setTexture(store->sprite_plan, store->texture_plan, sfTrue);
     }
 }

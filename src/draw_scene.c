@@ -86,6 +86,8 @@ void draw_other(all_t *store)
         if (store->mobs[index].alive == true)
             sfRenderWindow_drawSprite(store->window, \
             store->mobs[index].sprite, NULL);
+    if (store->scene == PLAYING)
+        sfRenderWindow_drawSprite(store->window, store->sprite_plan, NULL);
 }
 
 void draw_scene(all_t *store)

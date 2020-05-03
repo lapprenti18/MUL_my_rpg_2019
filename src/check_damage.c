@@ -51,7 +51,6 @@ void update_hp(all_t *store, game_object_t *ob)
     store->knight_hp -= 1;
     if (store->knight_hp == 0)
         return (game_is_over(store, ob));
-    printf("%d\n", store->knight_hp);
     for (game_object_t *o = store->objects[PLAYING]; o; o = o->next)
         if (o->type == HEALTH && o->animated == true) {
             o->animated = false;

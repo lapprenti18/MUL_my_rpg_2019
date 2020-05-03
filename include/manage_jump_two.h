@@ -12,5 +12,7 @@
 
 void change_screen_four(all_t *store, game_object_t *object);
 void change_screen_zero(all_t *store, game_object_t *object);
+void norm_change_screen_last(all_t *store, game_object_t *object);
+void norm_change_screen_next(all_t *store, game_object_t *object);
 
 #endif /* MANAGE_JUMP_TWO_H_ */

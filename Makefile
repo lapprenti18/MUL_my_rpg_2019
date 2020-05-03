@@ -114,7 +114,8 @@ COMP	=	src/main.c	\
 			src/draw_quest.c	\
 			src/setup_credits_sprites.c	\
 			src/handle_credits_click.c	\
-			src/lance.c
+			src/lance.c 	\
+			src/set_structures_3.c	\
 
 CFLAGS  =	-W -Wall -Wextra -lcsfml-graphics -lcsfml-window -lcsfml-system -lcsfml-audio -lm -Iinclude -g3
 
