@@ -40,12 +40,24 @@ void manage_clock(game_object_t *objects)
     }
 }
 
+void refresh_no_damages(all_t *store, game_object_t *object)
+{
+    object->time = sfClock_getElapsedTime(object->clock);
+    object->seconds = object->time.microseconds / 1000000.0;
+    if (object->seconds > 1) {
+        sfClock_restart(object->clock);
+        store->no_damages = false;
+    }
+}
+
 void manage_all_clock(all_t *store)
 {
     for (game_object_t *copy = store->objects[store->scene]; copy; \
     copy = copy->next) {
         if (copy->type == BACKGROUND)
             manage_particules_clock(store, copy);
+        if (copy->type == SWORD_EFFECT && store->no_damages == true)
+            refresh_no_damages(store, copy);
         copy->manage_clock(copy);
     }
 }

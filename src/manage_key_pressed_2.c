@@ -74,7 +74,6 @@ void hitbox_on_mobs(all_t *store)
     if (store->show_sword == true) {
         for (int index = 0; index < 10; index += 1)
             check_a_mob(store, ob, temp, &(store->mobs[index]));
-        return;
     }
 }
 

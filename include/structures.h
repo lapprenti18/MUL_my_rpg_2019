@@ -229,6 +229,7 @@ typedef struct all_s
     float sec_attack;
     int knight_hp;
     sounds_t *tab_sound;
+    bool no_damages;
 }all_t;
 
 #endif /* STRUCTURES_H_ */
