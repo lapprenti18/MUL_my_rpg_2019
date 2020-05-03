@@ -19,5 +19,8 @@ int draw_sprites_quest(all_t *store, game_object_t *temp)
     if (store->scene == PLAYING && store->quest_status != 2 && \
     temp->type == QUEST_END)
         return (1);
+    if (store->scene == QUEST && store->quest_status != 2 && \
+    temp->type == QUEST_BOX_END)
+        return (1);
     return (0);
 }

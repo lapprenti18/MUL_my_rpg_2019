@@ -76,6 +76,7 @@ typedef enum
     QUEST_BEGIN,
     LITTLE_QUEST,
     QUEST_END,
+    QUEST_BOX_END,
     LIFE_CHARM, // rajouter aucun enum apres celui-ci, toujours en rajouter avant
     ATTACK_CHARM,
     MANA_CHARM,
