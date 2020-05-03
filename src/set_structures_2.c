@@ -62,6 +62,7 @@ void set_structures_last(all_t *store)
     store->show_quest = true;
     store->knight_hp = 5;
     store->tab_sound = create_tab_sound();
+    store->no_damages = false;
 }
 
 void set_structures_next(all_t *store)

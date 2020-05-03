@@ -73,6 +73,7 @@ COMP	=	src/main.c	\
 			src/update_sword.c	\
 			src/set_structures_second.c	\
 			src/loop_game.c	\
+			src/check_damage.c	\
 			src/analyse_events.c	\
 			src/draw_scene.c	\
 			src/setup_shop_sprites.c	\

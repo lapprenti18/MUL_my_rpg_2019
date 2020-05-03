@@ -74,11 +74,13 @@ void loop_game(all_t *store)
         while (sfRenderWindow_pollEvent(store->window, &store->event))
             analyse_events(store);
         manage_key_pressed(store, 0);
-        manage_all_clock(store);
         if (store->scene == PLAYING)
             update_jump(store);
         update_ennemy(store);
         update_sword(store);
+        if (store->no_damages == false)
+            check_for_damage(store);
+        manage_all_clock(store);
         draw_scene(store);
         sfRenderWindow_display(store->window);
     }

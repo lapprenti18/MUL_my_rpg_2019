@@ -29,6 +29,7 @@
 #include "./setup_playing_sprites.h"
 #include "./setup_shop_sprites.h"
 #include "./projection.h"
+#include "./check_damage.h"
 #include "./setup_scenes_2.h"
 #include "./manage_clock.h"
 #include "./handle_audio_click.h"
