@@ -96,6 +96,7 @@ typedef enum
     INVENTORY,
     SHOP,
     QUEST,
+    CREDITS,
     TOTAL
 } SCENE;
 
