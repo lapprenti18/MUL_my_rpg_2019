@@ -28,19 +28,24 @@ void spawn_mob(all_t *store)
 
 void spawn_boss(all_t *store)
 {
-    int rng_x = 0;
-    int rng_y = 0;
+    int rng_x = 1500;
+    int rng_y = 600;
 
     for (int i = 0; i < 10; i += 1)
         store->mobs[i].alive = false;
     if (store->quest_status == 1) {
         store->mobs[0].alive = true;
-        rng_x = rand() % 1700 + 100;
-        rng_y = 600;
         store->mobs[0] = create_mob("assets/textures/real_boss.png", \
         (sfVector2f){rng_x, rng_y}, (sfIntRect){0, 0, 200, 210}, 50);
         store->mobs[0].sec = 0;
         store->mobs[0].rec = 0;
+
+        store->mobs[1].alive = true;
+        store->mobs[1] = create_mob("assets/textures/lance.png", \
+        (sfVector2f){rng_x, rng_y + 100}, (sfIntRect){0, 0, 210, 75}, 50);
+        sfSprite_setOrigin(store->mobs[0].sprite, (sfVector2f){105, 32.5});
+        store->mobs[1].sec = 0;
+        store->mobs[1].rec = 0;
     }
 }
 

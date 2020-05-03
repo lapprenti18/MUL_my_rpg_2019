@@ -59,6 +59,7 @@
 #include "./update_enn.h"
 #include "./update_sword.h"
 #include "./draw_quest.h"
+#include "./lance.h"
 #include "./setup_credits_sprites.h"
 #include "./handle_credits_click.h"
 
