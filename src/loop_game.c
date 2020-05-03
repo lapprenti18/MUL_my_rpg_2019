@@ -78,7 +78,7 @@ void loop_game(all_t *store)
             update_jump(store);
         update_ennemy(store);
         update_sword(store);
-        if (store->no_damages == false)
+        if (store->no_damages == false && store->scene == PLAYING)
             check_for_damage(store);
         manage_all_clock(store);
         draw_scene(store);

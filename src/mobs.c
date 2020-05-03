@@ -9,7 +9,7 @@
 
 void spawn_mob(all_t *store)
 {
-    int rng = rand() % 6 + 4;
+    int rng = rand() % 5 + 1;
     int rng_x = 0;
     int rng_y = 0;
     int index = 0;
