@@ -39,8 +39,8 @@ void analyse_left(all_t *store, game_object_t *knight, mob_t *mob)
         mob->pos.x -= 10;
         sfSprite_setPosition(mob->sprite, mob->pos);
         if (mob->hp <= 0) {
-            if (store->index_maps == 5 && store->quest_status == 2)
-                store->quest_status = 3;
+            if (store->index_maps == 5 && store->quest_status == 1)
+                store->quest_status = 2;
             mob->hp = 50;
             mob->alive = false;
             store->nb_golds += mob->reward * store->more_golds;

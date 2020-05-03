@@ -69,6 +69,7 @@ void clock_boss(all_t *store)
 void boss(all_t *store, game_object_t *ob)
 {
     clock_boss(store);
+    clock_lance(store, ob);
     if (store->mobs[0].pos.x <= ob->pos.x - 100 && store->mobs[0].pos.x <= 1500) {
         store->mobs[0].pos.x += 1;
         store->mobs[0].rect.top = 0;
@@ -84,6 +85,8 @@ void boss(all_t *store, game_object_t *ob)
         else
             store->mobs[0].pos.x -= 2;
     }
+    sfSprite_setPosition(store->mobs[1].sprite, store->mobs[1].pos);
+    sfRenderWindow_drawSprite(store->window, store->mobs[1].sprite, NULL);
     sfSprite_setPosition(store->mobs[0].sprite, store->mobs[0].pos);
     sfRenderWindow_drawSprite(store->window, store->mobs[0].sprite, NULL);
 }

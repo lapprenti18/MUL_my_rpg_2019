@@ -111,6 +111,7 @@ COMP	=	src/main.c	\
 			src/change_pos.c	\
 			src/update_enn.c	\
 			src/draw_quest.c	\
+			src/lance.c
 
 CFLAGS  =	-W -Wall -Wextra -lcsfml-graphics -lcsfml-window -lcsfml-system -lcsfml-audio -lm -Iinclude -g3
 
