@@ -37,29 +37,17 @@ void check_input(all_t *store, game_object_t *object)
         analyse_mana_bar(store, object);
 }
 
-void check_for_sword(all_t *store, int status)
+void check_for_sword(all_t *store)
 {
     if (sfKeyboard_isKeyPressed(store->keys_code[4])) {
         store->time = sfClock_getElapsedTime(store->clock);
         store->sec = store->time.microseconds / 1000000.0;
         if (store->sec > 0.5) {
+            sfSound_play(store->tab_sound[1].sound);
             store->attack = 1;
             sfClock_restart(store->clock);
             sfClock_restart(store->clock_attack);
         }
-    }
-    if (sfKeyboard_isKeyPressed(sfKeyH) && store->knight_hp != 5 && \
-    store->mana_level > 2 && store->buys[0] && status == 1) {
-        store->knight_hp += 1;
-        store->mana_level -= 2;
-        for (game_object_t *ob = store->objects[PLAYING]; ob; ob = ob->next)
-            if (ob->type == HEALTH && !ob->animated && \
-            ob->next->type == HEALTH && ob->next->animated) {
-                ob->animated = true;
-                ob->rect.left = 0;
-                sfSprite_setTextureRect(ob->sprite, ob->rect);
-                return;
-            }
     }
 }
 
@@ -70,6 +58,7 @@ void check_inventory(all_t *store, int status)
             store->show_quest = false;
             store->quest_status = 1;
             store->scene = PLAYING;
+            sfSound_play(store->tab_sound[0].sound);
             return;
         }
         if (store->event.key.code == store->keys_code[6] && \
@@ -91,7 +80,8 @@ void manage_key_pressed(all_t *store, int status)
             if (store->event.key.code == i)
                 store->key_press[i] = 1;
     if (store->scene == PLAYING) {
-        check_for_sword(store, status);
+        check_for_sword(store);
+        check_for_heal(store, status);
         for (game_object_t *ob = store->objects[PLAYING]; ob; ob = ob->next)
             check_input(store, ob);
         if (store->event.key.code == sfKeyP) {

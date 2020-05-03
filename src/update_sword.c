@@ -14,7 +14,6 @@ void show_sword(all_t *store)
 
     for (; object->type != KNIGHT ; object = object->next);
     for (; copy->type != SWORD_EFFECT ; copy = copy->next);
-
     if (object->rect.top == 0 || object->rect.top == 762) {
         copy->rect.left = 0;
         sfSprite_setTextureRect(copy->sprite, copy->rect);
