@@ -18,10 +18,8 @@ col_t tab_spe[6] =
 
 };
 
-void update_save_next(all_t *store, char **array)
+void update_save_next(all_t *store, char **array, int save_hp)
 {
-    int save_hp = 0;
-
     for (int index = 4; index < 9; index += 1)
         if (my_getnbr(array[index]) == 1)
             store->buys[index - 4] = true;
@@ -40,6 +38,8 @@ void update_save_next(all_t *store, char **array)
         if (save_hp == 0)
             break;
     }
+    if (store->index_maps == 5 && store->quest_status == 1)
+        spawn_boss(store);
 }
 
 void update_save(all_t *store, char *filepath, int save_index)
@@ -64,7 +64,7 @@ void update_save(all_t *store, char *filepath, int save_index)
             store->index_maps = save_index;
         }
     }
-    update_save_next(store, array);
+    update_save_next(store, array, 0);
 }
 
 void get_save(all_t *store, game_object_t *copy)

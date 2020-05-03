@@ -69,6 +69,8 @@ void update_damage(all_t *store, game_object_t *object)
                 sfSprite_setTextureRect(ob->sprite, ob->rect);
             }
         }
+        for (int index = 0; index < 10; index += 1)
+            store->mobs[index].alive = false;
         object->change_pos(object, (sfVector2f){50, 800});
         store->current = get_array("assets/collisions/first_screen.txt");
         return;
