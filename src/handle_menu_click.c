@@ -15,4 +15,8 @@ void handle_menu_click(all_t *store, game_object_t *copy)
         store->scene = SAVES_SCREEN;
     if (copy->type == QUIT)
         sfRenderWindow_close(store->window);
+    if (copy->type == EXTRAS) {
+        store->show_particules = false;
+        store->scene = CREDITS;
+    }
 }

@@ -113,6 +113,7 @@ COMP	=	src/main.c	\
 			src/update_enn.c	\
 			src/draw_quest.c	\
 			src/setup_credits_sprites.c	\
+			src/handle_credits_click.c	\
 
 CFLAGS  =	-W -Wall -Wextra -lcsfml-graphics -lcsfml-window -lcsfml-system -lcsfml-audio -lm -Iinclude -g3
 

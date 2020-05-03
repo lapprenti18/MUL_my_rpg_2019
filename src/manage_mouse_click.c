@@ -7,6 +7,12 @@
 
 #include "../include/my.h"
 
+void handle_click_next(all_t *store, game_object_t *copy)
+{
+    if (store->scene == CREDITS)
+        return (handle_credits_click(store, copy));
+}
+
 void handle_click(all_t *store, game_object_t *copy, sfVector2i mouse)
 {
     if (store->scene == MENU_AUDIO)
@@ -29,6 +35,7 @@ void handle_click(all_t *store, game_object_t *copy, sfVector2i mouse)
         return (handle_inventory_click(store, copy, mouse));
     if (store->scene == QUEST)
         return (handle_quest_click(store, copy));
+    handle_click_next(store, copy);
 }
 
 void manage_mouse_clicked(all_t *store)
