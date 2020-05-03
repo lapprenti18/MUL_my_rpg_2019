@@ -73,6 +73,7 @@ COMP	=	src/main.c	\
 			src/update_sword.c	\
 			src/set_structures_second.c	\
 			src/loop_game.c	\
+			src/check_damage.c	\
 			src/analyse_events.c	\
 			src/draw_scene.c	\
 			src/setup_shop_sprites.c	\
@@ -111,6 +112,7 @@ COMP	=	src/main.c	\
 			src/change_pos.c	\
 			src/update_enn.c	\
 			src/draw_quest.c	\
+			src/setup_credits_sprites.c	\
 			src/lance.c
 
 CFLAGS  =	-W -Wall -Wextra -lcsfml-graphics -lcsfml-window -lcsfml-system -lcsfml-audio -lm -Iinclude -g3

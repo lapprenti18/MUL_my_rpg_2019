@@ -96,6 +96,7 @@ typedef enum
     INVENTORY,
     SHOP,
     QUEST,
+    CREDITS,
     TOTAL
 } SCENE;
 
@@ -170,6 +171,12 @@ typedef struct coding_style_s
     double timing;
 } coding_style_t;
 
+typedef struct sounds_s
+{
+    sfSoundBuffer *buffer;
+    sfSound *sound;
+} sounds_t;
+
 typedef struct all_s
 {
     SCENE scene;
@@ -221,6 +228,8 @@ typedef struct all_s
     sfTime time_attack;
     float sec_attack;
     int knight_hp;
+    sounds_t *tab_sound;
+    bool no_damages;
 }all_t;
 
 #endif /* STRUCTURES_H_ */

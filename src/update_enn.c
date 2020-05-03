@@ -28,7 +28,7 @@ void clock_enn(all_t *store, int i)
 void move_enn(all_t *store, int i, game_object_t *ob)
 {
     if (store->mobs[i].pos.x - ob->pos.x < 400 && store->mobs[i].pos.y -\
-     ob->pos.y < 200 && store->mobs[i].pos.x - ob->pos.x > -400) {
+    ob->pos.y < 200 && store->mobs[i].pos.x - ob->pos.x > -400) {
         if (store->mobs[i].pos.x <= ob->pos.x - 30) {
             store->mobs[i].pos.x += 1;
             store->mobs[i].rect.top = 180;
@@ -70,19 +70,20 @@ void boss(all_t *store, game_object_t *ob)
 {
     clock_boss(store);
     clock_lance(store, ob);
-    if (store->mobs[0].pos.x <= ob->pos.x - 100 && store->mobs[0].pos.x <= 1500) {
+    if (store->mobs[0].pos.x <= ob->pos.x - 100 && \
+    store->mobs[0].pos.x <= 1500) {
         store->mobs[0].pos.x += 1;
         store->mobs[0].rect.top = 0;
     }
-    if (store->mobs[0].pos.x > ob->pos.x - 100 && store->mobs[0].pos.x > 300) {
+    if (store->mobs[0].pos.x > ob->pos.x - 100 && \
+    store->mobs[0].pos.x > 300) {
         store->mobs[0].pos.x -= 1;
         store->mobs[0].rect.top = 300;
     }
     if (ob->pos.y >= 700) {
         if (store->mobs[0].pos.x < ob->pos.x - 100) {
             store->mobs[0].pos.x += 2;
-        }
-        else
+        } else
             store->mobs[0].pos.x -= 2;
     }
     sfSprite_setPosition(store->mobs[1].sprite, store->mobs[1].pos);

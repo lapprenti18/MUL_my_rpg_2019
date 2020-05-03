@@ -20,6 +20,10 @@ void destroy_next(all_t *store)
         if (store->mobs[index].clock)
             sfClock_destroy(store->mobs[index].clock);
     }
+    for (int index = 0; index < 2; index += 1) {
+        sfSoundBuffer_destroy(store->tab_sound[index].buffer);
+        sfSound_destroy(store->tab_sound[index].sound);
+    }
 }
 
 void destroy_structures(all_t *store)

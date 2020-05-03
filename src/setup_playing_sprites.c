@@ -7,6 +7,19 @@
 
 #include "../include/my.h"
 
+sounds_t *create_tab_sound(void)
+{
+    sounds_t *tab = my_malloc(sizeof(sounds_t) * 2);
+
+    tab[0].sound = sfSound_create();
+    tab[1].sound = sfSound_create();
+    tab[0].buffer = sfSoundBuffer_createFromFile("assets/sounds/quest.ogg");
+    tab[1].buffer = sfSoundBuffer_createFromFile("assets/sounds/sword.ogg");
+    sfSound_setBuffer(tab[0].sound, tab[0].buffer);
+    sfSound_setBuffer(tab[1].sound, tab[1].buffer);
+    return (tab);
+}
+
 game_object_t *setup_playing_sprites_next(game_object_t *playing)
 {
     add_node_back(&playing, (coding_style_t){ENTER_2, (sfFloatRect){200, \
@@ -24,7 +37,7 @@ game_object_t *setup_playing_sprites_next(game_object_t *playing)
     add_node_back(&playing, (coding_style_t){QUEST_END, (sfFloatRect){1725, \
     240, 319, 135}, (sfIntRect){0, 0, 319, 135}, \
     "assets/textures/quest_end.png", false, false, -1, -1});
-    add_node_back(&playing, (coding_style_t){LITTLE_QUEST , (sfFloatRect){1725, \
+    add_node_back(&playing, (coding_style_t){LITTLE_QUEST, (sfFloatRect){1725, \
     240, 319, 135}, (sfIntRect){0, 0, 319, 135}, \
     "assets/textures/little_quest.png", false, false, -1, -1});
     return (playing);

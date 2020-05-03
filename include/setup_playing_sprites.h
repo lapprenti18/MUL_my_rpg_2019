@@ -10,6 +10,7 @@
 
 #include "./my.h"
 
+sounds_t *create_tab_sound(void);
 game_object_t *setup_playing_sprites(void);
 
 #endif /* SETUP_PLAYING_H_ */
